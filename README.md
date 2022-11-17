@@ -4,20 +4,20 @@ I am a full-stack developer with experience cooperating with 100+ engineers and 
 
 ## Status
 
-For recruiters or anyone who is interested in recurring me:
+For recruiters or anyone who is interested in recruiting me:
 
+- Looking for internships or co-ops in 2023
 - Studying Master of Science in Computer Science at Boston University
   - Expected graduate in December 2023
   - International student eligible for CPT
-    - No need for any VISA sponsorship
-- Looking for internships or co-ops in 2023
-  - No preference for location or date
-  - Open to various positions
-    - Software Engineer
-    - Full-Stack Developer
-    - Front-End Developer
-    - Back-End Developer
-    - DevOps Engineer
+  - No need for any VISA sponsorship
+- No preference for location or date
+- Open to various positions
+  - Software Engineer
+  - Full-Stack Developer
+  - Front-End Developer
+  - Back-End Developer
+  - DevOps Engineer
 
 #### Links
 
