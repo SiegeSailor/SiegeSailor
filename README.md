@@ -9,4 +9,4 @@ I seek an on-site/hybrid full-time Software Engineer/DevOps Engineer position in
 #### Links
 
 - [LinkedIn](https://www.linkedin.com/in/jin-yu-zhang-812181155/)
-- [Resume](https://docs.google.com/document/d/1IrJRoAXapeTnvLltIbXnEblGBD7_mxlanqA9tPIn3g8/edit?usp=sharing)
+- [Resume]([https://docs.google.com/document/d/1IrJRoAXapeTnvLltIbXnEblGBD7_mxlanqA9tPIn3g8/edit?usp=sharing](https://drive.google.com/file/d/1iWgEmjzBHQV_3KDRS0zwj6qf5NlHDiCy/view?usp=drive_link)https://drive.google.com/file/d/1iWgEmjzBHQV_3KDRS0zwj6qf5NlHDiCy/view?usp=drive_link)
