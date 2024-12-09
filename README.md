@@ -5,7 +5,7 @@
 A brief introduction about myself:
 
 - 📚 I've been a DevOps Engineer at [CooperSurgical Inc.](https://www.coopersurgical.com/) for the past year.
-- 👨‍💻 In addition, I'm a Software Engineer with 6 years of working experience.
+- 👨‍💻 In addition, I'm a Software Engineer with 7 years of working experience.
 - 🇺🇸 Based in Boston, Massachusetts, USA.
 - 🏐 I play volleyball as a right-side hitter.
 - 🕺 Dedicated to weekly Popping dance sessions.
