@@ -1,19 +1,25 @@
-# Jin Yu, Zhang
+# Jin Yu Zhang
 
-![Last_Updated](https://img.shields.io/badge/Last_Updated-12/31/2025-blue?labelColor=777777)
+**Distributed Systems · Platform Engineering · Backend Architecture**
 
-A brief introduction about myself:
+NYC Metropolitan Area · Senior Software Engineer · 7 Years 8 Months experience
 
-- 📚 I am a Senior Software Engineer at [CooperSurgical Inc.](https://www.coopersurgical.com/).
-- 👨‍💻 In addition, I'm a Software Engineer with 7 years of working experience.
-- 🇺🇸 Based in the NYC Metropolitan Area.
+## Summary
 
-> [!tip]
->
-> Explore my problem-solving approaches on my [Website](https://www.jinyu-zhang.com).
+Senior software engineer bridging across distributed systems, hardware, and firmware. Architected a device SDK over gRPC with C++, Python, .NET, and Node.js clients, reused across 5+ products under FDA and EU MDR. Sustained 10,000 peak RPS and 200,000+ daily players at Shopee. Led engineering across 5+ vendors and 20+ developers.
 
-## How to Reach Me
+## Projects
 
-[![Gmail](https://img.shields.io/badge/Gmail-C71610?logo=gmail&logoColor=white)](mailto:siegesailor@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jin-yu-zhang-812181155/)
-[![Website](https://img.shields.io/badge/Website-5D83AC.svg?logo=chromatic&logoColor=white)](https://www.jinyu-zhang.com)
+- [Jin Yu Zhang's Website](https://github.com/SiegeSailor/Website) — v1.2.0
+- [Cryptography CLI](https://github.com/SiegeSailor/OpenSource.Formulas) — v2.3.2
+- [Account Management CBWMs](https://github.com/SiegeSailor/OpenSource.AccountHub) — development
+- [Configurable Bucket CBWM Boilerplate](https://github.com/SiegeSailor/OpenSource.Bucket) — development
+
+## Links
+
+[GitHub](https://github.com/SiegeSailor) · [LinkedIn](https://www.linkedin.com/in/jin-yu-zhang-812181155/) · [Résumé (PDF)](https://jinyu-zhang.com/documents/JinYu-Zhang-Resume.pdf)
+
+---
+
+<sub>Generated from <a href="https://jinyu-zhang.com/about">jinyu-zhang.com/about</a> — do not edit by hand.</sub>
+
