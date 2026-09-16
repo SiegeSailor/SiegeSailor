@@ -14,6 +14,7 @@ const PLAN = {
     { key: "summary", heading: "Summary", text: "Senior software engineer." },
     { key: "experience", heading: "Work Experience", entries: [
       { company: "CooperSurgical", location: "NJ, USA",
+        blurb: "Medical device R&D — global IVF device leader operating in 130+ countries",
         roles: [
           { title: "Senior Software Engineer", dates: "Jun 2025 – Present" },
           { title: "Software Engineer", dates: "Jan 2024 – May 2025" },
@@ -78,4 +79,20 @@ test("uses no tables, text boxes, headers, or footers", async () => {
 test("renders sections in the order the plan gives", async () => {
   const { xml } = await build();
   assert.ok(xml.indexOf("Summary") < xml.indexOf("Work Experience"));
+});
+
+test("renders the entry blurb, a bare string in the plan", async () => {
+  const { xml } = await build();
+  assert.ok(
+    // "&" is escaped by the XML serializer; match the escaped form.
+    xml.includes("Medical device R&amp;D — global IVF device leader operating in 130+ countries"),
+  );
+});
+
+test("never emits an empty text run — a nested-field slip renders a blank line", async () => {
+  const { xml } = await build();
+  assert.ok(
+    !/<w:t[^>]*><\/w:t>/.test(xml),
+    "found an empty <w:t> run in document.xml",
+  );
 });

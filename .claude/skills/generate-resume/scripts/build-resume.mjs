@@ -169,7 +169,7 @@ const buildExperience = (section) => {
         bodyLine(
           [
             new TextRun({
-              text: clean(job.blurb.text),
+              text: clean(job.blurb),
               italics: true,
               font: FONT,
               size: SZ.blurb,
