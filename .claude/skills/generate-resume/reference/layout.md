@@ -33,9 +33,10 @@ Spacing is already tight, so fit by dropping content, not by shrinking type.
 Drop in this order:
 
 1. `Activities`, then `Publications`, unless the audience is academic
-2. The lowest-ranked bullets from the oldest roles
+2. The bullets you ranked least relevant to the stated audience when
+   composing the plan, taken from the oldest roles first
 3. Company blurbs
 4. Whole roles older than ten years, subject to `POLICY.md`
 
-Never drop a role to make room while keeping a more junior one from the same
-employer — that reads as a gap.
+Dropping a role is also subject to `profile/POLICY.md`'s employment-history
+rules.

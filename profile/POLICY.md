@@ -26,6 +26,8 @@ exists because getting it wrong misrepresents a verified record.
 - **Never flatten stacked role lines.** CooperSurgical and Servicetech each
   keep one line per title. Background-check vendors verify titles and dates
   separately, so a widened range reads as a discrepancy.
+- **Never drop a role to make room while keeping a more junior one from the
+  same employer.** That reads as an unexplained gap in the record.
 
 ## Claims
 
