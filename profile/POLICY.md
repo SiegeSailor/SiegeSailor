@@ -40,4 +40,8 @@ exists because getting it wrong misrepresents a verified record.
 
 - **Every fact here is verified.** No date, title, ranking, or number changes
   without explicit confirmation from Ken. This is the folder a background-check
-  vendor is effectively reading.
+  vendor is effectively reading. This binds output as well as source: render
+  every fact as written here, in every generated document. Rewording a
+  verified fact into a punchier or different claim — a placement, a score, a
+  percentage, a range — needs Ken's explicit confirmation just as much as
+  editing the file would.
