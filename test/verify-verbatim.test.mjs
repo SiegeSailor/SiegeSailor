@@ -181,3 +181,88 @@ test("a non-scalar heading is flagged and its nested string is named by value, n
   assert.ok(values.includes("Led a team of 40 engineers"));
   assert.ok(!values.includes("[object Object]"));
 });
+
+// Whole-branch review fix wave (F1/F2): `key` and `heading` used to be
+// checked against two independent allowlists, so an out-of-place but
+// otherwise-valid pair (e.g. education under "Work Experience") passed
+// silently; and StageSource/DY Game rendered as Work Experience entries
+// passed because every string in them is genuine source text.
+
+const EMPLOYMENT_SOURCE = `
+education:
+  - school: Boston University
+    degree: "M.S. in Computer Science"
+    details:
+      - text: >-
+          Led a 6-developer course team building an MVP SaaS prototype for
+          StageSource, a Boston arts nonprofit
+  - school: National Formosa University
+    degree: "B.F.A. in Multimedia Design"
+    details:
+      - text: >-
+          Game development intern at DY Game (2014), shipping a
+          motion-sensing game title
+experience:
+  - company: StageSource
+    bullets:
+      - text: "Led a 6-developer team to deliver an MVP SaaS prototype"
+  - company: DY Game
+    bullets:
+      - text: "Shipped a motion-sensing game title"
+`;
+
+test("a key/heading pair that mixes two otherwise-valid values is caught (F1)", () => {
+  const plan = { sections: [{ key: "education", heading: "Work Experience",
+    entries: [{ school: "Boston University", degree: "M.S. in Computer Science" }] }] };
+  const result = verifyVerbatim(plan, EMPLOYMENT_SOURCE);
+  assert.equal(result.ok, false);
+  const headingMiss = result.misses.find((miss) => miss.path === "sections[0].heading");
+  assert.ok(headingMiss, "expected a miss on sections[0].heading");
+  assert.equal(headingMiss.value, "Work Experience");
+  assert.match(headingMiss.nearest, /allowed: Education/);
+});
+
+test("a correct key/heading pair still passes (F1)", () => {
+  const plan = { sections: [{ key: "education", heading: "Education",
+    entries: [{ school: "Boston University", degree: "M.S. in Computer Science" }] }] };
+  const result = verifyVerbatim(plan, EMPLOYMENT_SOURCE);
+  assert.equal(result.ok, true);
+  assert.deepEqual(result.misses, []);
+});
+
+test("StageSource rendered as a Work Experience entry is caught (F2)", () => {
+  const plan = { sections: [{ key: "experience", heading: "Work Experience",
+    entries: [{ company: "StageSource",
+      bullets: ["Led a 6-developer team to deliver an MVP SaaS prototype"] }] }] };
+  const result = verifyVerbatim(plan, EMPLOYMENT_SOURCE);
+  assert.equal(result.ok, false);
+  const miss = result.misses.find((m) => m.path === "sections[0].entries[0].company");
+  assert.ok(miss, "expected a miss on the StageSource entry's company");
+  assert.match(miss.nearest, /student engagement/);
+  assert.match(miss.nearest, /profile\/POLICY\.md/);
+});
+
+test("DY Game rendered as a Work Experience entry is caught (F2)", () => {
+  const plan = { sections: [{ key: "experience", heading: "Work Experience",
+    entries: [{ company: "DY Game", bullets: ["Shipped a motion-sensing game title"] }] }] };
+  const result = verifyVerbatim(plan, EMPLOYMENT_SOURCE);
+  assert.equal(result.ok, false);
+  const miss = result.misses.find((m) => m.path === "sections[0].entries[0].company");
+  assert.ok(miss, "expected a miss on the DY Game entry's company");
+  assert.match(miss.nearest, /student engagement/);
+  assert.match(miss.nearest, /profile\/POLICY\.md/);
+});
+
+test("StageSource is still fine inside an education section (F2)", () => {
+  const plan = { sections: [{ key: "education", heading: "Education",
+    entries: [{
+      school: "Boston University",
+      degree: "M.S. in Computer Science",
+      details: [
+        "Led a 6-developer course team building an MVP SaaS prototype for StageSource, a Boston arts nonprofit",
+      ],
+    }] }] };
+  const result = verifyVerbatim(plan, EMPLOYMENT_SOURCE);
+  assert.equal(result.ok, true);
+  assert.deepEqual(result.misses, []);
+});
