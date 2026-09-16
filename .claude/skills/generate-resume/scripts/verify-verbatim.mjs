@@ -1,56 +1,124 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
+import { load } from "js-yaml";
 
-// Keys whose values are chosen by reference/layout.md rather than taken from
-// profile/, so they have no source string to match.
-const EXEMPT = new Set(["key", "heading", "audience", "pageLimit"]);
+// `key` and `heading` are chosen by reference/layout.md, not copied from
+// profile/, but they are still rendered — so they are checked against a
+// closed allowlist rather than skipped outright.
+const ALLOWED_KEYS = new Set([
+  "summary", "skills", "experience", "publications",
+  "education", "certifications", "activities",
+]);
+const ALLOWED_HEADINGS = new Set([
+  "Summary", "Skills", "Work Experience", "Publications",
+  "Education", "Certifications", "Activities",
+]);
+const ALLOWED_KEYS_LIST = [...ALLOWED_KEYS].sort();
+const ALLOWED_HEADINGS_LIST = [...ALLOWED_HEADINGS].sort();
+
+// `audience` and `pageLimit` carry no source string to match — but only when
+// their own value is a scalar. An object or array under either name still
+// gets walked, so nothing can hide a fact underneath them.
+const SCALAR_EXEMPT = new Set(["audience", "pageLimit"]);
 
 const normalise = (value) => String(value).replace(/\s+/g, " ").trim();
 
-export const readSourceText = (dir) =>
-  normalise(
-    readdirSync(dir)
-      .filter((file) => /\.ya?ml$/.test(file))
-      .map((file) => readFileSync(join(dir, file), "utf8"))
-      .join("\n"),
-  );
+const isScalar = (node) =>
+  typeof node === "string" || typeof node === "number" || typeof node === "boolean";
 
-// The longest run of leading words from `value` that still occurs in the
-// source. Empty means nothing recognisable — an invention rather than a
-// rewording, which is the more serious of the two.
-const nearest = (value, haystack) => {
-  const words = value.split(" ");
-  let match = "";
-  for (let count = 1; count <= words.length; count += 1) {
-    const candidate = words.slice(0, count).join(" ");
-    if (!haystack.includes(candidate)) break;
-    match = candidate;
+// Collects every scalar leaf of a parsed YAML document into a set of
+// normalised strings. Comments, keys, and YAML syntax never reach this set —
+// only values a document actually asserts can certify a plan string.
+const collectLeaves = (node, leaves) => {
+  if (node === null || node === undefined) return;
+  if (isScalar(node)) {
+    leaves.add(normalise(node));
+    return;
   }
-  if (match.split(" ").length < 2) return null;
-  const start = haystack.indexOf(match);
-  return haystack.slice(start, start + Math.max(match.length, value.length) + 20);
+  if (Array.isArray(node)) {
+    node.forEach((item) => collectLeaves(item, leaves));
+    return;
+  }
+  if (typeof node === "object") {
+    for (const value of Object.values(node)) collectLeaves(value, leaves);
+  }
 };
 
-const walk = (node, path, visit) => {
-  if (typeof node === "string") return visit(node, path);
-  if (Array.isArray(node))
-    return node.forEach((item, index) => walk(item, `${path}[${index}]`, visit));
-  if (node && typeof node === "object")
-    for (const [key, value] of Object.entries(node)) {
-      if (EXEMPT.has(key)) continue;
-      walk(value, path ? `${path}.${key}` : key, visit);
+export const readSourceText = (dir) =>
+  readdirSync(dir)
+    .filter((file) => /\.ya?ml$/.test(file))
+    .map((file) => readFileSync(join(dir, file), "utf8"))
+    .join("\n");
+
+const commonPrefixWordCount = (a, b) => {
+  const aWords = a.split(" ");
+  const bWords = b.split(" ");
+  let count = 0;
+  while (count < aWords.length && count < bWords.length && aWords[count] === bWords[count]) {
+    count += 1;
+  }
+  return count;
+};
+
+// The source leaf sharing the longest run of leading words with `value`,
+// ties broken toward the shorter leaf. Fewer than two shared words means
+// nothing recognisable — an invention rather than a rewording or a
+// truncation, which are both less serious.
+const nearest = (value, leafSet) => {
+  let best = null;
+  let bestCount = 0;
+  for (const leaf of leafSet) {
+    const count = commonPrefixWordCount(value, leaf);
+    if (count > bestCount || (count > 0 && count === bestCount && leaf.length < best.length)) {
+      best = leaf;
+      bestCount = count;
     }
+  }
+  return bestCount < 2 ? null : best;
+};
+
+const walk = (node, path, propKey, misses, leafSet) => {
+  if (propKey === "key" || propKey === "heading") {
+    const allowed = propKey === "key" ? ALLOWED_KEYS : ALLOWED_HEADINGS;
+    const list = propKey === "key" ? ALLOWED_KEYS_LIST : ALLOWED_HEADINGS_LIST;
+    if (!allowed.has(node)) {
+      misses.push({ path, value: String(node), nearest: `allowed: ${list.join(", ")}` });
+    }
+    return;
+  }
+
+  if (node === null || node === undefined) {
+    misses.push({ path, value: String(node), nearest: null });
+    return;
+  }
+
+  if (isScalar(node)) {
+    if (SCALAR_EXEMPT.has(propKey)) return;
+    const needle = normalise(node);
+    if (!leafSet.has(needle)) {
+      misses.push({ path, value: needle, nearest: nearest(needle, leafSet) });
+    }
+    return;
+  }
+
+  if (Array.isArray(node)) {
+    node.forEach((item, index) => walk(item, `${path}[${index}]`, propKey, misses, leafSet));
+    return;
+  }
+
+  if (typeof node === "object") {
+    for (const [key, value] of Object.entries(node)) {
+      walk(value, path ? `${path}.${key}` : key, key, misses, leafSet);
+    }
+  }
 };
 
 export function verifyVerbatim(plan, sourceText) {
-  const haystack = normalise(sourceText);
-  const misses = [];
+  const leafSet = new Set();
+  collectLeaves(load(sourceText), leafSet);
 
-  walk(plan, "", (value, path) => {
-    const needle = normalise(value);
-    if (!needle || haystack.includes(needle)) return;
-    misses.push({ path, value: needle, nearest: nearest(needle, haystack) });
-  });
+  const misses = [];
+  walk(plan, "", null, misses, leafSet);
 
   return { ok: misses.length === 0, misses };
 }

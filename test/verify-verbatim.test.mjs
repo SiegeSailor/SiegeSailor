@@ -74,3 +74,68 @@ test("readSourceText concatenates every YAML file in the directory", () => {
   assert.match(text, /CooperSurgical/);
   assert.match(text, /Shopee/);
 });
+
+// Regression coverage for the C1/C2/I1/I2 bypasses found in review: the
+// module used to build its haystack from raw YAML text and match by
+// substring, which let a comment certify the exact phrasing it warned
+// against, and let any truncation of a real bullet pass silently.
+
+const COMMENT_SOURCE = `
+experience:
+  - company: CooperSurgical
+    bullets:
+      # The window is the claim: first-to-last-day within one festival run,
+      # not D1 or D7 cohort retention. Do not compress it back to
+      # "player retention".
+      - text: >-
+          Raised first-to-last-day player retention from 0.25 to 0.65 across
+          3-14 day shopping-festival runs
+`;
+
+test("a phrase that only appears in a YAML comment is caught, not certified (C1)", () => {
+  const plan = { sections: [{ key: "experience", heading: "Work Experience", entries: [
+    { company: "CooperSurgical", bullets: ["player retention"] } ] }] };
+  const result = verifyVerbatim(plan, COMMENT_SOURCE);
+  assert.equal(result.ok, false);
+  assert.equal(result.misses.length, 1);
+  assert.equal(result.misses[0].value, "player retention");
+});
+
+test("a truncated bullet that drops the trailing qualifier is caught (C2)", () => {
+  const plan = { sections: [{ key: "experience", heading: "Work Experience", entries: [
+    { company: "CooperSurgical", bullets: [
+      "Raised first-to-last-day player retention from 0.25 to 0.65",
+    ] } ] }] };
+  const result = verifyVerbatim(plan, COMMENT_SOURCE);
+  assert.equal(result.ok, false);
+  assert.equal(result.misses.length, 1);
+});
+
+test("prose under heading is caught — headings are allowlisted, not free text (I1)", () => {
+  const plan = { sections: [{ key: "summary", heading: "Led a team of 40 engineers",
+    text: "Senior software engineer working on distributed systems and developer infrastructure." }] };
+  const result = verifyVerbatim(plan, SOURCE);
+  assert.equal(result.ok, false);
+  assert.equal(result.misses.length, 1);
+  assert.equal(result.misses[0].path, "sections[0].heading");
+  assert.match(result.misses[0].nearest, /allowed:/);
+});
+
+test("a key outside the allowlist is caught (I1)", () => {
+  const plan = { sections: [{ key: "hobbies", heading: "Summary",
+    text: "Senior software engineer working on distributed systems and developer infrastructure." }] };
+  const result = verifyVerbatim(plan, SOURCE);
+  assert.equal(result.ok, false);
+  assert.equal(result.misses.length, 1);
+  assert.equal(result.misses[0].path, "sections[0].key");
+  assert.match(result.misses[0].nearest, /allowed:/);
+});
+
+test("a numeric leaf not present in the source is caught (I2)", () => {
+  const plan = { sections: [{ key: "experience", heading: "Work Experience", entries: [
+    { company: "CooperSurgical", yearsOfService: 10 } ] }] };
+  const result = verifyVerbatim(plan, SOURCE);
+  assert.equal(result.ok, false);
+  assert.equal(result.misses.length, 1);
+  assert.equal(result.misses[0].value, "10");
+});
