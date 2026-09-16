@@ -20,6 +20,63 @@ The three section titles are fixed, not sourced from `profile/` (its
 Pass this object as `headings` to `buildReadme`. Never invent different
 titles.
 
+## Input Shape
+
+`buildReadme` destructures exactly nine fields. Every field but `versions`
+and `headings` is read straight out of `profile/`, and most are passed
+through as-is — but `summary` is the one field that needs unwrapping before
+it reaches `buildReadme`: `summary.yaml` stores its value as `[{ text: ... }]`
+(an array of objects, so a comment can sit beside each variant), while
+`buildReadme` calls `.trim()` directly on `summary` and requires a **bare
+string**. Passing the array or an object through unchanged breaks the build.
+This exact mismatch broke the resume builder twice while this skill was
+being built — do not rediscover it by reading `build-readme.mjs` instead of
+this table.
+
+| Field | Source | Shape `buildReadme` needs | Unwrap needed? |
+| --- | --- | --- | --- |
+| `identity` | `identity.yaml`'s `identity:` key | `{ legal, display }` | No — pass through; only `.display` is read |
+| `profile` | `profile.yaml`'s `profile:` key | `{ headlines: string[], status: { location, position } }` | No — pass through |
+| `summary` | `summary.yaml`'s `summary:` key, **first entry** | bare `string` | **Yes** — take `summary[0].text`, not the array |
+| `projects` | `projects.yaml`'s `projects:` key | `[{ title, href, stage, description }, ...]` | No — pass through (`description` is read but unused by the README) |
+| `media` | `media.yaml`'s `media:` key | `[{ key, label, href }, ...]` | No — pass through |
+| `site` | none — no `site-identity.yaml` was migrated into `profile/` | unused | N/A — omit it; `buildReadme` never reads it |
+| `timeline` | `timeline.yaml`'s `timeline:` key | `{ start, excluded: [{ start, end }, ...] }` | No — pass through |
+| `versions` | not from `profile/` | `{ "<owner>/<repo>": "<tag>" }` | Computed — call `resolveVersions(projects)` first, do not hand-build it |
+| `headings` | not from `profile/` | `{ summary, projects, media }` | Fixed — the literal object in **Headings** above, never invented |
+
+### Worked example
+
+```js
+import { load } from "js-yaml";
+import { readFileSync } from "node:fs";
+import { buildReadme, resolveVersions } from "./.claude/skills/update-readme/scripts/build-readme.mjs";
+
+const readYaml = (file) => load(readFileSync(`profile/${file}`, "utf8"));
+
+const identity = readYaml("identity.yaml").identity;   // { legal, display } — pass through
+const profile = readYaml("profile.yaml").profile;      // { headlines, status, ... } — pass through
+const summary = readYaml("summary.yaml").summary[0].text; // unwrap: [{ text }] -> string
+const projects = readYaml("projects.yaml").projects;   // pass through
+const media = readYaml("media.yaml").media;             // pass through
+const timeline = readYaml("timeline.yaml").timeline;    // pass through
+const headings = { summary: "Summary", projects: "Projects", media: "Links" };
+
+const versions = await resolveVersions(projects);
+
+const readme = buildReadme({
+  identity,
+  profile,
+  summary,
+  projects,
+  media,
+  site: undefined, // no site-identity.yaml exists in profile/
+  timeline,
+  versions,
+  headings,
+});
+```
+
 ## Process
 
 1. Read `profile/*.yaml` and `profile/POLICY.md`.
@@ -28,20 +85,35 @@ titles.
 3. Compose with `buildReadme(input)`, passing the `headings` object above.
    Experience is computed from `timeline.yaml` against today's date — never
    print a stated figure.
-4. Show the diff against the current `README.md`.
-5. Write only on confirmation.
+4. Verify (advisory): check the composed prose against `profile/` before
+   showing the diff. Build a plain object of the strings `buildReadme` wove
+   into the README — at minimum `{ summary, headlines: profile.headlines,
+   projectTitles: projects.map((p) => p.title), mediaLabels: media.map((m) =>
+   m.label) }` — and call `verifyVerbatim(plan, readSourceText("profile"))`.
+   Markdown output, so this check is advisory: report any misses alongside
+   the diff in the next step, but never block the write on them. This is the
+   opposite of `generate-resume`, where the same check's misses require
+   explicit confirmation before rendering — the README has no page limit or
+   background-check reader riding on it, so a miss here is a note, not a gate.
+5. Show the diff against the current `README.md`, plus any misses from step 4.
+6. Write only on confirmation.
 
 ## Scripts
 
 `buildReadme` and `resolveVersions` are plain ESM library exports — they have
-**no command-line interface**. Call them from a small `.mjs` file, or with
-`node --input-type=module`, from this repository's root:
+**no command-line interface**. `verifyVerbatim` and `readSourceText` (the
+advisory check in step 4) come from the same module `generate-resume` uses.
+Call them from a small `.mjs` file, or with `node --input-type=module`, from
+this repository's root:
 
 ```js
 import { buildReadme, resolveVersions } from "./.claude/skills/update-readme/scripts/build-readme.mjs";
+import { verifyVerbatim, readSourceText } from "./.claude/skills/generate-resume/scripts/verify-verbatim.mjs";
 
 const versions = await resolveVersions(input.projects);
 const readme = buildReadme({ ...input, versions, headings });
+
+const check = verifyVerbatim(plan, readSourceText("profile")); // advisory — see Process step 4
 ```
 
 ## Constraints That Must Never Break
