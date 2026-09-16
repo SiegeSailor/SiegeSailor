@@ -139,3 +139,45 @@ test("a numeric leaf not present in the source is caught (I2)", () => {
   assert.equal(result.misses.length, 1);
   assert.equal(result.misses[0].value, "10");
 });
+
+// Round-2 regression coverage: `propKey` used to be forwarded unchanged into
+// array elements, so the `audience`/`pageLimit` scalar exemption leaked onto
+// every scalar inside a collection under those keys, at any depth and at any
+// location in the plan — including inside an `entries[]` element.
+
+test("a scalar inside an array under audience is still checked, not exempt (I1)", () => {
+  const plan = { audience: ["Raised $2M in seed funding"] };
+  const result = verifyVerbatim(plan, SOURCE);
+  assert.equal(result.ok, false);
+  assert.equal(result.misses.length, 1);
+  assert.equal(result.misses[0].value, "Raised $2M in seed funding");
+});
+
+test("a scalar two arrays deep under pageLimit is still checked, not exempt (I1)", () => {
+  const plan = { pageLimit: [["Raised $2M in seed funding", "Managed 40 people"]] };
+  const result = verifyVerbatim(plan, SOURCE);
+  assert.equal(result.ok, false);
+  assert.equal(result.misses.length, 2);
+  const values = result.misses.map((miss) => miss.value);
+  assert.ok(values.includes("Raised $2M in seed funding"));
+  assert.ok(values.includes("Managed 40 people"));
+});
+
+test("audience on an entries[] element is still checked, not exempt (I1)", () => {
+  const plan = { sections: [{ key: "experience", heading: "Work Experience",
+    entries: [{ company: "CooperSurgical", audience: ["Led a team of 40 engineers"] }] }] };
+  const result = verifyVerbatim(plan, SOURCE);
+  assert.equal(result.ok, false);
+  assert.equal(result.misses.length, 1);
+  assert.equal(result.misses[0].value, "Led a team of 40 engineers");
+});
+
+test("a non-scalar heading is flagged and its nested string is named by value, not swallowed (I1)", () => {
+  const plan = { sections: [{ key: "summary", heading: { title: "Led a team of 40 engineers" },
+    text: "Senior software engineer working on distributed systems and developer infrastructure." }] };
+  const result = verifyVerbatim(plan, SOURCE);
+  assert.equal(result.ok, false);
+  const values = result.misses.map((miss) => miss.value);
+  assert.ok(values.includes("Led a team of 40 engineers"));
+  assert.ok(!values.includes("[object Object]"));
+});

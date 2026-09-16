@@ -77,12 +77,17 @@ const nearest = (value, leafSet) => {
   return bestCount < 2 ? null : best;
 };
 
+const describe = (node) => (isScalar(node) ? String(node) : JSON.stringify(node));
+
 const walk = (node, path, propKey, misses, leafSet) => {
   if (propKey === "key" || propKey === "heading") {
     const allowed = propKey === "key" ? ALLOWED_KEYS : ALLOWED_HEADINGS;
     const list = propKey === "key" ? ALLOWED_KEYS_LIST : ALLOWED_HEADINGS_LIST;
     if (!allowed.has(node)) {
-      misses.push({ path, value: String(node), nearest: `allowed: ${list.join(", ")}` });
+      misses.push({ path, value: describe(node), nearest: `allowed: ${list.join(", ")}` });
+      // A smuggled object/array must still be walked — otherwise the facts
+      // hidden inside it never reach `misses` at all.
+      if (node !== null && typeof node === "object") walk(node, path, null, misses, leafSet);
     }
     return;
   }
@@ -102,7 +107,10 @@ const walk = (node, path, propKey, misses, leafSet) => {
   }
 
   if (Array.isArray(node)) {
-    node.forEach((item, index) => walk(item, `${path}[${index}]`, propKey, misses, leafSet));
+    // Exemption belongs to a direct scalar child of the key that grants it —
+    // never forward `propKey` into a collection, or every element inside an
+    // `audience`/`pageLimit` array (at any depth) would inherit the pass.
+    node.forEach((item, index) => walk(item, `${path}[${index}]`, null, misses, leafSet));
     return;
   }
 
