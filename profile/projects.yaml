@@ -1,0 +1,71 @@
+# Side projects — shown on the /about page and the README,
+# never in the resume documents. `stage` is one of Planning | Development |
+# Production; Planning projects stay hidden until they advance.
+
+projects:
+  - title: Cryptography CLI
+    stage: Development
+    href: "https://github.com/SiegeSailor/OpenSource.Formulas"
+    description: >-
+      Available on `brew`, a *Rust* Command-Line Interface for executing
+      cryptographic algorithms. The CLI provides a collection of functions and
+      simulated secured communications between two parties.
+  - title: AI-Driven Development Tools Integration
+    stage: Planning
+    href: "https://github.com/SiegeSailor"
+    description: >-
+      *macOS*-specific desktop integration of AI-driven development tools for
+      automating workflows with *MCPs* and *Agents*, including onboarding
+      environment setup, credential management, **Slack** and **GitLab**
+      integration, image, icon, and sprite sheet generation, and **Gmail** and
+      *Webhooks* triggers.
+  - title: Concurrency Toolkit
+    stage: Planning
+    href: "https://github.com/SiegeSailor"
+    description: >-
+      Available on `pip`, a *Python* concurrent class wrapper for managing
+      multiple tasks with error handling and logging. Based on `asyncio`. This
+      is a go-to solution for simplified asynchronous programming with
+      easy-to-use abstractions.
+  - title: Account Management CBWMs
+    stage: Development
+    href: "https://github.com/SiegeSailor/OpenSource.AccountHub"
+    description: >-
+      Scalable *OWASP*-Complied Cloud-Based Microservice that allows users to
+      manage their accounts and settings. It provides an event-driven
+      architecture comes with a eventual consistency model and various
+      communication protocols for different use cases and CBWMs.
+  - title: Configurable Bucket CBWM Boilerplate
+    stage: Development
+    href: "https://github.com/SiegeSailor/OpenSource.Bucket"
+    description: >-
+      A project boilerplate that provides a *RESTful* interface for *AWS S3*
+      using *Flask*. Following the microservices principle, this project has
+      been wrapped with *Docker*, *LocalStack*, and *Terraform* to isolate the
+      running/deploying environments with a fully configurable layer that
+      supports development on local laptops, testing in *GitHub Actions* CI/CD
+      pipelines, and deployment to *AWS*.
+  - title: Deployable UI Library Boilerplate
+    stage: Planning
+    href: "https://github.com/SiegeSailor"
+    description: >-
+      Quick start for deploying *React* components on `npm`. A project
+      boilerplate that provides a set of team-oriented development tools, such
+      as *GitLab CI/CD*, *Semantic Release*, *TypeScript*, *Jest*, *ESLint*,
+      *Stylelint*, and *Ladle*, and best practices.
+  - title: Self-Development Assistant
+    stage: Planning
+    href: "https://github.com/SiegeSailor"
+    description: >-
+      An *iOS* application built with *Godot* that comes with often-used
+      self-development and assistance features, such as the tomato timer, diet
+      tracking, goals-oriented schedules, and everyday-motivating quotes, to
+      help users build confidence and assertiveness.
+  - title: Jin Yu Zhang's Website
+    stage: Production
+    href: "https://github.com/SiegeSailor/Website"
+    description: >-
+      This site — a statically exported *Next.js* application served from *AWS
+      S3* behind *CloudFront*, with markdown-driven posts, in-site search, and a
+      single-source résumé build system. Built with *TailwindCSS*, *HeroUI*, the
+      *UnifiedJS* ecosystem, *Mermaid*, and *Zustand*.

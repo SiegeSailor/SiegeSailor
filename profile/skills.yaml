@@ -1,0 +1,18 @@
+# One row per group on the resume. "Data & Frontend" is a merged row kept for
+# the one-page fit; the split "Data" row below it is the systems-focused
+# alternative, kept for the resume skill to use instead of the merged row.
+skills:
+  - label: Languages
+    items: "C#, TypeScript / JavaScript (Node.js), Python, C++, Bash, SQL"
+  - label: AI Engineering
+    items: "Agentic coding (Claude Code), LLM pipelines in CI/CD, knowledge-graph extraction, LLM observability (Langfuse)"
+  - label: Distributed Systems
+    items: "gRPC, Protocol Buffers, RabbitMQ, Socket.IO / WebSocket, REST, microservices, concurrent & real-time systems, Zeroconf"
+  - label: Cloud & DevOps
+    items: "Docker, Kubernetes, GitLab CI/CD, GitHub Actions, Terraform, AWS, GCP, Linux (Ubuntu, Debian), Nginx"
+  - label: Data & Frontend
+    items: "MongoDB, MySQL, PostgreSQL, Redis; React.js, Next.js, Redux, Electron"
+  - label: Data
+    items: "MongoDB, MySQL, PostgreSQL, Redis"
+  - label: Regulated Software
+    items: "IEC 62304, ISO 13485, FDA & EU MDR compliance SDLC, DevSecOps"

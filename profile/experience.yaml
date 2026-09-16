@@ -1,0 +1,178 @@
+# The resume's Work Experience section, and the company behind the home page
+# hero (the site reads the first entry's `company` and `website`).
+#
+# Stacked role lines are deliberate: background-check vendors verify titles and
+# dates separately, so CooperSurgical and Servicetech keep one line per title
+# rather than one widened range. Some material here is held back for the
+# one-page fit; StageSource and DY Game are held back because they belong
+# under a degree rather than in an employment history, and each says so where
+# it sits.
+experience:
+  - company: CooperSurgical
+    location: "NJ / MA / CT, USA"
+    industry: Medical Device
+    website: "https://www.coopersurgical.com/"
+    blurb:
+      text: "Medical device R&D — global IVF device leader operating in 130+ countries"
+    roles:
+      - title: Senior Software Engineer
+        dates: "Jun 2025 – Present"
+        location: "NJ, USA"
+      - title: Software Engineer
+        dates: "Jan 2024 – May 2025"
+        location: "MA, USA"
+      - title: Software Engineering Intern
+        dates: "May 2023 – Aug 2023"
+        location: "CT, USA"
+    bullets:
+      - text: >-
+          Architected a cross-product device SDK shipped as a Docker
+          container (gRPC, MongoDB, RabbitMQ, Zeroconf) with .NET, Node.js,
+          Python, and C++ clients, reused across 5+ FDA / EU MDR-regulated
+          IVF products
+      - text: >-
+          Cut RFID data-transition time by 90% with database caching and gRPC
+          streaming, reducing environmental-data rendering time on device UIs
+          by 50%
+      - text: >-
+          Led a shared React.js component library and its automated quality
+          workflow (ESLint, Jest, Semantic Release on GitLab CI) serving 5+
+          vendors and 20+ developers
+      - text: >-
+          Built secure IVF workstation software on purpose-built embedded
+          Linux — compliance-driven SDLC (IEC 62304 / ISO 13485), GitLab
+          CI/CD pipelines, and containerized applications
+      - text: >-
+          Integrated LLM-assisted engineering into R&D workflows: agentic
+          coding tools, self-healing document generation in GitLab CI,
+          knowledge-graph extraction, and LLM observability (Langfuse)
+      - text: >-
+          Developed a containerized Protocol Buffers compiler service
+          automating multi-language client generation, plus NuGet network
+          connectivity libraries and CLI tooling adopted org-wide
+      - text: >-
+          Partnered with electrical, mechanical, and firmware teams to define
+          cross-functional interface standards, shaping next-generation IVF
+          device architecture and the R&D roadmap for the coming year
+      - text: >-
+          Coordinated 3+ global formative studies per year across divergent
+          development schedules — identified system bottlenecks, set
+          achievable milestones, and established a continuous R&D–clinical
+          feedback loop
+      - text: >-
+          Piloted workplace–device–cloud network communication with
+          cross-country teams and architected hybrid cloud / on-site services
+          (AWS, Wind River Studio) meeting data-integrity and retention
+          regulations at no-internet clinical sites
+
+  - company: Shopee
+    location: "Taipei, Taiwan"
+    industry: E-Commerce
+    website: "https://shopee.tw/"
+    blurb:
+      text: "Leading Southeast Asian e-commerce platform, 300M+ annual active users"
+    roles:
+      - title: Software Engineer, Mobile Web Games
+        dates: "Jan 2020 – Feb 2022"
+        location: "Taipei, Taiwan"
+    bullets:
+      - text: >-
+          Built real-time multiplayer game services (Socket.IO, Express.js,
+          Redis) sustaining 10,000 peak RPS and 200,000+ daily players on
+          low-end devices in weak-signal regions
+      # The window is the claim: first-to-last-day within one festival run, not
+      # D1 or D7 cohort retention. Do not compress it back to "player retention".
+      - text: >-
+          Raised first-to-last-day player retention from 0.25 to 0.65 across
+          3–14 day shopping-festival runs by designing a weighted-random
+          reward algorithm
+      - text: >-
+          Integrated regional data warehouses and deployment pipelines with
+          global services on GCP under a TDD-enforced workflow, cutting local
+          developers' redeployment effort by 90%+
+
+  # Not counted as employment, not for the page fit: a Boston University
+  # course team on a real client's requirements, so no vendor can verify it
+  # as a job. It prints under the M.S. in education.yaml too.
+  - company: StageSource
+    location: "Boston, MA, USA"
+    industry: Art Service
+    website: "https://stagesource.site-ym.com/"
+    blurb:
+      text: "Nonprofit supporting 200+ theater companies and 1,500+ arts professionals"
+    roles:
+      - title: Software Engineer (Contract)
+        dates: "Sep 2022 – Dec 2022"
+        location: "MA, USA"
+    bullets:
+      - text: >-
+          Led a 6-developer team to deliver an MVP SaaS prototype (Django,
+          uWSGI, Nginx, PostgreSQL) on schedule, introducing Scrum, CI/CD,
+          and cloud-first practices to the organization
+      - text: >-
+          Halved deployment time with GitHub Actions pipelines using
+          OIDC-authenticated deploys to AWS
+
+  - company: Edallianz
+    location: "Taipei, Taiwan"
+    industry: E-Commerce
+    website: "https://www.twincn.com/item.aspx?no=51236578"
+    blurb:
+      text: "Education services startup managing 700+ multi-country academic programs"
+    roles:
+      - title: Software Engineer
+        dates: "Jan 2019 – Nov 2019"
+        location: "Taipei, Taiwan"
+    bullets:
+      - text: >-
+          Redesigned the payment endpoint flow from internal data-flow
+          analysis, lifting checkout conversion by 25%
+      - text: >-
+          Grew daily user posts 5x (+800 posts/day) by introducing CDN caching
+      - text: >-
+          Launched a responsive UI framework (SASS, Webpack) restructuring
+          sites built on Django, Tornado, and Apache HTTP Server
+
+  - company: Servicetech International
+    location: "Taichung, Taiwan"
+    industry: Medical Device
+    website: "https://www.servicetech.com.tw/"
+    blurb:
+      text: "Top Taiwanese distributor of non-invasive pain-management medical devices"
+    roles:
+      - title: Software Engineer
+        dates: "Jun 2017 – Nov 2018"
+        location: "Taichung, Taiwan"
+      # Label this rather than widening the 2017–2018 range if it is ever needed.
+      - title: Software Engineering Intern
+        dates: "Jun 2016 – Jan 2017"
+        location: "Taichung, Taiwan"
+    bullets:
+      - text: >-
+          Drove a paperless transformation — shipped a supply-chain PWA
+          (Firebase, Ionic, React.js), consolidating 100+ ad-hoc sales
+          channels into 6 trackable procedures
+      - text: >-
+          Built a digital corporate identity system supporting health
+          education for 1,000+ medical institutions and 25+ device
+          exhibitions
+
+  # Not counted as employment, not for the page fit: a student internship
+  # taken during the B.F.A., so it prints under that degree in education.yaml
+  # too.
+  - company: DY Game
+    location: "Yunlin, Taiwan"
+    industry: Gaming
+    website: "https://www.dygame.cn/"
+    blurb:
+      text: "Mobile game studio specializing in motion-sensing gameplay"
+    roles:
+      - title: Game Development Intern
+        dates: "May 2014 – Aug 2014"
+        location: "Yunlin, Taiwan"
+    bullets:
+      # Not "co-managed": the planning groups were delegated before the
+      # internship began, and the cohort was one course's students.
+      - text: >-
+          Shipped a motion-sensing game title with a 30-person cohort, working
+          across its programming, art, and operations groups

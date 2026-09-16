@@ -1,0 +1,27 @@
+education:
+  - school: Boston University
+    degree: "M.S. in Computer Science (GPA 3.8 / 4.0)"
+    dates: "May 2022 – Jan 2024"
+    details:
+      # Compact citation for the one-page fit; publications.yaml carries the
+      # full one.
+      - text: >-
+          First author, “Quantitative DevSecOps Metrics for Cloud-Based Web
+          Microservices,” IEEE Access, 2024
+      - text: "3rd place, NCAE-C Cyber Games 2023 Northeast Division — Server Security Leader (infrastructure defense)"
+      # StageSource sits here, not in experience.yaml — see the comment there.
+      - text: >-
+          Led a 6-developer course team building an MVP SaaS prototype (Django,
+          PostgreSQL, AWS) against live commercial requirements for StageSource,
+          a Boston arts nonprofit
+      - text: "Coursework: Cryptography, Secure Software Development, Computer Language Theory, Analysis of Algorithms"
+  - school: National Formosa University
+    degree: "B.F.A. in Multimedia Design"
+    dates: "Sep 2013 – Jan 2017"
+    details:
+      # DY Game sits here, not in experience.yaml — see the comment there.
+      - text: >-
+          Game development intern at DY Game (2014), shipping a motion-sensing
+          game title with a 30-person course cohort across its programming,
+          art, and operations groups
+      - text: "Dual concentration in Computer Programming and Fine Arts"

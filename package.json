@@ -1,0 +1,10 @@
+{
+  "name": "@siegesailor/profile",
+  "version": "1.0.0",
+  "description": "SiegeSailor's profile facts, and the skills that render them.",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">= 26.5.0", "npm": ">= 11.17.0" },
+  "scripts": { "test": "node --test" },
+  "dependencies": { "docx": "9.7.1", "js-yaml": "5.2.2" }
+}

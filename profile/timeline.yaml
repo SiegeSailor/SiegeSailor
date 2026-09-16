@@ -1,0 +1,12 @@
+# Total professional experience is computed, never stated: `start` to today,
+# minus every excluded interval. Quoted so YAML keeps them as strings rather
+# than parsing them into timezone-shifted dates.
+timeline:
+  start: "2016-06-01"
+  excluded:
+    - label: Military Service
+      start: "2017-01-01"
+      end: "2017-06-30"
+    - label: Career Gap
+      start: "2022-02-01"
+      end: "2024-01-31"

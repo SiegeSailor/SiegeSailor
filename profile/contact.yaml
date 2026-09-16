@@ -1,0 +1,6 @@
+# The two centred lines under the name on the resume document. Deliberately not
+# consumed by the site or the README: the phone number and address reach a
+# recruiter through the document, not a public web page.
+contact:
+  line1: "NYC Metropolitan Area |  857-540-6713  |  siegesailor@gmail.com"
+  line2: "jinyu-zhang.com  |  linkedin.com/in/jin-yu-zhang-812181155  |  github.com/SiegeSailor"

@@ -1,0 +1,19 @@
+# The home page hero, the /about header, and the generated README. Never
+# rendered in the resume document — the document has its own name and contact
+# block. External links live in media.yaml.
+profile:
+  picture: /images/Jin-Yu-Zhang.jpg
+  headlines:
+    - "Distributed Systems"
+    - "Platform Engineering"
+    - "Backend Architecture"
+  status:
+    location: "NYC Metropolitan Area"
+    position: "Senior Software Engineer"
+  # Home page (jinyu-zhang.com) hero: `tagline` completes the "<position> at
+  # <company> — " headline; `intro` is the paragraph beneath it.
+  tagline: "Distributed systems and developer platforms, from 10,000 RPS consumer scale to FDA-regulated devices."
+  intro: >-
+    I build systems where the interface between components is the hard part.
+    That means device clients over gRPC, services that hold up under load, and
+    the CI/CD that keeps them shippable. I write up what I learn along the way.
