@@ -17,11 +17,11 @@ Inline comments carry the reasoning behind a fact. Preserve them.
 
 ## Who Reads This
 
-| Reader | Lives in |
-| --- | --- |
-| `update-readme` | `.claude/skills/update-readme/` in this repository |
-| `generate-resume` | `.claude/skills/generate-resume/` in this repository |
-| `update-website` | `.claude/skills/update-website/` in `SiegeSailor/Website` |
+| Reader            | Lives in                                                  |
+| ----------------- | --------------------------------------------------------- |
+| `update-readme`   | `.claude/skills/update-readme/` in this repository        |
+| `generate-resume` | `.claude/skills/generate-resume/` in this repository      |
+| `update-website`  | `.claude/skills/update-website/` in `SiegeSailor/Website` |
 
 ## Constraint That Must Never Break
 

@@ -222,9 +222,7 @@ const buildPublications = (section) => {
   return [
     sectionHeader(section.heading),
     ...publications.map((p) =>
-      bodyLine([
-        new TextRun({ text: clean(p), font: FONT, size: SZ.body }),
-      ]),
+      bodyLine([new TextRun({ text: clean(p), font: FONT, size: SZ.body })]),
     ),
   ];
 };
@@ -261,10 +259,7 @@ const buildSchools = (section) => {
 const buildActivities = (section) => {
   const items = section.items || [];
   if (!items.length) return [];
-  return [
-    sectionHeader(section.heading),
-    ...items.map((text) => bullet(text)),
-  ];
+  return [sectionHeader(section.heading), ...items.map((text) => bullet(text))];
 };
 
 const BUILDERS = {

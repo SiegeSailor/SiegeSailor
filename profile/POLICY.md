@@ -26,7 +26,7 @@ exists because getting it wrong misrepresents a verified record.
 - **Never flatten stacked role lines.** CooperSurgical and Servicetech each
   keep one line per title. Background-check vendors verify titles and dates
   separately, so a widened range reads as a discrepancy. This forbids
-  *widening or merging* a range — printing two titles as if they were one,
+  _widening or merging_ a range — printing two titles as if they were one,
   with a single combined range covering both. It does not mandate printing
   every title: per the rule above, the 2016–2017 Servicetech internship line
   may be omitted entirely for space. Omitting a role outright and widening

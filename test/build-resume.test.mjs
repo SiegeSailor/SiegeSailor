@@ -12,15 +12,23 @@ const PLAN = {
   contact: { line1: "NYC Metropolitan Area", line2: "jinyu-zhang.com" },
   sections: [
     { key: "summary", heading: "Summary", text: "Senior software engineer." },
-    { key: "experience", heading: "Work Experience", entries: [
-      { company: "CooperSurgical", location: "NJ, USA",
-        blurb: "Medical device R&D — global IVF device leader operating in 130+ countries",
-        roles: [
-          { title: "Senior Software Engineer", dates: "Jun 2025 – Present" },
-          { title: "Software Engineer", dates: "Jan 2024 – May 2025" },
-        ],
-        bullets: ["Architected a cross-product device SDK"] },
-    ] },
+    {
+      key: "experience",
+      heading: "Work Experience",
+      entries: [
+        {
+          company: "CooperSurgical",
+          location: "NJ, USA",
+          blurb:
+            "Medical device R&D — global IVF device leader operating in 130+ countries",
+          roles: [
+            { title: "Senior Software Engineer", dates: "Jun 2025 – Present" },
+            { title: "Software Engineer", dates: "Jan 2024 – May 2025" },
+          ],
+          bullets: ["Architected a cross-product device SDK"],
+        },
+      ],
+    },
   ],
 };
 
@@ -28,7 +36,11 @@ const build = async () => {
   const dir = mkdtempSync(join(tmpdir(), "resume-"));
   const file = await buildResume(PLAN, dir);
   // A .docx is a zip; document.xml holds the body.
-  const xml = execFileSync("unzip", ["-p", file, "word/document.xml"]).toString();
+  const xml = execFileSync("unzip", [
+    "-p",
+    file,
+    "word/document.xml",
+  ]).toString();
   return { file, xml };
 };
 
@@ -66,7 +78,10 @@ test("right-aligns dates with a right tab stop and a literal tab, not spaces", a
     /<w:t[^>]*>\tJun 2025/.test(xml),
     "expected the date run to begin with a literal tab character",
   );
-  assert.ok(!/ {3,}Jun 2025/.test(xml), "dates must not be positioned with spaces");
+  assert.ok(
+    !/ {3,}Jun 2025/.test(xml),
+    "dates must not be positioned with spaces",
+  );
 });
 
 test("uses no tables, text boxes, headers, or footers", async () => {
@@ -85,7 +100,9 @@ test("renders the entry blurb, a bare string in the plan", async () => {
   const { xml } = await build();
   assert.ok(
     // "&" is escaped by the XML serializer; match the escaped form.
-    xml.includes("Medical device R&amp;D — global IVF device leader operating in 130+ countries"),
+    xml.includes(
+      "Medical device R&amp;D — global IVF device leader operating in 130+ countries",
+    ),
   );
 });
 

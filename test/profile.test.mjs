@@ -8,9 +8,18 @@ const DIR = join(import.meta.dirname, "../profile");
 const FILES = readdirSync(DIR).filter((f) => /\.ya?ml$/.test(f));
 
 const EXPECTED = [
-  "activities.yaml", "certifications.yaml", "contact.yaml", "education.yaml",
-  "experience.yaml", "identity.yaml", "media.yaml", "profile.yaml",
-  "projects.yaml", "publications.yaml", "skills.yaml", "summary.yaml",
+  "activities.yaml",
+  "certifications.yaml",
+  "contact.yaml",
+  "education.yaml",
+  "experience.yaml",
+  "identity.yaml",
+  "media.yaml",
+  "profile.yaml",
+  "projects.yaml",
+  "publications.yaml",
+  "skills.yaml",
+  "summary.yaml",
   "timeline.yaml",
 ];
 
@@ -23,7 +32,8 @@ test("every file parses and holds exactly one top-level key", () => {
     const document = load(readFileSync(join(DIR, file), "utf8"));
     assert.ok(document, `${file} is empty`);
     assert.equal(
-      Object.keys(document).length, 1,
+      Object.keys(document).length,
+      1,
       `${file} must hold exactly one top-level key, found ${Object.keys(document).join(", ")}`,
     );
   }

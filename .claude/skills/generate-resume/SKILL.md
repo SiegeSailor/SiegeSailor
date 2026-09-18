@@ -10,12 +10,12 @@ what appears; code guarantees that what appears is what the source says.
 
 ## Inputs
 
-| Input | Default |
-| --- | --- |
-| Page limit | 1 |
-| Target audience | ask if not given |
-| Required sections | none beyond Summary, Skills, Work Experience |
-| Posting or requirement text | optional |
+| Input                       | Default                                      |
+| --------------------------- | -------------------------------------------- |
+| Page limit                  | 1                                            |
+| Target audience             | ask if not given                             |
+| Required sections           | none beyond Summary, Skills, Work Experience |
+| Posting or requirement text | optional                                     |
 
 Output lands in the working directory. No run history is kept — this skill
 always reads the current `profile/`, which is local to this repository.
@@ -28,14 +28,17 @@ nothing to run as `node some-script.mjs arg1 arg2`; call them from a small
 `.mjs` file, or with `node --input-type=module`, from this repository's root,
 after `npm install` has been run here:
 
-| Export | Path |
-| --- | --- |
+| Export                             | Path                                                         |
+| ---------------------------------- | ------------------------------------------------------------ |
 | `verifyVerbatim`, `readSourceText` | `.claude/skills/generate-resume/scripts/verify-verbatim.mjs` |
-| `buildResume` | `.claude/skills/generate-resume/scripts/build-resume.mjs` |
-| `checkPages` | `.claude/skills/generate-resume/scripts/check-pages.mjs` |
+| `buildResume`                      | `.claude/skills/generate-resume/scripts/build-resume.mjs`    |
+| `checkPages`                       | `.claude/skills/generate-resume/scripts/check-pages.mjs`     |
 
 ```js
-import { verifyVerbatim, readSourceText } from "./.claude/skills/generate-resume/scripts/verify-verbatim.mjs";
+import {
+  verifyVerbatim,
+  readSourceText,
+} from "./.claude/skills/generate-resume/scripts/verify-verbatim.mjs";
 import { buildResume } from "./.claude/skills/generate-resume/scripts/build-resume.mjs";
 import { checkPages } from "./.claude/skills/generate-resume/scripts/check-pages.mjs";
 
@@ -117,12 +120,30 @@ pipeline's reference PDF, at 1 page, 612×792 pts.
       "key": "skills",
       "heading": "Skills",
       "rows": [
-        { "label": "Languages", "items": "C#, TypeScript / JavaScript (Node.js), Python, C++, Bash, SQL" },
-        { "label": "AI Engineering", "items": "Agentic coding (Claude Code), LLM pipelines in CI/CD, knowledge-graph extraction, LLM observability (Langfuse)" },
-        { "label": "Distributed Systems", "items": "gRPC, Protocol Buffers, RabbitMQ, Socket.IO / WebSocket, REST, microservices, concurrent & real-time systems, Zeroconf" },
-        { "label": "Cloud & DevOps", "items": "Docker, Kubernetes, GitLab CI/CD, GitHub Actions, Terraform, AWS, GCP, Linux (Ubuntu, Debian), Nginx" },
-        { "label": "Data & Frontend", "items": "MongoDB, MySQL, PostgreSQL, Redis; React.js, Next.js, Redux, Electron" },
-        { "label": "Regulated Software", "items": "IEC 62304, ISO 13485, FDA & EU MDR compliance SDLC, DevSecOps" }
+        {
+          "label": "Languages",
+          "items": "C#, TypeScript / JavaScript (Node.js), Python, C++, Bash, SQL"
+        },
+        {
+          "label": "AI Engineering",
+          "items": "Agentic coding (Claude Code), LLM pipelines in CI/CD, knowledge-graph extraction, LLM observability (Langfuse)"
+        },
+        {
+          "label": "Distributed Systems",
+          "items": "gRPC, Protocol Buffers, RabbitMQ, Socket.IO / WebSocket, REST, microservices, concurrent & real-time systems, Zeroconf"
+        },
+        {
+          "label": "Cloud & DevOps",
+          "items": "Docker, Kubernetes, GitLab CI/CD, GitHub Actions, Terraform, AWS, GCP, Linux (Ubuntu, Debian), Nginx"
+        },
+        {
+          "label": "Data & Frontend",
+          "items": "MongoDB, MySQL, PostgreSQL, Redis; React.js, Next.js, Redux, Electron"
+        },
+        {
+          "label": "Regulated Software",
+          "items": "IEC 62304, ISO 13485, FDA & EU MDR compliance SDLC, DevSecOps"
+        }
       ]
     },
     {
@@ -134,9 +155,15 @@ pipeline's reference PDF, at 1 page, 612×792 pts.
           "location": "NJ / MA / CT, USA",
           "blurb": "Medical device R&D — global IVF device leader operating in 130+ countries",
           "roles": [
-            { "title": "Senior Software Engineer", "dates": "Jun 2025 – Present" },
+            {
+              "title": "Senior Software Engineer",
+              "dates": "Jun 2025 – Present"
+            },
             { "title": "Software Engineer", "dates": "Jan 2024 – May 2025" },
-            { "title": "Software Engineering Intern", "dates": "May 2023 – Aug 2023" }
+            {
+              "title": "Software Engineering Intern",
+              "dates": "May 2023 – Aug 2023"
+            }
           ],
           "bullets": [
             "Architected a cross-product device SDK shipped as a Docker container (gRPC, MongoDB, RabbitMQ, Zeroconf) with .NET, Node.js, Python, and C++ clients, reused across 5+ FDA / EU MDR-regulated IVF products",
@@ -151,7 +178,10 @@ pipeline's reference PDF, at 1 page, 612×792 pts.
           "location": "Taipei, Taiwan",
           "blurb": "Leading Southeast Asian e-commerce platform, 300M+ annual active users",
           "roles": [
-            { "title": "Software Engineer, Mobile Web Games", "dates": "Jan 2020 – Feb 2022" }
+            {
+              "title": "Software Engineer, Mobile Web Games",
+              "dates": "Jan 2020 – Feb 2022"
+            }
           ],
           "bullets": [
             "Built real-time multiplayer game services (Socket.IO, Express.js, Redis) sustaining 10,000 peak RPS and 200,000+ daily players on low-end devices in weak-signal regions",
@@ -210,8 +240,16 @@ pipeline's reference PDF, at 1 page, 612×792 pts.
       "key": "certifications",
       "heading": "Certifications",
       "entries": [
-        { "school": "Massachusetts Institute of Technology", "degree": "Cert. in Data Science & Machine Learning (top 15 of 146)", "dates": "Aug 2023 – Nov 2023" },
-        { "school": "New York University", "degree": "Certificate, Preparatory Course for Graduate Studies in Computing", "dates": "Jan 2022 – May 2022" }
+        {
+          "school": "Massachusetts Institute of Technology",
+          "degree": "Cert. in Data Science & Machine Learning (top 15 of 146)",
+          "dates": "Aug 2023 – Nov 2023"
+        },
+        {
+          "school": "New York University",
+          "degree": "Certificate, Preparatory Course for Graduate Studies in Computing",
+          "dates": "Jan 2022 – May 2022"
+        }
       ]
     }
   ]

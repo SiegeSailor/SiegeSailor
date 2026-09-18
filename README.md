@@ -22,4 +22,3 @@ Senior software engineer bridging across distributed systems, hardware, and firm
 ---
 
 <sub>Generated from <a href="https://github.com/SiegeSailor/SiegeSailor">SiegeSailor/SiegeSailor</a> — do not edit by hand.</sub>
-

@@ -10,7 +10,9 @@ const PLAN = {
   pageLimit: 1,
   identity: { legal: "Jin Yu (Ken) Zhang", display: "Jin Yu (Ken) Zhang" },
   contact: { line1: "NYC Metropolitan Area", line2: "jinyu-zhang.com" },
-  sections: [{ key: "summary", heading: "Summary", text: "Senior software engineer." }],
+  sections: [
+    { key: "summary", heading: "Summary", text: "Senior software engineer." },
+  ],
 };
 
 const STATUSES = new Set(["ok", "over", "unverified"]);
@@ -52,8 +54,16 @@ test("reports over when the document exceeds the limit", async () => {
   const dir = mkdtempSync(join(tmpdir(), "pages-"));
   const long = {
     ...PLAN,
-    sections: [{ key: "activities", heading: "Activities",
-      items: Array.from({ length: 400 }, (_, index) => `Line number ${index} of filler text`) }],
+    sections: [
+      {
+        key: "activities",
+        heading: "Activities",
+        items: Array.from(
+          { length: 400 },
+          (_, index) => `Line number ${index} of filler text`,
+        ),
+      },
+    ],
   };
   const result = checkPages(await buildResume(long, dir), dir, 1);
   assert.equal(result.status, "over");
@@ -66,7 +76,10 @@ test("reports unverified, not over, when pdfinfo prints no Pages: line", async (
   const docx = await buildResume(PLAN, dir);
   // A locale-shifted or otherwise unparsable pdfinfo output must never be
   // read as page count 0 (NaN <= limit is false, which used to read "over").
-  const { dir: binDir } = fakeBin("pdfinfo", "#!/bin/bash\necho 'Producer: fake'\n");
+  const { dir: binDir } = fakeBin(
+    "pdfinfo",
+    "#!/bin/bash\necho 'Producer: fake'\n",
+  );
   const path = process.env.PATH;
   process.env.PATH = `${binDir}:${path}`;
   try {

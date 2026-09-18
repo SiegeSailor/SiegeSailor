@@ -36,7 +36,9 @@ const SCALAR_EXEMPT = new Set(["audience", "pageLimit"]);
 const normalise = (value) => String(value).replace(/\s+/g, " ").trim();
 
 const isScalar = (node) =>
-  typeof node === "string" || typeof node === "number" || typeof node === "boolean";
+  typeof node === "string" ||
+  typeof node === "number" ||
+  typeof node === "boolean";
 
 // Collects every scalar leaf of a parsed YAML document into a set of
 // normalised strings. Comments, keys, and YAML syntax never reach this set —
@@ -66,7 +68,11 @@ const commonPrefixWordCount = (a, b) => {
   const aWords = a.split(" ");
   const bWords = b.split(" ");
   let count = 0;
-  while (count < aWords.length && count < bWords.length && aWords[count] === bWords[count]) {
+  while (
+    count < aWords.length &&
+    count < bWords.length &&
+    aWords[count] === bWords[count]
+  ) {
     count += 1;
   }
   return count;
@@ -81,7 +87,10 @@ const nearest = (value, leafSet) => {
   let bestCount = 0;
   for (const leaf of leafSet) {
     const count = commonPrefixWordCount(value, leaf);
-    if (count > bestCount || (count > 0 && count === bestCount && leaf.length < best.length)) {
+    if (
+      count > bestCount ||
+      (count > 0 && count === bestCount && leaf.length < best.length)
+    ) {
       best = leaf;
       bestCount = count;
     }
@@ -89,7 +98,8 @@ const nearest = (value, leafSet) => {
   return bestCount < 2 ? null : best;
 };
 
-const describe = (node) => (isScalar(node) ? String(node) : JSON.stringify(node));
+const describe = (node) =>
+  isScalar(node) ? String(node) : JSON.stringify(node);
 
 // Validates `key` and `heading` together, on any object that carries either.
 // A `key` outside the map is a miss on its own, exactly as before. Once the
@@ -108,25 +118,44 @@ function checkKeyHeadingPair(node, path, misses, leafSet) {
   const headingNode = node.heading;
   const keyPath = path ? `${path}.key` : "key";
   const headingPath = path ? `${path}.heading` : "heading";
-  const expectedHeading = isScalar(keyNode) ? KEY_TO_HEADING.get(keyNode) : undefined;
+  const expectedHeading = isScalar(keyNode)
+    ? KEY_TO_HEADING.get(keyNode)
+    : undefined;
   const keyValid = expectedHeading !== undefined;
 
   if (hasKey && !keyValid) {
-    misses.push({ path: keyPath, value: describe(keyNode), nearest: `allowed: ${ALLOWED_KEYS_LIST.join(", ")}` });
+    misses.push({
+      path: keyPath,
+      value: describe(keyNode),
+      nearest: `allowed: ${ALLOWED_KEYS_LIST.join(", ")}`,
+    });
     // A smuggled object/array must still be walked — otherwise the facts
     // hidden inside it never reach `misses` at all.
-    if (keyNode !== null && typeof keyNode === "object") walk(keyNode, keyPath, null, misses, leafSet);
+    if (keyNode !== null && typeof keyNode === "object")
+      walk(keyNode, keyPath, null, misses, leafSet);
   }
 
   if (hasHeading) {
     if (keyValid) {
       if (headingNode !== expectedHeading) {
-        misses.push({ path: headingPath, value: describe(headingNode), nearest: `allowed: ${expectedHeading}` });
-        if (headingNode !== null && typeof headingNode === "object") walk(headingNode, headingPath, null, misses, leafSet);
+        misses.push({
+          path: headingPath,
+          value: describe(headingNode),
+          nearest: `allowed: ${expectedHeading}`,
+        });
+        if (headingNode !== null && typeof headingNode === "object")
+          walk(headingNode, headingPath, null, misses, leafSet);
       }
-    } else if (!(isScalar(headingNode) && ALLOWED_HEADINGS_LIST.includes(headingNode))) {
-      misses.push({ path: headingPath, value: describe(headingNode), nearest: `allowed: ${ALLOWED_HEADINGS_LIST.join(", ")}` });
-      if (headingNode !== null && typeof headingNode === "object") walk(headingNode, headingPath, null, misses, leafSet);
+    } else if (!(
+      isScalar(headingNode) && ALLOWED_HEADINGS_LIST.includes(headingNode)
+    )) {
+      misses.push({
+        path: headingPath,
+        value: describe(headingNode),
+        nearest: `allowed: ${ALLOWED_HEADINGS_LIST.join(", ")}`,
+      });
+      if (headingNode !== null && typeof headingNode === "object")
+        walk(headingNode, headingPath, null, misses, leafSet);
     }
   }
 }
@@ -141,7 +170,12 @@ function checkKeyHeadingPair(node, path, misses, leafSet) {
 function checkForbiddenExperienceEntries(node, path, misses) {
   if (node.key !== "experience" || !Array.isArray(node.entries)) return;
   node.entries.forEach((entry, index) => {
-    if (!entry || typeof entry !== "object" || typeof entry.company !== "string") return;
+    if (
+      !entry ||
+      typeof entry !== "object" ||
+      typeof entry.company !== "string"
+    )
+      return;
     const normalisedCompany = entry.company.trim().toLowerCase();
     if (!FORBIDDEN_EXPERIENCE_COMPANIES.has(normalisedCompany)) return;
     misses.push({
@@ -173,7 +207,9 @@ const walk = (node, path, propKey, misses, leafSet) => {
     // Exemption belongs to a direct scalar child of the key that grants it —
     // never forward `propKey` into a collection, or every element inside an
     // `audience`/`pageLimit` array (at any depth) would inherit the pass.
-    node.forEach((item, index) => walk(item, `${path}[${index}]`, null, misses, leafSet));
+    node.forEach((item, index) =>
+      walk(item, `${path}[${index}]`, null, misses, leafSet),
+    );
     return;
   }
 
