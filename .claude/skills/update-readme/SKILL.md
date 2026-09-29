@@ -5,47 +5,35 @@ description: Use when updating, syncing, or regenerating the GitHub profile READ
 
 # Update README
 
-Regenerates this repository's `README.md` — the GitHub profile README — from
-`profile/`.
+Regenerates this repository's `README.md` — the GitHub profile README — from `profile/`.
 
 ## Headings
 
-The three section titles are fixed, not sourced from `profile/` (its
-`heading:` keys were deleted when `profile/` was migrated):
+The 3 section titles are fixed, not sourced from `profile/`:
 
-```
-{ summary: "Summary", projects: "Projects", media: "Links" }
+```js
+const headings = { summary: "Summary", projects: "Projects", media: "Links" };
 ```
 
-Pass this object as `headings` to `buildReadme`. Never invent different
-titles.
+Pass this object as `headings` to `buildReadme`. Never invent different titles.
 
 ## Input Shape
 
-`buildReadme` destructures exactly nine fields. Every field but `versions`
-and `headings` is read straight out of `profile/`, and most are passed
-through as-is — but `summary` is the one field that needs unwrapping before
-it reaches `buildReadme`: `summary.yaml` stores its value as `[{ text: ... }]`
-(an array of objects, so a comment can sit beside each variant), while
-`buildReadme` calls `.trim()` directly on `summary` and requires a **bare
-string**. Passing the array or an object through unchanged breaks the build.
-This exact mismatch broke the resume builder twice while this skill was
-being built — do not rediscover it by reading `build-readme.mjs` instead of
-this table.
+`buildReadme` destructures exactly 9 fields. Every field but `versions` and `headings` is read straight out of `profile/`, and most are passed through as-is — but `summary` is the one field that needs unwrapping before it reaches `buildReadme`: `summary.yaml` stores its value as `[{ text: ... }]` (an array of objects, so a comment can sit beside each variant), while `buildReadme` calls `.trim()` directly on `summary` and requires a **bare string**. Passing the array or an object through unchanged breaks the build, so read this table rather than rediscovering the mismatch in `build-readme.mjs`.
 
-| Field      | Source                                                      | Shape `buildReadme` needs                                 | Unwrap needed?                                                          |
+| Field      | Source                                                      | Shape `buildReadme` Needs                                 | Unwrap Needed?                                                          |
 | ---------- | ----------------------------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `headings` | not from `profile/`                                         | `{ summary, projects, media }`                            | Fixed — the literal object in **Headings** above, never invented        |
 | `identity` | `identity.yaml`'s `identity:` key                           | `{ legal, display }`                                      | No — pass through; only `.display` is read                              |
-| `profile`  | `profile.yaml`'s `profile:` key                             | `{ headlines: string[], status: { location, position } }` | No — pass through                                                       |
-| `summary`  | `summary.yaml`'s `summary:` key, **first entry**            | bare `string`                                             | **Yes** — take `summary[0].text`, not the array                         |
-| `projects` | `projects.yaml`'s `projects:` key                           | `[{ title, href, stage, description }, ...]`              | No — pass through (`description` is read but unused by the README)      |
 | `media`    | `media.yaml`'s `media:` key                                 | `[{ key, label, href }, ...]`                             | No — pass through                                                       |
+| `profile`  | `profile.yaml`'s `profile:` key                             | `{ headlines: string[], status: { location, position } }` | No — pass through                                                       |
+| `projects` | `projects.yaml`'s `projects:` key                           | `[{ title, href, stage, description }, ...]`              | No — pass through (`description` is read but unused by the README)      |
 | `site`     | none — no `site-identity.yaml` was migrated into `profile/` | unused                                                    | N/A — omit it; `buildReadme` never reads it                             |
+| `summary`  | `summary.yaml`'s `summary:` key, **first entry**            | bare `string`                                             | **Yes** — take `summary[0].text`, not the array                         |
 | `timeline` | `timeline.yaml`'s `timeline:` key                           | `{ start, excluded: [{ start, end }, ...] }`              | No — pass through                                                       |
 | `versions` | not from `profile/`                                         | `{ "<owner>/<repo>": "<tag>" }`                           | Computed — call `resolveVersions(projects)` first, do not hand-build it |
-| `headings` | not from `profile/`                                         | `{ summary, projects, media }`                            | Fixed — the literal object in **Headings** above, never invented        |
 
-### Worked example
+### Worked Example
 
 ```js
 import { load } from "js-yaml";
@@ -82,32 +70,16 @@ const readme = buildReadme({
 
 ## Process
 
-1. Read `profile/*.yaml` and `profile/CLAUDE.md`.
-2. Resolve project versions with `resolveVersions(projects)`. Network failure
-   is not fatal; a project without a version shows its stage instead.
-3. Compose with `buildReadme(input)`, passing the `headings` object above.
-   Experience is computed from `timeline.yaml` against today's date — never
-   print a stated figure.
-4. Verify (advisory): check the composed prose against `profile/` before
-   showing the diff. Build a plain object of the strings `buildReadme` wove
-   into the README — at minimum `{ summary, headlines: profile.headlines,
-projectTitles: projects.map((p) => p.title), mediaLabels: media.map((m) =>
-m.label) }` — and call `verifyVerbatim(plan, readSourceText("profile"))`.
-   Markdown output, so this check is advisory: report any misses alongside
-   the diff in the next step, but never block the write on them. This is the
-   opposite of `generate-resume`, where the same check's misses require
-   explicit confirmation before rendering — the README has no page limit or
-   background-check reader riding on it, so a miss here is a note, not a gate.
-5. Show the diff against the current `README.md`, plus any misses from step 4.
-6. Write only on confirmation.
+1. Read `profile/*.yaml` and `profile/CLAUDE.md`
+2. Resolve project versions with `resolveVersions(projects)`. Network failure is not fatal; a project without a version shows its stage instead
+3. Compose with `buildReadme(input)`, passing the `headings` object above. Experience is computed from `timeline.yaml` against today's date — never print a stated figure
+4. Verify (advisory): check the composed prose against `profile/` before showing the diff. Build a plain object of the strings `buildReadme` wove into the README — at minimum `{ summary, headlines: profile.headlines, projectTitles: projects.map((p) => p.title), mediaLabels: media.map((m) => m.label) }` — and call `verifyVerbatim(plan, readSourceText("profile"))`. Markdown output, so this check is advisory: report any misses alongside the diff in the next step, but never block the write on them. This is the opposite of `generate-resume`, where the same check's misses require explicit confirmation before rendering — the README has no page limit or background-check reader riding on it, so a miss here is a note, not a gate
+5. Show the diff against the current `README.md`, plus any misses from step 4
+6. Write only on confirmation
 
 ## Scripts
 
-`buildReadme` and `resolveVersions` are plain ESM library exports — they have
-**no command-line interface**. `verifyVerbatim` and `readSourceText` (the
-advisory check in step 4) come from the same module `generate-resume` uses.
-Call them from a small `.mjs` file, or with `node --input-type=module`, from
-this repository's root:
+`buildReadme` and `resolveVersions` are plain ESM library exports — they have **no command-line interface**. `verifyVerbatim` and `readSourceText` (the advisory check in step 4) come from the same module `generate-resume` uses. Call them from a small `.mjs` file, or with `node --input-type=module`, from this repository's root:
 
 ```js
 import {
@@ -127,7 +99,6 @@ const check = verifyVerbatim(plan, readSourceText("profile")); // advisory — s
 
 ## Constraints That Must Never Break
 
-- **Never print contact details** — `profile/CLAUDE.md` restricts the phone number and
-  postal area to the resume document
-- **Never hand-edit `README.md`** — change `profile/` and regenerate
-- **Never invent section headings** — use the fixed `headings` object above
+- **Never Hand-Edit `README.md`**: Change `profile/` and regenerate
+- **Never Invent Section Headings**: Use the fixed `headings` object above
+- **Never Print Contact Details**: [`profile/CLAUDE.md`](../../../profile/CLAUDE.md) restricts the phone number and postal area to the resume document

@@ -5,34 +5,28 @@ description: Use when generating or tailoring a resume for a job posting, an app
 
 # Generate Resume
 
-Renders a resume from `profile/` for a specific requirement. The model chooses
-what appears; code guarantees that what appears is what the source says.
+Renders a resume from `profile/` for a specific requirement. The model chooses what appears; code guarantees that what appears is what the source says.
 
 ## Inputs
 
 | Input                       | Default                                      |
 | --------------------------- | -------------------------------------------- |
-| Page limit                  | 1                                            |
-| Target audience             | ask if not given                             |
-| Required sections           | none beyond Summary, Skills, Work Experience |
-| Posting or requirement text | optional                                     |
+| Page Limit                  | 1                                            |
+| Posting or Requirement Text | optional                                     |
+| Required Sections           | none beyond Summary, Skills, Work Experience |
+| Target Audience             | ask if not given                             |
 
-Output lands in the working directory. No run history is kept — this skill
-always reads the current `profile/`, which is local to this repository.
+Output lands in the working directory. No run history is kept — this skill always reads the current `profile/`, which is local to this repository.
 
 ## Scripts
 
-`verifyVerbatim`, `readSourceText`, `buildResume`, and `checkPages` are plain
-ESM library exports — they have **no command-line interface**. There is
-nothing to run as `node some-script.mjs arg1 arg2`; call them from a small
-`.mjs` file, or with `node --input-type=module`, from this repository's root,
-after `npm install` has been run here:
+`verifyVerbatim`, `readSourceText`, `buildResume`, and `checkPages` are plain ESM library exports — they have **no command-line interface**. There is nothing to run as `node some-script.mjs arg1 arg2`; call them from a small `.mjs` file, or with `node --input-type=module`, from this repository's root, after `npm install` has been run here:
 
 | Export                             | Path                                                         |
 | ---------------------------------- | ------------------------------------------------------------ |
-| `verifyVerbatim`, `readSourceText` | `.claude/skills/generate-resume/scripts/verify-verbatim.mjs` |
 | `buildResume`                      | `.claude/skills/generate-resume/scripts/build-resume.mjs`    |
 | `checkPages`                       | `.claude/skills/generate-resume/scripts/check-pages.mjs`     |
+| `verifyVerbatim`, `readSourceText` | `.claude/skills/generate-resume/scripts/verify-verbatim.mjs` |
 
 ```js
 import {
@@ -50,18 +44,9 @@ const check = checkPages(docx, outputDir, plan.pageLimit ?? 1);
 
 ## Plan Schema
 
-A plan is a plain object. `verifyVerbatim` walks every scalar leaf of it and
-rejects any string it cannot find in `profile/*.yaml`, except `audience` and
-`pageLimit` themselves (an object or array placed under either name is still
-walked). `heading` must be one of the exact names in `reference/layout.md`;
-`key` selects the builder in `build-resume.mjs` and must be one of `summary`,
-`skills`, `experience`, `publications`, `education`, `certifications`,
-`activities`. Every string inside a section — bullets, details, publication
-and activity items included — is a bare string, not `{ text: ... }`, even
-though it is stored that way in `profile/*.yaml`: pull `.text` out when
-copying.
+A plan is a plain object. `verifyVerbatim` walks every scalar leaf of it and rejects any string it cannot find in `profile/*.yaml`, except `audience` and `pageLimit` themselves (an object or array placed under either name is still walked). `heading` must be one of the exact names in `reference/layout.md`; `key` selects the builder in `build-resume.mjs` and must be one of `summary`, `skills`, `experience`, `publications`, `education`, `certifications`, `activities`. Every string inside a section — bullets, details, publication and activity items included — is a bare string, not `{ text: ... }`, even though it is stored that way in `profile/*.yaml`: pull `.text` out when copying.
 
-```
+```text
 {
   pageLimit: number,
   audience: string,                    // free text, not checked against profile/
@@ -97,9 +82,7 @@ copying.
 
 ## Worked Example
 
-This plan selects the same content the pre-port pipeline printed. It is known
-to work: rendering it produced a `pdftotext -layout` output identical to that
-pipeline's reference PDF, at 1 page, 612×792 pts.
+This plan selects the same content the pre-port pipeline printed. It is known to work: rendering it produced a `pdftotext -layout` output identical to that pipeline's reference PDF, at 1 page, 612×792 pts.
 
 ```json
 {
@@ -258,27 +241,19 @@ pipeline's reference PDF, at 1 page, 612×792 pts.
 
 ## Process
 
-1. Read `profile/*.yaml`, `profile/CLAUDE.md`, and `reference/layout.md`.
-2. Build a plan per the schema above — ordered sections, and for each the
-   exact strings selected from `profile/`. Copy strings; do not retype or
-   rephrase them.
-3. Verify: `verifyVerbatim(plan, readSourceText("profile"))`. Any miss is
-   reported beside its nearest source match, and requires explicit
-   confirmation before rendering. Never confirm on the user's behalf.
-4. Render: `buildResume(plan, outputDir)`.
-5. Check: `checkPages(docx, outputDir, pageLimit)`.
-   - `ok` — report the path and the page count.
-   - `over` — drop content per `reference/layout.md`, re-render, and re-run
-     `checkPages` again. Repeat at most three times total. If the document is
-     still over the limit after three attempts, report that the page limit
-     was **not met**, say what was dropped at each attempt and why it still
-     doesn't fit. Never report success for a document that exceeds the limit.
-   - `unverified` — say the page count was **not** checked, and why. Never
-     report success for an unverified document.
+1. Read `profile/*.yaml`, `profile/CLAUDE.md`, and [`reference/layout.md`](./reference/layout.md)
+2. Build a plan per the schema above — ordered sections, and for each the exact strings selected from `profile/`. Copy strings; do not retype or rephrase them
+3. Verify: `verifyVerbatim(plan, readSourceText("profile"))`. Any miss is reported beside its nearest source match, and requires explicit confirmation before rendering. Never confirm on the user's behalf
+4. Render: `buildResume(plan, outputDir)`
+5. Check: `checkPages(docx, outputDir, pageLimit)`, then act on its status
+
+| Status       | Action                                                                                                                                                                                                                                                                                                                                                                      |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ok`         | Report the path and the page count                                                                                                                                                                                                                                                                                                                                          |
+| `over`       | Drop content per [`reference/layout.md`](./reference/layout.md), re-render, and re-run `checkPages`. Repeat at most 3 times total. If the document is still over the limit after 3 attempts, report that the page limit was **not met**, and say what was dropped at each attempt and why it still does not fit. Never report success for a document that exceeds the limit |
+| `unverified` | Say the page count was **not** checked, and why. Never report success for an unverified document                                                                                                                                                                                                                                                                            |
 
 ## Constraints That Must Never Break
 
-- **Never print a string absent from `profile/` without confirmation** — the
-  verifier exists because a background-check vendor reads these facts
-- **Never violate `profile/CLAUDE.md`** — it holds the judgment calls that the YAML
-  alone does not show
+- **Never Print a String Absent from `profile/` without Confirmation**: The verifier exists because a background-check vendor reads these facts
+- **Never Violate [`profile/CLAUDE.md`](../../../profile/CLAUDE.md)**: It holds the judgment calls that the YAML alone does not show
