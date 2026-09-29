@@ -43,6 +43,7 @@ Follow the styles strictly. Prompt the user if you find the following styles con
 - **Use Backticks for URLs**: Write a bare URL as `https://example.com`, and link it when it has link text. No raw HTML
 - **Use Double Quotes**: Use double quotes when applicable
 - **Use Periods only for Paragraphs**: Headings, lists, and tables do not end with a period
+- **Use Proper Newlines**: Only use newlines in code blocks with conventional line breaks, not in Markdown paragraphs
 
 > [!important]
 > This file itself is the example of the documentation style. Ensure all documents look similar to this.
