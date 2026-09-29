@@ -381,7 +381,7 @@ test("StageSource rendered as a Work Experience entry is caught (F2)", () => {
   );
   assert.ok(miss, "expected a miss on the StageSource entry's company");
   assert.match(miss.nearest, /student engagement/);
-  assert.match(miss.nearest, /profile\/POLICY\.md/);
+  assert.match(miss.nearest, /profile\/CLAUDE\.md/);
 });
 
 test("DY Game rendered as a Work Experience entry is caught (F2)", () => {
@@ -406,7 +406,7 @@ test("DY Game rendered as a Work Experience entry is caught (F2)", () => {
   );
   assert.ok(miss, "expected a miss on the DY Game entry's company");
   assert.match(miss.nearest, /student engagement/);
-  assert.match(miss.nearest, /profile\/POLICY\.md/);
+  assert.match(miss.nearest, /profile\/CLAUDE\.md/);
 });
 
 test("StageSource is still fine inside an education section (F2)", () => {

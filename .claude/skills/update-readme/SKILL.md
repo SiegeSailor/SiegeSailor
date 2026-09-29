@@ -82,7 +82,7 @@ const readme = buildReadme({
 
 ## Process
 
-1. Read `profile/*.yaml` and `profile/POLICY.md`.
+1. Read `profile/*.yaml` and `profile/CLAUDE.md`.
 2. Resolve project versions with `resolveVersions(projects)`. Network failure
    is not fatal; a project without a version shows its stage instead.
 3. Compose with `buildReadme(input)`, passing the `headings` object above.
@@ -127,7 +127,7 @@ const check = verifyVerbatim(plan, readSourceText("profile")); // advisory — s
 
 ## Constraints That Must Never Break
 
-- **Never print contact details** — `POLICY.md` restricts the phone number and
+- **Never print contact details** — `profile/CLAUDE.md` restricts the phone number and
   postal area to the resume document
 - **Never hand-edit `README.md`** — change `profile/` and regenerate
 - **Never invent section headings** — use the fixed `headings` object above

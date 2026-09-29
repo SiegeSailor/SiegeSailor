@@ -1,7 +1,7 @@
 # Resume Layout
 
 Format rules for the rendered document. Content rules live in
-[`profile/POLICY.md`](../../../../profile/POLICY.md).
+[`profile/CLAUDE.md`](../../../../profile/CLAUDE.md).
 
 ## Hard Constraints
 
@@ -36,7 +36,7 @@ Drop in this order:
 2. The bullets you ranked least relevant to the stated audience when
    composing the plan, taken from the oldest roles first
 3. Company blurbs
-4. Whole roles older than ten years, subject to `POLICY.md`
+4. Whole roles older than ten years, subject to `profile/CLAUDE.md`
 
-Dropping a role is also subject to `profile/POLICY.md`'s employment-history
+Dropping a role is also subject to `profile/CLAUDE.md`'s employment-history
 rules.

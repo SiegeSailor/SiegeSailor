@@ -258,7 +258,7 @@ pipeline's reference PDF, at 1 page, 612×792 pts.
 
 ## Process
 
-1. Read `profile/*.yaml`, `profile/POLICY.md`, and `reference/layout.md`.
+1. Read `profile/*.yaml`, `profile/CLAUDE.md`, and `reference/layout.md`.
 2. Build a plan per the schema above — ordered sections, and for each the
    exact strings selected from `profile/`. Copy strings; do not retype or
    rephrase them.
@@ -280,5 +280,5 @@ pipeline's reference PDF, at 1 page, 612×792 pts.
 
 - **Never print a string absent from `profile/` without confirmation** — the
   verifier exists because a background-check vendor reads these facts
-- **Never violate `POLICY.md`** — it holds the judgment calls that the YAML
+- **Never violate `profile/CLAUDE.md`** — it holds the judgment calls that the YAML
   alone does not show

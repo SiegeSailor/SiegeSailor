@@ -1,17 +1,29 @@
 # CLAUDE.md
 
-The single source of truth for:
+The single source of truth for the following outputs. Every fact here is verified and effectively read by background-check vendors, so each rule below exists because getting it wrong misrepresents the record. Read this file before rendering anything from this folder.
 
-- Generated resume PDFs
-  - [`generate-resume`](../.claude/skills/generate-resume/SKILL.md)
-- [GitHub `README.md`](https://github.com/SiegeSailor/SiegeSailor)
-  - [`.claude/skills/update-readme`](../.claude/skills/update-readme/SKILL.md)
-- [Website facts](https://github.com/SiegeSailor/Website)
-  - [`.claude/skills/update-website`](https://github.com/SiegeSailor/Website/blob/main/.claude/skills/update-website/SKILL.md)
+| Output                                                           | Skill                                                                                                       |
+| ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| [GitHub `README.md`](https://github.com/SiegeSailor/SiegeSailor) | [`update-readme`](../.claude/skills/update-readme/SKILL.md)                                                 |
+| Resume documents                                                 | [`generate-resume`](../.claude/skills/generate-resume/SKILL.md)                                             |
+| [Website](https://github.com/SiegeSailor/Website)                | [`update-website`](https://github.com/SiegeSailor/Website/blob/main/.claude/skills/update-website/SKILL.md) |
 
-> [!note]
-> Read [`POLICY.md`](./POLICY.md) before rendering anything from this folder. It states the judgment calls that the file contents alone do not show.
+## Changes
+
+- **Confirm Before Changing a Fact**: No date, title, ranking, or number in this folder changes without explicit confirmation from Ken
+- **Render Facts as Written**: Rewording a fact into a punchier or different claim, such as a placement, a score, a percentage, or a range, needs the same confirmation as editing the file
+
+## Claims
+
+- **Keep Contact Details on the Resume**: The phone number and postal area in `contact.yaml` never appear on the website or in the README
+- **Keep the Shopee Retention Window**: The figure is first-to-last-day within 1 festival run of 3–14 days, not D1 or D7 cohort retention, so never compress it to "player retention"
+
+## Employment History
+
+- **Keep 1 Line per Title**: CooperSurgical and Servicetech list each title with its own dates because background-check vendors verify them separately; omitting a line, such as the 2016–2017 Servicetech internship, is allowed, but merging 2 titles into 1 widened range, such as a 2016–2018 Servicetech line, is not
+- **Keep Senior Roles**: Never drop a role to make room while keeping a more junior one from the same employer, since that reads as an unexplained gap
+- **Render StageSource and DY Game under Education Only**: Neither was employment, as StageSource was a Boston University course team working a real client's requirements and DY Game was an internship during the B.F.A.; both appear in `experience.yaml` and as a degree detail in `education.yaml`, so render them from the degree detail only and never as a Work Experience entry, which `verifyVerbatim` rejects
 
 ## Shape
 
-One file per subject. Each holds exactly one top-level key. What appears in a given document is decided per run by the skill rendering it, not by a flag stored here. Inline comments carry the reasoning behind a fact.
+One file per subject, each holding exactly 1 top-level key. `verifyVerbatim` loads every file as 1 YAML document, so a top-level key must also be unique across files. What appears in a given document is decided per run by the skill rendering it, not by a flag stored here. Inline comments carry the reasoning behind a fact.
