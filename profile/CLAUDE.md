@@ -21,7 +21,6 @@ The single source of truth for the following outputs. Every fact here is verifie
 
 - **Keep 1 Line per Title**: CooperSurgical and Servicetech list each title with its own dates because background-check vendors verify them separately; omitting a line, such as the 2016–2017 Servicetech internship, is allowed, but merging 2 titles into 1 widened range, such as a 2016–2018 Servicetech line, is not
 - **Keep Senior Roles**: Never drop a role to make room while keeping a more junior one from the same employer, since that reads as an unexplained gap
-- **Render StageSource and DY Game under Education Only**: Neither was employment, as StageSource was a Boston University course team working a real client's requirements and DY Game was an internship during the B.F.A.; both appear in `experience.yaml` and as a degree detail in `education.yaml`, so render them from the degree detail only and never as a Work Experience entry, which `verifyVerbatim` rejects
 
 ## Shape
 

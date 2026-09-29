@@ -9,21 +9,59 @@ education:
           First author, “Quantitative DevSecOps Metrics for Cloud-Based Web
           Microservices,” IEEE Access, 2024
       - text: "3rd place, NCAE-C Cyber Games 2023 Northeast Division — Server Security Leader (infrastructure defense)"
-      # This entry also appears in experience.yaml. It renders only here,
-      # taking its text from here — see CLAUDE.md.
       - text: >-
           Led a 6-developer course team building an MVP SaaS prototype (Django,
           PostgreSQL, AWS) against live commercial requirements for StageSource,
           a Boston arts nonprofit
       - text: "Coursework: Cryptography, Secure Software Development, Computer Language Theory, Analysis of Algorithms"
+    # StageSource was a Boston University course team working a real client's
+    # requirements, not employment: the details line above is its resume form,
+    # and verifyVerbatim rejects it as a Work Experience entry.
+    engagement:
+      company: StageSource
+      location: "Boston, MA, USA"
+      industry: Art Service
+      website: "https://stagesource.site-ym.com/"
+      blurb:
+        text: "Nonprofit supporting 200+ theater companies and 1,500+ arts professionals"
+      roles:
+        - title: Software Engineer (Contract)
+          dates: "Sep 2022 – Dec 2022"
+          location: "MA, USA"
+      bullets:
+        - text: >-
+            Led a 6-developer team to deliver an MVP SaaS prototype (Django,
+            uWSGI, Nginx, PostgreSQL) on schedule, introducing Scrum, CI/CD,
+            and cloud-first practices to the organization
+        - text: >-
+            Halved deployment time with GitHub Actions pipelines using
+            OIDC-authenticated deploys to AWS
   - school: National Formosa University
     degree: "B.F.A. in Multimedia Design"
     dates: "Sep 2013 – Jan 2017"
     details:
-      # This entry also appears in experience.yaml. It renders only here,
-      # taking its text from here — see CLAUDE.md.
       - text: >-
           Game development intern at DY Game (2014), shipping a motion-sensing
           game title with a 30-person course cohort across its programming,
           art, and operations groups
       - text: "Dual concentration in Computer Programming and Fine Arts"
+    # DY Game was a student internship taken during the B.F.A., not
+    # employment: the details line above is its resume form, and verifyVerbatim
+    # rejects it as a Work Experience entry.
+    engagement:
+      company: DY Game
+      location: "Yunlin, Taiwan"
+      industry: Gaming
+      website: "https://www.dygame.cn/"
+      blurb:
+        text: "Mobile game studio specializing in motion-sensing gameplay"
+      roles:
+        - title: Game Development Intern
+          dates: "May 2014 – Aug 2014"
+          location: "Yunlin, Taiwan"
+      bullets:
+        # Not "co-managed": the planning groups were delegated before the
+        # internship began, and the cohort was one course's students.
+        - text: >-
+            Shipped a motion-sensing game title with a 30-person cohort, working
+            across its programming, art, and operations groups

@@ -21,7 +21,7 @@ const KEY_TO_HEADING = new Map([
 const ALLOWED_KEYS_LIST = [...KEY_TO_HEADING.keys()].sort();
 const ALLOWED_HEADINGS_LIST = [...new Set(KEY_TO_HEADING.values())].sort();
 
-// profile/CLAUDE.md forbids rendering StageSource or DY Game as employment: both are
+// profile/education.yaml forbids rendering StageSource or DY Game as employment: both are
 // student engagements (a Boston University course team and a B.F.A.
 // internship) that print only as a detail under their degree. Every string
 // in an offending plan is genuine source text, so verifyVerbatim's leaf check
@@ -160,10 +160,10 @@ function checkKeyHeadingPair(node, path, misses, leafSet) {
   }
 }
 
-// Structural guard for the profile/CLAUDE.md rule that no employment-verification
+// Structural guard for the profile/education.yaml rule that no employment-verification
 // vendor should be sent after StageSource or DY Game, since neither was a
 // job. Every string a plan uses to render them is genuine source text, so
-// the verbatim leaf check alone would pass an entry that profile/CLAUDE.md forbids —
+// the verbatim leaf check alone would pass an entry that profile/education.yaml forbids —
 // this looks at the section's shape instead of its strings. Matches
 // case-insensitively on the trimmed company name; education.yaml sections
 // (key !== "experience") are never touched by this check.
@@ -183,7 +183,7 @@ function checkForbiddenExperienceEntries(node, path, misses) {
       value: entry.company,
       nearest:
         `${entry.company} is a student engagement, not employment — it prints only under its ` +
-        "degree, never as a Work Experience entry (see profile/CLAUDE.md)",
+        "degree, never as a Work Experience entry (see profile/education.yaml)",
     });
   });
 }
