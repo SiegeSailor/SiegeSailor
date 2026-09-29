@@ -20,22 +20,22 @@ paths:
 | `README.md`              | Human    | What is this?                       |
 
 > [!important]
-> When an agent is about to edit, it can ignore documents that target humans, but still needs to edit the document in a human-readable way. An agent only needs to read and update the documents that target humans when a content is about the human-readable content itself (see **Purpose** above).
+> When an agent is about to edit, it can ignore documents that target humans, but it must still write every document in a human-readable way. An agent only needs to read and update the documents that target humans when the change concerns their human-readable content (see **Purpose** above).
 
-If a fact belongs to multiple documents across scopes, we should move it to `.claude/rules/*.md` and link to it from the other documents. If a fact is shared within a scope's documents, we should state it in `CLAUDE.md` and have other documents link to it. Before adding a paragraph anywhere, check that it is not already written down: `grep -rn "<phrase>" --include="*.md"`, and make sure never contradict to another document.
+If a fact belongs to multiple documents across scopes, we should move it to `.claude/rules/*.md` and link to it from the other documents. If a fact is shared within a scope's documents, we should state it in `CLAUDE.md` and have other documents link to it. Before adding a paragraph anywhere, check that it is not already written down: `grep -rn "<phrase>" --include="*.md"`, and make sure it never contradicts another document.
 
 ## Writing Style
 
-Follow the styles strictly. Prompt the user if you find the following styles conflicting with the content you are writing:
+Follow these styles strictly, and prompt the user if any of them conflicts with the content you are writing:
 
 - **Adopt GitHub Markdown**: Use GitHub Markdown syntax, e.g., `> [!important]`
 - **Apply Title Case for Headings**: Headings, table headers, and list headers are always in title case
 - **Avoid Newlines**: Only use a newline to separate paragraphs; let text wrap naturally
-- **Comply Terminology**: Use consistent terms and their variants as described in [Terminology](#terminology)
-- **Fence Code Blocks**: Address code blocks with correct languages. `shell` for terminal commands
+- **Comply with Terminology**: Use consistent terms and their variants as described in [Terminology](#terminology)
+- **Fence Code Blocks**: Tag code blocks with the correct language, e.g., `shell` for terminal commands
 - **Follow Heading Patterns**: Same pattern for headers in a list or a table, e.g., Do Foo, Amazing Bar
 - **Format Items**: Use tables when 3 or more items share the same shape, a list when they do not
-- **Link with Relative Paths**: Write relative links when link to another file and check that it resolves
+- **Link with Relative Paths**: Write relative links when linking to another file, and check that each one resolves
 - **Mention File Location**: State what the filename and location are when it matters
 - **Order Alphabetically**: Lists, tables, and ordered content should follow alphabetical order when applicable
 - **State Only the Necessary**: No summary of what the document just said, no conclusion, and no restating a heading
@@ -76,4 +76,4 @@ Follow the styles strictly. Prompt the user if you find the following styles con
 | YAML                 | YML      |
 
 > [!note]
-> When you find a term repeated, prompt user for confirmation to add to this table. If find 2 similar terms, prompt user to clarify, correct them to use the same term, and add to this table.
+> When you find a repeated term, prompt the user for confirmation before adding it to this table. If you find 2 similar terms, prompt the user to clarify, correct them to use the same term, and add it to this table.

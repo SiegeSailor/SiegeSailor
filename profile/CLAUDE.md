@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-The single source of truth for the following outputs. Every fact here is verified and effectively read by background-check vendors, so each rule below exists because getting it wrong misrepresents the record. Read this file before rendering anything from this folder:
+This folder is the single source of truth for the following outputs. Every fact here is verified and effectively read by background-check vendors, so each rule below exists because getting it wrong misrepresents the record. Read this file before rendering anything from this folder:
 
 | Output                                                           | Skill                                                                                                       |
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
