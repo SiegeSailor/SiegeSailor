@@ -16,7 +16,6 @@ The single source of truth for the following outputs. Every fact here is verifie
 ## Claims
 
 - **Keep Contact Details on the Resume**: The phone number and postal area in `contact.yaml` never appear on the website or in the README
-- **Keep the Shopee Retention Window**: The figure is first-to-last-day within 1 festival run of 3–14 days, not D1 or D7 cohort retention, so never compress it to "player retention"
 
 ## Employment History
 
