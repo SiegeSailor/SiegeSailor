@@ -4,7 +4,7 @@ import { mkdtempSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { execFileSync } from "node:child_process";
-import { buildResume } from "../.claude/skills/generate-resume/scripts/build-resume.mjs";
+import { buildResume } from "./build-resume.mjs";
 
 const PLAN = {
   pageLimit: 1,

@@ -3,8 +3,8 @@ import assert from "node:assert/strict";
 import { chmodSync, mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { buildResume } from "../.claude/skills/generate-resume/scripts/build-resume.mjs";
-import { checkPages } from "../.claude/skills/generate-resume/scripts/check-pages.mjs";
+import { buildResume } from "./build-resume.mjs";
+import { checkPages } from "./check-pages.mjs";
 
 const PLAN = {
   pageLimit: 1,

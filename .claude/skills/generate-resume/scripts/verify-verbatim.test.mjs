@@ -1,9 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import {
-  verifyVerbatim,
-  readSourceText,
-} from "../.claude/skills/generate-resume/scripts/verify-verbatim.mjs";
+import { verifyVerbatim, readSourceText } from "./verify-verbatim.mjs";
 import { join } from "node:path";
 
 const SOURCE = `
@@ -116,7 +113,7 @@ test("headings and keys are exempt — they come from layout.md, not profile/", 
 });
 
 test("readSourceText concatenates every YAML file in the directory", () => {
-  const text = readSourceText(join(import.meta.dirname, "../profile"));
+  const text = readSourceText(join(import.meta.dirname, "../../../../profile"));
   assert.match(text, /CooperSurgical/);
   assert.match(text, /Shopee/);
 });

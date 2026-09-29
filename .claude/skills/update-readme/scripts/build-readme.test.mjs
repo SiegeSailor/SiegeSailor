@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { buildReadme } from "../.claude/skills/update-readme/scripts/build-readme.mjs";
+import { buildReadme } from "./build-readme.mjs";
 
 const INPUT = {
   identity: { display: "Jin Yu (Ken) Zhang" },

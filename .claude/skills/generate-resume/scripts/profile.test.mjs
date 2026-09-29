@@ -4,7 +4,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { load } from "js-yaml";
 
-const DIR = join(import.meta.dirname, "../profile");
+const DIR = join(import.meta.dirname, "../../../../profile");
 const FILES = readdirSync(DIR).filter((f) => /\.ya?ml$/.test(f));
 
 const EXPECTED = [
