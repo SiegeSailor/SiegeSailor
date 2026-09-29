@@ -19,19 +19,18 @@ Pass this object as `headings` to `buildReadme`. Never invent different titles.
 
 ## Input Shape
 
-`buildReadme` destructures exactly 9 fields. Every field but `versions` and `headings` is read straight out of `profile/`, and most are passed through as-is — but `summary` is the one field that needs unwrapping before it reaches `buildReadme`: `summary.yaml` stores its value as `[{ text: ... }]` (an array of objects, so a comment can sit beside each variant), while `buildReadme` calls `.trim()` directly on `summary` and requires a **bare string**. Passing the array or an object through unchanged breaks the build, so read this table rather than rediscovering the mismatch in `build-readme.mjs`.
+`buildReadme` destructures exactly 8 fields. Every field but `versions` and `headings` is read straight out of `profile/`, and most are passed through as-is — but `summary` is the one field that needs unwrapping before it reaches `buildReadme`: `summary.yaml` stores its value as `[{ text: ... }]` (an array of objects, so a comment can sit beside each variant), while `buildReadme` calls `.trim()` directly on `summary` and requires a **bare string**. Passing the array or an object through unchanged breaks the build, so read this table rather than rediscovering the mismatch in `build-readme.mjs`.
 
-| Field      | Source                                                      | Shape `buildReadme` Needs                                 | Unwrap Needed?                                                          |
-| ---------- | ----------------------------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `headings` | not from `profile/`                                         | `{ summary, projects, media }`                            | Fixed — the literal object in **Headings** above, never invented        |
-| `identity` | `identity.yaml`'s `identity:` key                           | `{ legal, display }`                                      | No — pass through; only `.display` is read                              |
-| `media`    | `media.yaml`'s `media:` key                                 | `[{ key, label, href }, ...]`                             | No — pass through                                                       |
-| `profile`  | `profile.yaml`'s `profile:` key                             | `{ headlines: string[], status: { location, position } }` | No — pass through                                                       |
-| `projects` | `projects.yaml`'s `projects:` key                           | `[{ title, href, stage, description }, ...]`              | No — pass through (`description` is read but unused by the README)      |
-| `site`     | none — no `site-identity.yaml` was migrated into `profile/` | unused                                                    | N/A — omit it; `buildReadme` never reads it                             |
-| `summary`  | `summary.yaml`'s `summary:` key, **first entry**            | bare `string`                                             | **Yes** — take `summary[0].text`, not the array                         |
-| `timeline` | `timeline.yaml`'s `timeline:` key                           | `{ start, excluded: [{ start, end }, ...] }`              | No — pass through                                                       |
-| `versions` | not from `profile/`                                         | `{ "<owner>/<repo>": "<tag>" }`                           | Computed — call `resolveVersions(projects)` first, do not hand-build it |
+| Field      | Source                                           | Shape `buildReadme` Needs                                 | Unwrap Needed?                                                          |
+| ---------- | ------------------------------------------------ | --------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `headings` | not from `profile/`                              | `{ summary, projects, media }`                            | Fixed — the literal object in **Headings** above, never invented        |
+| `identity` | `identity.yaml`'s `identity:` key                | `{ legal, display }`                                      | No — pass through; only `.display` is read                              |
+| `media`    | `media.yaml`'s `media:` key                      | `[{ key, label, href }, ...]`                             | No — pass through                                                       |
+| `profile`  | `profile.yaml`'s `profile:` key                  | `{ headlines: string[], status: { location, position } }` | No — pass through                                                       |
+| `projects` | `projects.yaml`'s `projects:` key                | `[{ title, href, stage, description }, ...]`              | No — pass through (`description` is read but unused by the README)      |
+| `summary`  | `summary.yaml`'s `summary:` key, **first entry** | bare `string`                                             | **Yes** — take `summary[0].text`, not the array                         |
+| `timeline` | `timeline.yaml`'s `timeline:` key                | `{ start, excluded: [{ start, end }, ...] }`              | No — pass through                                                       |
+| `versions` | not from `profile/`                              | `{ "<owner>/<repo>": "<tag>" }`                           | Computed — call `resolveVersions(projects)` first, do not hand-build it |
 
 ### Worked Example
 
@@ -61,7 +60,6 @@ const readme = buildReadme({
   summary,
   projects,
   media,
-  site: undefined, // no site-identity.yaml exists in profile/
   timeline,
   versions,
   headings,

@@ -27,7 +27,6 @@ const INPUT = {
     },
   ],
   media: [{ label: "GitHub", href: "https://github.com/SiegeSailor" }],
-  site: { domain: "jinyu-zhang.com" },
   timeline: { start: "2017-06-01", excluded: [] },
   versions: { "SiegeSailor/Website": "2.0.0" },
   headings: { summary: "Summary", projects: "Projects", media: "Links" },
@@ -70,6 +69,8 @@ test("subtracts excluded periods from the experience total", () => {
   assert.ok(Number(gapped) < Number(full));
 });
 
-test("marks the file as generated", () => {
-  assert.match(buildReadme(INPUT), /do not edit by hand/i);
+test("ends with the links, with no footer after them", () => {
+  assert.ok(
+    buildReadme(INPUT).endsWith("[GitHub](https://github.com/SiegeSailor)\n"),
+  );
 });

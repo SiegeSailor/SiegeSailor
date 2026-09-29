@@ -13,14 +13,8 @@ const REGEX_GITHUB_REPO = /^https?:\/\/github\.com\/([^/]+)\/([^/#?]+)/;
 const STAGE_ORDER = { Production: 0, Development: 1, Planning: 2 };
 const MILLISECOND_ONE_YEAR = 1000 * 60 * 60 * 24 * 365;
 
-// This repository, hardcoded: site-identity.yaml (the source of the
-// website's domain) was deliberately not migrated into profile/, so the
-// generated-from line names this repository instead of the /about page.
-const REPO_URL = "https://github.com/SiegeSailor/SiegeSailor";
-const REPO_LABEL = "SiegeSailor/SiegeSailor";
-
 // Total experience is timeline.yaml applied to today, not a stated figure.
-// source/website/helpers/server/content.ts in the Website repo computes the
+// source/settings/content.ts in the Website repo computes the
 // same thing from the same content.
 function experienceYears(timeline) {
   const { start, excluded = [] } = timeline;
@@ -50,8 +44,6 @@ export function buildReadme({
   summary,
   projects,
   media,
-  // Unused: no site-identity.yaml exists in profile/ to source a domain from.
-  site,
   timeline,
   versions,
   headings,
@@ -89,11 +81,6 @@ export function buildReadme({
     `## ${headings.media}`,
     "",
     links,
-    "",
-    "---",
-    "",
-    `<sub>Generated from <a href="${REPO_URL}">${REPO_LABEL}</a> — do not edit by hand.</sub>`,
-    "",
   ].join("\n");
 
   return `${readme}\n`;

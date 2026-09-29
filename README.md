@@ -18,7 +18,3 @@ Senior software engineer bridging across distributed systems, hardware, and firm
 ## Links
 
 [GitHub](https://github.com/SiegeSailor) · [LinkedIn](https://www.linkedin.com/in/jin-yu-zhang-812181155/)
-
----
-
-<sub>Generated from <a href="https://github.com/SiegeSailor/SiegeSailor">SiegeSailor/SiegeSailor</a> — do not edit by hand.</sub>
