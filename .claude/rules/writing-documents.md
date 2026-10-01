@@ -8,6 +8,8 @@ paths:
 
 # Writing Documents
 
+Every document in this repository follows these rules, according to its audience and purpose below.
+
 | Document                 | Audience | Purpose                             |
 | ------------------------ | -------- | ----------------------------------- |
 | `.claude/rules/*.md`     | Agent    | What are the relevant rules?        |
@@ -35,7 +37,7 @@ Follow these styles strictly, and prompt the user if any of them conflicts with 
 - **Fence Code Blocks**: Tag code blocks with the correct language, e.g., `shell` for terminal commands
 - **Follow Heading Patterns**: Same pattern for headers in a list or a table, e.g., Do Foo, Amazing Bar
 - **Format Items**: Use tables when 3 or more items share the same shape, a list when they do not
-- **Give Minimum Context**: For `*Foo*` and `**Bar**`, give at least 1 sentence of context after the title
+- **Give Minimum Context**: For heading level 1, 2, and 3, give at least 1 sentence of context after the title
 - **Link with Relative Paths**: Write relative links when linking to another file, and check that each one resolves
 - **Mention File Location**: State what the filename and location are when it matters
 - **Order Alphabetically**: Lists, tables, and ordered content should follow alphabetical order when applicable
@@ -49,6 +51,8 @@ Follow these styles strictly, and prompt the user if any of them conflicts with 
 > This file itself is the example of the documentation style. Ensure all documents look similar to this.
 
 ### Terminology
+
+Use each term exactly as written, and treat its variants as the same term.
 
 | Term                 | Variants |
 | -------------------- | -------- |
