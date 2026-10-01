@@ -19,7 +19,7 @@ Pass this object as `headings` to `buildReadme`. Never invent different titles.
 
 ## Input Shape
 
-`buildReadme` destructures exactly 8 fields. Every field but `versions` and `headings` is read straight out of `profile/`, and most are passed through as-is — but `summary` is the one field that needs unwrapping before it reaches `buildReadme`: `summary.yaml` stores its value as `[{ text: ... }]` (an array of objects, so a comment can sit beside each variant), while `buildReadme` calls `.trim()` directly on `summary` and requires a **bare string**. Passing the array or an object through unchanged breaks the build, so read this table rather than rediscovering the mismatch in `build-readme.mjs`.
+`buildReadme` destructures exactly 8 fields. Every field but `versions` and `headings` is read straight out of `profile/`, and most are passed through as-is — but `summary` is the one field that needs unwrapping before it reaches `buildReadme`: `summary.yaml` stores its value as `[{ text: ... }]` (an array of objects, so a comment can sit beside each variant), while `buildReadme` calls `.trim()` directly on `summary` and requires a **bare string**. Passing the array or an object through unchanged breaks the build, so read this table rather than rediscovering the mismatch in `build-readme.mjs`:
 
 | Field      | Source                                           | Shape `buildReadme` Needs                                 | Unwrap Needed?                                                          |
 | ---------- | ------------------------------------------------ | --------------------------------------------------------- | ----------------------------------------------------------------------- |
@@ -34,7 +34,7 @@ Pass this object as `headings` to `buildReadme`. Never invent different titles.
 
 ### Worked Example
 
-This assembles the input from `profile/` per the table above and passes it to `buildReadme`.
+This assembles the input from `profile/` per the table above and passes it to `buildReadme`:
 
 ```js
 import { load } from "js-yaml";
@@ -70,7 +70,7 @@ const readme = buildReadme({
 
 ## Process
 
-Run these steps in order from this repository's root, and write nothing before step 6.
+Run these steps in order from this repository's root, and write nothing before step 6:
 
 1. Read `profile/*.yaml` and `profile/CLAUDE.md`
 2. Resolve project versions with `resolveVersions(projects)`. Network failure is not fatal; a project without a version shows its stage instead
@@ -101,7 +101,7 @@ const check = verifyVerbatim(plan, readSourceText("profile")); // advisory — s
 
 ## Constraints That Must Never Break
 
-Each constraint holds on every run, whatever the request asks.
+Each constraint holds on every run, whatever the request asks:
 
 - **Never Hand-Edit `README.md`**: Change `profile/` and regenerate
 - **Never Invent Section Headings**: Use the fixed `headings` object above

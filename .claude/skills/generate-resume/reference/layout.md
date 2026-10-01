@@ -4,7 +4,7 @@ Format rules for the rendered document. Content rules live in [`profile/CLAUDE.m
 
 ## Hard Constraints
 
-Every rendered document meets these constraints, and a request can override only the page limit.
+Every rendered document meets these constraints, and a request can override only the page limit:
 
 - **Align Dates with a Tab**: Right-align dates with a right tab stop and a literal tab in the run, never with spaces, because LibreOffice ignores the docx `PositionalTab`
 - **Emit Native Bullets**: Never emit a literal `•`; bullets come from the numbering configuration as native Word bullets

@@ -8,7 +8,7 @@ paths:
 
 # Writing Documents
 
-Every document in this repository follows these rules, according to its audience and purpose below.
+Every document in this repository follows these rules, according to its audience and purpose below:
 
 | Document                 | Audience | Purpose                             |
 | ------------------------ | -------- | ----------------------------------- |
@@ -53,7 +53,7 @@ Follow these styles strictly, and prompt the user if any of them conflicts with 
 
 ### Terminology
 
-Use each term exactly as written, and treat its variants as the same term.
+Use each term exactly as written, and treat its variants as the same term:
 
 | Term                 | Variants |
 | -------------------- | -------- |

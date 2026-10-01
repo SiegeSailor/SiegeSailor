@@ -9,7 +9,7 @@ Renders a resume from `profile/` for a specific requirement. The model chooses w
 
 ## Inputs
 
-Use the value the request gives for each input, and the default when it gives none.
+Use the value the request gives for each input, and the default when it gives none:
 
 | Input                       | Default                                      |
 | --------------------------- | -------------------------------------------- |
@@ -46,7 +46,7 @@ const check = checkPages(docx, outputDir, plan.pageLimit ?? 1);
 
 ## Plan Schema
 
-A plan is a plain object. `verifyVerbatim` walks every scalar leaf of it and rejects any string it cannot find in `profile/*.yaml`, except `audience` and `pageLimit` themselves (an object or array placed under either name is still walked). `heading` must be one of the exact names in `reference/layout.md`; `key` selects the builder in `build-resume.mjs` and must be one of `summary`, `skills`, `experience`, `publications`, `education`, `certifications`, `activities`. Every string inside a section — bullets, details, publication and activity items included — is a bare string, not `{ text: ... }`, even though it is stored that way in `profile/*.yaml`: pull `.text` out when copying.
+A plan is a plain object. `verifyVerbatim` walks every scalar leaf of it and rejects any string it cannot find in `profile/*.yaml`, except `audience` and `pageLimit` themselves (an object or array placed under either name is still walked). `heading` must be one of the exact names in `reference/layout.md`; `key` selects the builder in `build-resume.mjs` and must be one of `summary`, `skills`, `experience`, `publications`, `education`, `certifications`, `activities`. Every string inside a section — bullets, details, publication and activity items included — is a bare string, not `{ text: ... }`, even though it is stored that way in `profile/*.yaml`: pull `.text` out when copying:
 
 ```text
 {
@@ -84,7 +84,7 @@ A plan is a plain object. `verifyVerbatim` walks every scalar leaf of it and rej
 
 ## Worked Example
 
-This plan selects the same content the pre-port pipeline printed. It is known to work: rendering it produced a `pdftotext -layout` output identical to that pipeline's reference PDF, at 1 page, 612×792 pts.
+This plan selects the same content the pre-port pipeline printed. It is known to work: rendering it produced a `pdftotext -layout` output identical to that pipeline's reference PDF, at 1 page, 612×792 pts:
 
 ```json
 {
@@ -243,13 +243,13 @@ This plan selects the same content the pre-port pipeline printed. It is known to
 
 ## Process
 
-Run these steps in order from this repository's root.
+Run these steps in order from this repository's root:
 
 1. Read `profile/*.yaml`, `profile/CLAUDE.md`, and [`reference/layout.md`](./reference/layout.md)
 2. Build a plan per the schema above — ordered sections, and for each the exact strings selected from `profile/`. Copy strings; do not retype or rephrase them
 3. Verify: `verifyVerbatim(plan, readSourceText("profile"))`. Any miss is reported beside its nearest source match, and requires explicit confirmation before rendering. Never confirm on the user's behalf
 4. Render: `buildResume(plan, outputDir)`
-5. Check: `checkPages(docx, outputDir, pageLimit)`, then act on its status
+5. Check: `checkPages(docx, outputDir, pageLimit)`, then act on its status:
 
 | Status       | Action                                                                                                                                                                                                                                                                                                                                                                      |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -259,7 +259,7 @@ Run these steps in order from this repository's root.
 
 ## Constraints That Must Never Break
 
-Each constraint holds on every run, whatever the request asks.
+Each constraint holds on every run, whatever the request asks:
 
 - **Never Print a String Absent from `profile/` without Confirmation**: The verifier exists because a background-check vendor reads these facts
 - **Never Violate [`profile/CLAUDE.md`](../../../profile/CLAUDE.md)**: It holds the judgment calls that the YAML alone does not show
