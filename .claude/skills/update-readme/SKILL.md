@@ -34,6 +34,8 @@ Pass this object as `headings` to `buildReadme`. Never invent different titles.
 
 ### Worked Example
 
+This assembles the input from `profile/` per the table above and passes it to `buildReadme`.
+
 ```js
 import { load } from "js-yaml";
 import { readFileSync } from "node:fs";
@@ -68,6 +70,8 @@ const readme = buildReadme({
 
 ## Process
 
+Run these steps in order from this repository's root, and write nothing before step 6.
+
 1. Read `profile/*.yaml` and `profile/CLAUDE.md`
 2. Resolve project versions with `resolveVersions(projects)`. Network failure is not fatal; a project without a version shows its stage instead
 3. Compose with `buildReadme(input)`, passing the `headings` object above. Experience is computed from `timeline.yaml` against today's date — never print a stated figure
@@ -96,6 +100,8 @@ const check = verifyVerbatim(plan, readSourceText("profile")); // advisory — s
 ```
 
 ## Constraints That Must Never Break
+
+Each constraint holds on every run, whatever the request asks.
 
 - **Never Hand-Edit `README.md`**: Change `profile/` and regenerate
 - **Never Invent Section Headings**: Use the fixed `headings` object above

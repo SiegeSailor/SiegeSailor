@@ -9,6 +9,8 @@ Renders a resume from `profile/` for a specific requirement. The model chooses w
 
 ## Inputs
 
+Use the value the request gives for each input, and the default when it gives none.
+
 | Input                       | Default                                      |
 | --------------------------- | -------------------------------------------- |
 | Page Limit                  | 1                                            |
@@ -241,6 +243,8 @@ This plan selects the same content the pre-port pipeline printed. It is known to
 
 ## Process
 
+Run these steps in order from this repository's root.
+
 1. Read `profile/*.yaml`, `profile/CLAUDE.md`, and [`reference/layout.md`](./reference/layout.md)
 2. Build a plan per the schema above — ordered sections, and for each the exact strings selected from `profile/`. Copy strings; do not retype or rephrase them
 3. Verify: `verifyVerbatim(plan, readSourceText("profile"))`. Any miss is reported beside its nearest source match, and requires explicit confirmation before rendering. Never confirm on the user's behalf
@@ -254,6 +258,8 @@ This plan selects the same content the pre-port pipeline printed. It is known to
 | `unverified` | Say the page count was **not** checked, and why. Never report success for an unverified document                                                                                                                                                                                                                                                                            |
 
 ## Constraints That Must Never Break
+
+Each constraint holds on every run, whatever the request asks.
 
 - **Never Print a String Absent from `profile/` without Confirmation**: The verifier exists because a background-check vendor reads these facts
 - **Never Violate [`profile/CLAUDE.md`](../../../profile/CLAUDE.md)**: It holds the judgment calls that the YAML alone does not show

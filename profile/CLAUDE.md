@@ -10,14 +10,20 @@ This folder is the single source of truth for the following outputs. Every fact 
 
 ### Changes
 
+These rules cover every fact in this folder, both in its source files and in every document rendered from them.
+
 - **Confirm Before Changing a Fact**: No date, title, ranking, or number in this folder changes without explicit confirmation from Ken
 - **Render Facts as Written**: Rewording a fact into a punchier or different claim, such as a placement, a score, a percentage, or a range, needs the same confirmation as editing the file
 
 ### Claims
 
+This rule limits where a fact may appear, not how it is worded.
+
 - **Keep Contact Details on the Resume**: The phone number and postal area in `contact.yaml` never appear on the website or in the README
 
 ### Employment History
+
+These rules apply to every document that renders `experience.yaml`.
 
 - **Keep 1 Line per Title**: CooperSurgical and Servicetech list each title with its own dates because background-check vendors verify them separately; omitting a line, such as the 2016–2017 Servicetech internship, is allowed, but merging 2 titles into 1 widened range, such as a 2016–2018 Servicetech line, is not
 - **Keep Senior Roles**: Never drop a role to make room while keeping a more junior one from the same employer, since that reads as an unexplained gap
