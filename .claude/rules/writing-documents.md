@@ -35,6 +35,7 @@ Follow these styles strictly, and prompt the user if any of them conflicts with 
 - **Fence Code Blocks**: Tag code blocks with the correct language, e.g., `shell` for terminal commands
 - **Follow Heading Patterns**: Same pattern for headers in a list or a table, e.g., Do Foo, Amazing Bar
 - **Format Items**: Use tables when 3 or more items share the same shape, a list when they do not
+- **Give Minimum Context**: For `*Foo*` and `**Bar**`, give at least 1 sentence of context after the title
 - **Link with Relative Paths**: Write relative links when linking to another file, and check that each one resolves
 - **Mention File Location**: State what the filename and location are when it matters
 - **Order Alphabetically**: Lists, tables, and ordered content should follow alphabetical order when applicable
