@@ -44,6 +44,7 @@ Follow these styles strictly, and prompt the user if any of them conflicts with 
 - **State Only the Necessary**: No summary of what the document just said, no conclusion, and no restating a heading
 - **Use Actual Numbers**: Use actual numbers instead of words like three, five, e.g., 2 dogs, 7 birds
 - **Use Backticks for URLs**: Write a bare URL as `https://example.com`, and link it when it has link text. No raw HTML
+- **Use Colons for Items**: Use a colon at the end of a description if the next line is a list, table, or code block
 - **Use Double Quotes**: Use double quotes when applicable
 - **Use Periods only for Paragraphs**: Headings, lists, and tables do not end with a period
 
