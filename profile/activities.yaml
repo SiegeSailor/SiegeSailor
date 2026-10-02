@@ -66,13 +66,89 @@ activities:
         dates: "2024"
       - organization: NFU Multimedia Design Team
         dates: "2017"
+  # Public GitHub projects where Ken opened, commented on, or discussed an
+  # issue, dated by the year of the first such activity. Electron includes
+  # Electron Forge, Ionic Framework includes the Ionic CLI and Ionic v3, and
+  # React Three Fiber includes drei and gltfjsx.
   - activity: Open-Source Contribution
     entries:
-      - organization: TypeScript
+      - organization: Awesome Copilot
+        dates: "2026"
+      - organization: SadServers
+        dates: "2026"
+      - organization: terraform-aws-tfstate-backend
+        dates: "2025"
+      - organization: terraform-aws-ecs
+        dates: "2025"
+      - organization: dockpin
+        dates: "2025"
+      - organization: gRPC
+        dates: "2025"
+      - organization: Simple Icons
+        dates: "2025"
+      - organization: commitizen-action-pr
+        dates: "2025"
+      - organization: opensource-nepal/commitlint
+        dates: "2025"
+      - organization: pyenv-virtualenv
+        dates: "2025"
+      - organization: Python Semantic Release
+        dates: "2025"
+      - organization: Mermaid
+        dates: "2025"
+      - organization: HeroUI
+        dates: "2025"
+      - organization: hadolint
+        dates: "2025"
+      - organization: Node.js
+        dates: "2025"
+      - organization: Pylint
+        dates: "2025"
+      - organization: giscus
+        dates: "2024"
+      - organization: mkcert
+        dates: "2024"
+      - organization: Docker Desktop for Mac
+        dates: "2024"
+      - organization: next-mdx-remote
+        dates: "2024"
+      - organization: Next.js
         dates: "2023"
       - organization: Electron
         dates: "2023"
-      - organization: Ionic Framework
+      - organization: Husky
+        dates: "2023"
+      - organization: LeetCode Feedback
+        dates: "2023"
+      - organization: Jest
         dates: "2022"
+      - organization: aws-ssm-send-command
+        dates: "2022"
+      - organization: aws-ecr-action
+        dates: "2022"
+      - organization: vscode-github-actions
+        dates: "2022"
+      - organization: uWSGI
+        dates: "2022"
+      - organization: UTM
+        dates: "2022"
+      - organization: prism-react-renderer
+        dates: "2022"
+      - organization: Docusaurus
+        dates: "2022"
+      - organization: Ionic Framework
+        dates: "2021"
+      - organization: TypeScript
+        dates: "2021"
+      - organization: youtube-dl
+        dates: "2021"
+      - organization: three-devtools
+        dates: "2021"
       - organization: React Three Fiber
         dates: "2021"
+      - organization: React
+        dates: "2020"
+      - organization: Ant Design
+        dates: "2020"
+      - organization: Redirection
+        dates: "2019"
