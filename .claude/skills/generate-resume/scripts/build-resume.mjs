@@ -256,10 +256,30 @@ const buildSchools = (section) => {
   return out;
 };
 
+const dated = (text, dates) => (dates ? `${text} (${dates})` : text);
+
+// "Role, Organization, Event (Dates) — detail", or for a pastime,
+// "Activity — Organization (Dates), ...". Every part but the first is optional.
+const activityLine = (item) => {
+  const head =
+    item.activity ??
+    dated(
+      [item.role, item.organization, item.event].filter(Boolean).join(", "),
+      item.dates,
+    );
+  const tail = item.entries
+    ? item.entries.map((e) => dated(e.organization, e.dates)).join(", ")
+    : item.detail;
+  return tail ? `${head} — ${tail}` : head;
+};
+
 const buildActivities = (section) => {
   const items = section.items || [];
   if (!items.length) return [];
-  return [sectionHeader(section.heading), ...items.map((text) => bullet(text))];
+  return [
+    sectionHeader(section.heading),
+    ...items.map((item) => bullet(activityLine(item))),
+  ];
 };
 
 const BUILDERS = {

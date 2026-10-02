@@ -46,7 +46,7 @@ const check = checkPages(docx, outputDir, plan.pageLimit ?? 1);
 
 ## Plan Schema
 
-A plan is a plain object. `verifyVerbatim` walks every scalar leaf of it and rejects any string it cannot find in `profile/*.yaml`, except `audience` and `pageLimit` themselves (an object or array placed under either name is still walked). `heading` must be one of the exact names in `reference/layout.md`; `key` selects the builder in `build-resume.mjs` and must be one of `summary`, `skills`, `experience`, `publications`, `education`, `certifications`, `activities`. Every string inside a section — bullets, details, publication and activity items included — is a bare string, not `{ text: ... }`, even though it is stored that way in `profile/*.yaml`: pull `.text` out when copying:
+A plan is a plain object. `verifyVerbatim` walks every scalar leaf of it and rejects any string it cannot find in `profile/*.yaml`, except `audience` and `pageLimit` themselves (an object or array placed under either name is still walked). `heading` must be one of the exact names in `reference/layout.md`; `key` selects the builder in `build-resume.mjs` and must be one of `summary`, `skills`, `experience`, `publications`, `education`, `certifications`, `activities`. Every string inside a section — bullets, details, publication items, and an activity's `detail` included — is a bare string, not `{ text: ... }`, even though it is stored that way in `profile/*.yaml`: pull `.text` out when copying:
 
 ```text
 {
@@ -77,7 +77,14 @@ A plan is a plain object. `verifyVerbatim` walks every scalar leaf of it and rej
       }, ...] },
 
     { key: "activities", heading: "Activities",
-      items: [string, ...] },
+      items: [
+        { role: string, organization: string, event: string,  // event, dates, detail optional
+          dates: string, detail: string },                     // detail: 1 of its `details`
+        { activity: string,
+          entries: [{ organization: string, dates: string }, ...] },  // dates optional
+        { activity: string, detail: string },
+        ...
+      ] },
   ],
 }
 ```

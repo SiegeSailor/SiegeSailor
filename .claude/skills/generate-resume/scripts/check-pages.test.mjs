@@ -58,10 +58,9 @@ test("reports over when the document exceeds the limit", async () => {
       {
         key: "activities",
         heading: "Activities",
-        items: Array.from(
-          { length: 400 },
-          (_, index) => `Line number ${index} of filler text`,
-        ),
+        items: Array.from({ length: 400 }, (_, index) => ({
+          activity: `Line number ${index} of filler text`,
+        })),
       },
     ],
   };
