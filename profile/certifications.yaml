@@ -1,7 +1,6 @@
-# Two MIT entries by design: the resume needs the compact one-line form for
-# the one-page fit; the entry that spells the ranking out as a bullet is here
-# for the resume skill to pick instead, when there's room. `credential`,
-# `issued`, and `cohort` are as LinkedIn lists them.
+# Two MIT entries by design: a compact one-line form, and one that spells the
+# ranking out as a detail. `credential`, `issued`, and `cohort` are as LinkedIn
+# lists them.
 certifications:
   - school: Massachusetts Institute of Technology
     degree: "Cert. in Data Science & Machine Learning (top 15 of 146)"

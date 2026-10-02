@@ -1,15 +1,11 @@
-# The resume's Work Experience section, and the company behind the home page
-# hero (the site reads the first entry's `company` and `website`).
-#
 # Stacked role lines are deliberate: background-check vendors verify titles and
 # dates separately, so CooperSurgical and Servicetech keep one line per title
-# rather than one widened range. Some material here is held back for the
-# one-page fit.
+# rather than one widened range.
 #
 # `legalName`, `department`, and each role's `type`, `arrangement`, and `city`
 # are the record as LinkedIn and earlier resumes state it. `blurb.alternatives`
-# holds longer company descriptions for when there's room, and a role's
-# `alternativeTitles` hold other true titles for the same dates.
+# holds longer company descriptions, and a role's `alternativeTitles` hold other
+# true titles for the same dates.
 #
 # Bullets belong to the company, not to a role line: a comment marks the ones
 # that come from a single role.
@@ -314,8 +310,7 @@ experience:
         - text: "Top non-invasive pain management medical device distributor in Taiwan for 13+ international OEMs"
     # A family business, so the titles undersell the scope: from 2017 Ken
     # managed people and ran marketing, social media, digital asset creation,
-    # and expo support alongside the software. Print 1 title per role line,
-    # chosen for the audience.
+    # and expo support alongside the software.
     roles:
       # Part-time and remote since leaving Edallianz, supporting the website
       # and web application Ken built here. It overlaps the full-time roles
@@ -339,7 +334,6 @@ experience:
         type: Full-time
         arrangement: On-site
         focus: Digital Transformation
-      # Label this rather than widening the 2017–2018 range if it is ever needed.
       # Earlier resumes call it "Software Engineer"; it was an internship.
       - title: Software Engineering Intern
         dates: "Jun 2016 – Jan 2017"

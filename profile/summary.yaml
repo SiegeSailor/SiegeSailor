@@ -1,6 +1,3 @@
-# The first entry is the summary everywhere: the resume document, /about, and
-# the README. The second is the systems-focused alternative, kept until it is
-# wanted.
 summary:
   - text: >-
       Senior software engineer bridging across distributed systems, hardware,

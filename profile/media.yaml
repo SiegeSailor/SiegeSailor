@@ -1,7 +1,3 @@
-# External profile links. `key` selects the icon in settings/icons.ts, so a
-# new entry needs a matching icon there before the site will render it. The
-# site renders these inline, in the header, footer, and at the foot of
-# /about; the README lists them too.
 media:
   - key: github
     label: GitHub

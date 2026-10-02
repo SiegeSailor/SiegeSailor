@@ -1,9 +1,5 @@
-# Who this is, in the two forms the outputs need. `legal` heads the resume
-# document (the builder upper-cases it); `display` is the byline on the site and
-# the README.
 identity:
   legal: Jin Yu Zhang
   display: Jin Yu Zhang
-  # Rendered as "Jin Yu (Ken) Zhang" in the 2025 resume headers.
   nickname: Ken
   pronouns: He/Him

@@ -31,4 +31,4 @@ These rules apply to every document that renders `experience.yaml`:
 
 ### Shape
 
-Each subject has 1 file holding exactly 1 top-level key. `verifyVerbatim` loads every file as 1 YAML document, so a top-level key must also be unique across files. What appears in a given document is decided per run by the skill rendering it, not by a flag stored here. Inline comments carry the reasoning behind a fact.
+Each subject has 1 file holding exactly 1 top-level key. `verifyVerbatim` loads every file as 1 YAML document, so a top-level key must also be unique across files. What appears in a given document is decided per run by the skill rendering it, not by a flag stored here. Inline comments carry the reasoning behind a fact, never which document it is for or when it fits.

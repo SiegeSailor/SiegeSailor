@@ -1,7 +1,4 @@
-# Ordinary content, not printed today because education.yaml already carries
-# the compact citation for the one-page fit — the resume skill may still pull
-# the full citation from here when there's room. `published` and `details`
-# are the date and abstract as LinkedIn lists them.
+# `published` and `details` are the date and abstract as LinkedIn lists them.
 publications:
   - text: >-
       First author, “Quantitative DevSecOps Metrics for Cloud-Based Web
