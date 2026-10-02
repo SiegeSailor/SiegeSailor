@@ -12,7 +12,7 @@ profile:
     position: "Senior Software Engineer"
   # Home page (jinyu-zhang.com) hero: `tagline` completes the "<position> at
   # <company> — " headline; `intro` is the paragraph beneath it.
-  tagline: "Distributed systems and developer platforms, from 10,000 RPS consumer scale to FDA-regulated devices."
+  tagline: "Distributed systems and developer platforms, from 10,000+ RPS consumer scale to FDA-regulated devices."
   intro: >-
     I build systems where the interface between components is the hard part.
     That means device clients over gRPC, services that hold up under load, and

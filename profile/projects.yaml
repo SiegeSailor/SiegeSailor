@@ -5,11 +5,12 @@
 projects:
   - title: Cryptography CLI
     stage: Development
-    href: "https://github.com/SiegeSailor/OpenSource.Formulas"
+    href: "https://github.com/SiegeSailor/Cryptography"
     description: >-
-      Available on `brew`, a *Rust* Command-Line Interface for executing
-      cryptographic algorithms. The CLI provides a collection of functions and
-      simulated secured communications between two parties.
+      Available on `npm`, a *TypeScript* package with *WebAssembly* enabled
+      that provides a collection of cryptography functions and a command-line
+      tool with interactive prompts to demonstrate key encryption flows and
+      algorithms.
   - title: AI-Driven Development Tools Integration
     stage: Planning
     href: "https://github.com/SiegeSailor"
@@ -83,8 +84,7 @@ projects:
       S3* behind *CloudFront*, with markdown-driven posts, in-site search, and a
       single-source résumé build system. Built with *TailwindCSS*, *HeroUI*, the
       *UnifiedJS* ecosystem, *Mermaid*, and *Zustand*.
-  # `stage` is a placeholder that keeps these 2 hidden until their real stage
-  # is confirmed; neither has a GitHub repository yet.
+  # Both are still in planning, and neither has a GitHub repository yet.
   - title: TypeScript Markdown Files Converter
     stage: Planning
     href: "https://github.com/SiegeSailor"

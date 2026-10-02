@@ -8,7 +8,11 @@
 #
 # `legalName`, `department`, and each role's `type`, `arrangement`, and `city`
 # are the record as LinkedIn and earlier resumes state it. `blurb.alternatives`
-# holds longer company descriptions for when there's room.
+# holds longer company descriptions for when there's room, and a role's
+# `alternativeTitles` hold other true titles for the same dates.
+#
+# Bullets belong to the company, not to a role line: a comment marks the ones
+# that come from a single role.
 experience:
   - company: CooperSurgical
     legalName: "CooperSurgical, Inc."
@@ -26,8 +30,10 @@ experience:
         type: Full-time
         arrangement: Hybrid
         city: "Livingston, NJ"
+      # Earlier resumes call this role "DevOps Engineer"; the title is
+      # Software Engineer.
       - title: Software Engineer
-        dates: "Jan 2024 – May 2025"
+        dates: "Jan 2024 – Jun 2025"
         location: "MA, USA"
         type: Contract
         arrangement: Remote
@@ -50,8 +56,10 @@ experience:
           by 50%
       - text: >-
           Led a shared React.js component library and its automated quality
-          workflow (ESLint, Jest, Semantic Release on GitLab CI) serving 5+
-          vendors and 20+ developers
+          workflow (ESLint, Jest, Semantic Release on GitLab CI), built by 8+
+          contributors from 5+ parties (CooperSurgical and 4+ vendors) and
+          used by 20+ developers across 6+ products (on-device software and
+          web applications)
       - text: >-
           Built secure IVF workstation software on purpose-built embedded
           Linux — compliance-driven SDLC (IEC 62304 / ISO 13485), GitLab
@@ -85,6 +93,11 @@ experience:
       - text: >-
           Led a team of 5 in central user interface development, supporting
           parallel product timelines
+      - text: >-
+          Headed a cross-product shared library with 8+ contributors from 5+
+          parties (CooperSurgical and 4+ vendors), adopted across 6+ products,
+          facilitating alignment on goals, outcomes, and timelines while
+          complying with US FDA & EU MDR requirements and business goals
       - text: >-
           Led the software integration effort for a regulated human factors
           study involving real embryologists and lab managers, collaborating
@@ -183,7 +196,7 @@ experience:
     bullets:
       - text: >-
           Built real-time multiplayer game services (Socket.IO, Express.js,
-          Redis) sustaining 10,000 peak RPS and 200,000+ daily players on
+          Redis) sustaining 10,000+ peak RPS and 200,000+ daily players on
           low-end devices in weak-signal regions
       # The window is the claim: first-to-last-day within one festival run, not
       # D1 or D7 cohort retention. Do not compress it back to "player retention".
@@ -199,8 +212,12 @@ experience:
           Implemented high-volume tolerant socket connections using Socket.IO,
           Express.js, and Redis for multi-player real-time SPA games built
           upon Ant Design, Phaser, React.js, Redux, TypeScript, and Three.js,
-          accommodating over 200,000 daily traffic and the highest RPS of
-          10,000
+          accommodating 200,000+ daily players and 10,000+ RPS
+      - text: >-
+          Solved 10,000+ RPS real-time client-facing issues by cooperating
+          with the marketing team and UI/UX designers to deliver more
+          fault-tolerant user flows, while maintaining the system's
+          performance
       - text: >-
           Designed 2D-3D-blended web mobile games with Three.js and Phaser,
           integrating with the main application built on React.js and Redux
@@ -258,7 +275,8 @@ experience:
           Redesigned the payment endpoint flow from internal data-flow
           analysis, lifting checkout conversion by 25%
       - text: >-
-          Grew daily user posts 5x (+800 posts/day) by introducing CDN caching
+          Grew daily user posts by 500% (+800 posts/day) by introducing CDN
+          caching
       - text: >-
           Launched a responsive UI framework (SASS, Webpack) restructuring
           sites built on Django, Tornado, and Apache HTTP Server
@@ -294,14 +312,35 @@ experience:
       text: "Top Taiwanese distributor of non-invasive pain-management medical devices"
       alternatives:
         - text: "Top non-invasive pain management medical device distributor in Taiwan for 13+ international OEMs"
+    # A family business, so the titles undersell the scope: from 2017 Ken
+    # managed people and ran marketing, social media, digital asset creation,
+    # and expo support alongside the software. Print 1 title per role line,
+    # chosen for the audience.
     roles:
+      # Part-time and remote since leaving Edallianz, supporting the website
+      # and web application Ken built here. It overlaps the full-time roles
+      # that follow it.
+      - title: Technical Consultant
+        alternativeTitles:
+          - Software Engineer (Part-Time)
+          - Full-Stack Developer
+          - Advisor
+        dates: "Dec 2019 – Present"
+        location: "Taichung, Taiwan"
+        type: Part-time
+        arrangement: Remote
       - title: Software Engineer
+        alternativeTitles:
+          - Department Director
+          - Head of Marketing and Technology
+          - Digital Transformation Lead
         dates: "Jun 2017 – Nov 2018"
         location: "Taichung, Taiwan"
         type: Full-time
         arrangement: On-site
         focus: Digital Transformation
       # Label this rather than widening the 2017–2018 range if it is ever needed.
+      # Earlier resumes call it "Software Engineer"; it was an internship.
       - title: Software Engineering Intern
         dates: "Jun 2016 – Jan 2017"
         location: "Taichung, Taiwan"
@@ -343,3 +382,25 @@ experience:
           members into the process
       - text: >-
           Automated the contract filing process using Python Scripting
+      - text: >-
+          Established a 4-member marketing and technology department to
+          develop marketing materials and software by building workflows,
+          designing and implementing, and hiring employees
+      - text: >-
+          Handled marketing, social media, digital asset creation, and expo
+          support beyond software engineering
+      # Part-time role (Dec 2019 – Present).
+      - text: >-
+          Continued supporting the company website and web application built
+          during the full-time role, part-time and remotely
+      - text: >-
+          Implemented trading features and integrated them into the internal
+          PWA with Automation First Strategy using React, Cloud Functions, and
+          NodeJS
+      - text: >-
+          Enhanced security practices in the existing user flow, including
+          privilege management and CI/CD with logging, SAST, and deployment
+          policy
+      - text: >-
+          Advised digital tools and identity system usage to enhance company
+          efficiency continuously

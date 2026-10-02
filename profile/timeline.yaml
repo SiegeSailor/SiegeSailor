@@ -16,6 +16,8 @@ timeline:
       details:
         - text: "Compulsory Military Service"
         - text: "Participated in the pre-Han Kuang Exercise as a reserve artillery member"
+    # Feb – May 2022 was Servicetech work between Shopee and Boston
+    # University, so the gap starts in June.
     - label: Career Gap
-      start: "2022-02-01"
+      start: "2022-06-01"
       end: "2024-01-31"

@@ -11,21 +11,24 @@ education:
           Microservices,” IEEE Access, 2024
       - text: "3rd place, NCAE-C Cyber Games 2023 Northeast Division — Server Security Leader (infrastructure defense)"
       - text: >-
-          Led a 6-developer course team building an MVP SaaS prototype (Django,
-          PostgreSQL, AWS) against live commercial requirements for StageSource,
-          a Boston arts nonprofit
+          Co-led a 6-member classmate team building an MVP SaaS prototype
+          (Django, PostgreSQL, AWS) against live commercial requirements for
+          StageSource, a Boston arts nonprofit
       - text: "Coursework: Cryptography, Secure Software Development, Computer Language Theory, Analysis of Algorithms"
       - text: "Coursework: Cryptography, Secure Software Development, Analysis of Algorithms, Computer Language Theory, Software Engineering, Data Structure with Java, and Server-Side Web Development"
-      - text: "Completed a Master's thesis on Cybersecurity and Software Engineering"
+      - text: "Completed a Master's thesis on Cybersecurity and Software Engineering, “Quantitative DevSecOps Metrics for Cloud-Based Web Microservices”"
       # From a peer's recommendation letter for the MIT SDM application.
       - text: >-
           Used Natural Language Processing on the Common Vulnerabilities and
           Exposures list to form a reference dataset for the thesis, and
           applied Data Science and Machine Learning coursework to build a
           quantitative model validating the proposed metrics
-    # StageSource was a Boston University course team working a real client's
-    # requirements, not employment: the details line above is its resume form,
-    # and verifyVerbatim rejects it as a Work Experience entry.
+    # StageSource was a side project with Boston University classmates, not
+    # employment, though the team met its stakeholders, worked from their real
+    # requirements and feedback, and deployed the prototype to the web. The
+    # details line above is its resume form, and verifyVerbatim rejects it as
+    # a Work Experience entry. Earlier resumes call the role "DevOps Engineer"
+    # and LinkedIn lists it as Freelance; neither is the record.
     engagement:
       company: StageSource
       department: Software Development Team
@@ -37,20 +40,20 @@ education:
         alternatives:
           - text: "Boston-based nonprofit supporting 200+ theater companies and 1,500+ arts professionals annually"
       roles:
-        - title: Software Engineer (Contract)
+        - title: Software Engineer, Requirement Leader
           dates: "Sep 2022 – Dec 2022"
           location: "MA, USA"
           arrangement: Remote
       bullets:
         - text: >-
-            Led a 6-developer team to deliver an MVP SaaS prototype (Django,
+            Co-led a 6-member team to deliver an MVP SaaS prototype (Django,
             uWSGI, Nginx, PostgreSQL) on schedule, introducing Scrum, CI/CD,
             and cloud-first practices to the organization
         - text: >-
             Halved deployment time with GitHub Actions pipelines using
             OIDC-authenticated deploys to AWS
         - text: >-
-            Led end-to-end development of a SaaS product, introducing Agile
+            Co-led end-to-end development of a SaaS product, introducing Agile
             (Scrum) workflows and modern software concepts (CI/CD pipelines,
             cloud-first, Cybersecurity), delivering Minimum Viable Product on
             schedule
@@ -77,6 +80,12 @@ education:
             tightly with the members in charge to align a team of mixed
             expertise
         - text: >-
+            Co-led development of a standalone public-facing matching service
+            with a 6-member team
+        - text: >-
+            Met with StageSource stakeholders to gather real requirements and
+            feedback, and deployed the prototype to the web
+        - text: >-
             Utilized AWS CloudWatch and S3 to develop a layered storage system
         - text: >-
             Structured an automated testing pipeline using Unittest
@@ -94,10 +103,13 @@ education:
       - text: "Researched the integration of browser runtime and 3D modeling technology in different device layouts"
       - text: "Coursework: Computer Programming, Computer Graphics & Image Processing, Information Software Application, Database Design, Multimedia Programming, Virtual Reality Design, 2D Computer Graphics, and 3D Advanced Computer Animation"
     # DY Game was a student internship taken during the B.F.A., not
-    # employment: the details line above is its resume form, and verifyVerbatim
-    # rejects it as a Work Experience entry.
+    # employment: a school professor ran it, unpaid and without a formal
+    # contract. The details line above is its resume form, and verifyVerbatim
+    # rejects it as a Work Experience entry under either name.
     engagement:
       company: DY Game
+      # The company's name in China; DY Game is its name in Taiwan.
+      alias: "Shanghai T2 Entertainment Co., Ltd."
       location: "Yunlin, Taiwan"
       industry: Gaming
       website: "https://www.dygame.cn/"
@@ -112,11 +124,16 @@ education:
           type: Internship
           arrangement: On-site
       bullets:
-        # Not "co-managed": the planning groups were delegated before the
-        # internship began, and the cohort was one course's students.
+        # Not "co-managed": Ken did the planning and timeline scheduling, but
+        # the planning groups were delegated before the internship began, and
+        # the cohort was one course's students.
         - text: >-
             Shipped a motion-sensing game title with a 30-person cohort, working
             across its programming, art, and operations groups
         - text: >-
             Designed mobile motion-sensing games in a research-based role with
             Unity, Maya, and 3ds Max
+        - text: >-
+            Handled project planning and timeline scheduling for the 30-person
+            cohort, collaborating with 2D/3D artists, game engine programmers,
+            and game designers on an extensible game proposal in 2015
