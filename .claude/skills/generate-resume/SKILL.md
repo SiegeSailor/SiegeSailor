@@ -99,7 +99,7 @@ This plan selects the content the pre-port pipeline printed, less 1 Edallianz bu
     {
       "key": "summary",
       "heading": "Summary",
-      "text": "Senior software engineer bridging across distributed systems, hardware, and firmware. Architected a device SDK over gRPC with C++, Python, .NET, and Node.js clients, reused across 5+ products under FDA and EU MDR. Sustained 10,000+ peak RPS and 200,000+ daily players at Shopee. Led engineering across 5+ parties (CooperSurgical and 4+ vendors) and 20+ developers."
+      "text": "Senior software engineer bridging across distributed systems, hardware, and firmware. Architected a device SDK over gRPC with C++, Python, .NET, and Node.js clients, reused across 5+ products under FDA and EU MDR. Sustained 10,000+ peak RPS and 200,000+ daily players at Shopee. Led a team of 5, and a shared component library built with 4+ vendors and used by 20+ developers."
     },
     {
       "key": "skills",

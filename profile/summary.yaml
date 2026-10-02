@@ -6,9 +6,9 @@ summary:
       Senior software engineer bridging across distributed systems, hardware,
       and firmware. Architected a device SDK over gRPC with C++, Python, .NET,
       and Node.js clients, reused across 5+ products under FDA and EU MDR.
-      Sustained 10,000+ peak RPS and 200,000+ daily players at Shopee. Led
-      engineering across 5+ parties (CooperSurgical and 4+ vendors) and 20+
-      developers.
+      Sustained 10,000+ peak RPS and 200,000+ daily players at Shopee. Led a
+      team of 5, and a shared component library built with 4+ vendors and used
+      by 20+ developers.
   - text: >-
       Senior software engineer spanning regulated medical devices (FDA / EU MDR)
       and large-scale consumer platforms. Led a team of 5 to ship device SDKs,
@@ -20,8 +20,8 @@ summary:
       Systems-focused software engineer with years of experience bridging hardware,
       firmware, and software on FDA / EU MDR-regulated medical devices, after
       scaling consumer platforms to 200,000+ daily users. Led a team of 5 across
-      cross-vendor engineering (CooperSurgical and 4+ vendors, 20+ developers),
-      define cross-functional
+      cross-vendor engineering with CooperSurgical and 4+ vendors, define
+      cross-functional
       interface standards, and coordinate global formative studies. First
       author of an IEEE Access publication on quantitative DevSecOps metrics;
       promoted intern to senior engineer in two years.
