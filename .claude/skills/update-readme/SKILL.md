@@ -17,24 +17,32 @@ const headings = { summary: "Summary", projects: "Projects", media: "Links" };
 
 Pass this object as `headings` to `buildReadme`. Never invent different titles.
 
+## Summary
+
+Each run writes a new summary for the README's readers rather than copying 1, so it changes from run to run:
+
+- **Keep Facts as Written**: Every number, title, and claim in it keeps its wording from `profile/*.yaml`, per **Render Facts as Written** in [`profile/CLAUDE.md`](../../../profile/CLAUDE.md)
+- **Show It Before Writing**: Ken approves its wording in the diff from **Process** step 6
+- **Treat `summary.yaml` as Examples**: Its entries are earlier approved summaries to draw on, not 1 to copy
+
 ## Input Shape
 
-`buildReadme` destructures exactly 8 fields. Every field but `versions` and `headings` is read straight out of `profile/`, and most are passed through as-is — but `summary` is the one field that needs unwrapping before it reaches `buildReadme`: `summary.yaml` stores its value as `[{ text: ... }]` (an array of objects, so a comment can sit beside each variant), while `buildReadme` calls `.trim()` directly on `summary` and requires a **bare string**. Passing the array or an object through unchanged breaks the build, so read this table rather than rediscovering the mismatch in `build-readme.mjs`:
+`buildReadme` destructures exactly 8 fields. `summary` is written per run, `versions` is computed, and `headings` is fixed; every other field is read straight out of `profile/` and passed through as-is. `buildReadme` calls `.trim()` directly on `summary`, so it must be a **bare string**, never `summary.yaml`'s array or 1 of its `{ text }` entries. Read this table rather than rediscovering the shapes in `build-readme.mjs`:
 
-| Field      | Source                                           | Shape `buildReadme` Needs                                 | Unwrap Needed?                                                          |
-| ---------- | ------------------------------------------------ | --------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `headings` | not from `profile/`                              | `{ summary, projects, media }`                            | Fixed — the literal object in **Headings** above, never invented        |
-| `identity` | `identity.yaml`'s `identity:` key                | `{ legal, display }`                                      | No — pass through; only `.display` is read                              |
-| `media`    | `media.yaml`'s `media:` key                      | `[{ key, label, href }, ...]`                             | No — pass through                                                       |
-| `profile`  | `profile.yaml`'s `profile:` key                  | `{ headlines: string[], status: { location, position } }` | No — pass through                                                       |
-| `projects` | `projects.yaml`'s `projects:` key                | `[{ title, href, stage, description }, ...]`              | No — pass through (`description` is read but unused by the README)      |
-| `summary`  | `summary.yaml`'s `summary:` key, **first entry** | bare `string`                                             | **Yes** — take `summary[0].text`, not the array                         |
-| `timeline` | `timeline.yaml`'s `timeline:` key                | `{ start, excluded: [{ start, end }, ...] }`              | No — pass through                                                       |
-| `versions` | not from `profile/`                              | `{ "<owner>/<repo>": "<tag>" }`                           | Computed — call `resolveVersions(projects)` first, do not hand-build it |
+| Field      | Source                                 | Shape `buildReadme` Needs                                 | Unwrap Needed?                                                          |
+| ---------- | -------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `headings` | not from `profile/`                    | `{ summary, projects, media }`                            | Fixed — the literal object in **Headings** above, never invented        |
+| `identity` | `identity.yaml`'s `identity:` key      | `{ legal, display }`                                      | No — pass through; only `.display` is read                              |
+| `media`    | `media.yaml`'s `media:` key            | `[{ key, label, href }, ...]`                             | No — pass through                                                       |
+| `profile`  | `profile.yaml`'s `profile:` key        | `{ headlines: string[], status: { location, position } }` | No — pass through                                                       |
+| `projects` | `projects.yaml`'s `projects:` key      | `[{ title, href, stage, description }, ...]`              | No — pass through (`description` is read but unused by the README)      |
+| `summary`  | written per run, per **Summary** above | bare `string`                                             | No — write it as a string, not as a `{ text }` entry                    |
+| `timeline` | `timeline.yaml`'s `timeline:` key      | `{ start, excluded: [{ start, end }, ...] }`              | No — pass through                                                       |
+| `versions` | not from `profile/`                    | `{ "<owner>/<repo>": "<tag>" }`                           | Computed — call `resolveVersions(projects)` first, do not hand-build it |
 
 ### Worked Example
 
-This assembles the input from `profile/` per the table above and passes it to `buildReadme`:
+This assembles the input per the table above and passes it to `buildReadme`:
 
 ```js
 import { load } from "js-yaml";
@@ -48,7 +56,7 @@ const readYaml = (file) => load(readFileSync(`profile/${file}`, "utf8"));
 
 const identity = readYaml("identity.yaml").identity; // { legal, display } — pass through
 const profile = readYaml("profile.yaml").profile; // { headlines, status, ... } — pass through
-const summary = readYaml("summary.yaml").summary[0].text; // unwrap: [{ text }] -> string
+const summary = "Senior software engineer …"; // written for this run — see Summary
 const projects = readYaml("projects.yaml").projects; // pass through
 const media = readYaml("media.yaml").media; // pass through
 const timeline = readYaml("timeline.yaml").timeline; // pass through
@@ -70,18 +78,19 @@ const readme = buildReadme({
 
 ## Process
 
-Run these steps in order from this repository's root, and write nothing before step 6:
+Run these steps in order from this repository's root, and write nothing before step 7:
 
 1. Read `profile/*.yaml` and `profile/CLAUDE.md`
 2. Resolve project versions with `resolveVersions(projects)`. Network failure is not fatal; a project without a version shows its stage instead
-3. Compose with `buildReadme(input)`, passing the `headings` object above. Experience is computed from `timeline.yaml` against today's date — never print a stated figure
-4. Verify (advisory): check the composed prose against `profile/` before showing the diff. Build a plain object of the strings `buildReadme` wove into the README — at minimum `{ summary, headlines: profile.headlines, projectTitles: projects.map((p) => p.title), mediaLabels: media.map((m) => m.label) }` — and call `verifyVerbatim(plan, readSourceText("profile"))`. The output is Markdown, so this check is advisory: report any misses alongside the diff in the next step, but never block the write on them. This is the opposite of `generate-resume`, where the same check's misses require explicit confirmation before rendering — the README has no page limit or background-check reader riding on it, so a miss here is a note, not a gate
-5. Show the diff against the current `README.md`, plus any misses from step 4
-6. Write only on confirmation
+3. Write the summary per **Summary** above
+4. Compose with `buildReadme(input)`, passing the `headings` object above. Experience is computed from `timeline.yaml` against today's date — never print a stated figure
+5. Verify (advisory): check the composed prose against `profile/` before showing the diff. Call `verifyVerbatim(plan, readSourceText("profile"))` on a plain object of the fixed strings `buildReadme` wove into the README — at minimum `{ headlines: profile.headlines, projectTitles: projects.map((p) => p.title), mediaLabels: media.map((m) => m.label) }`. The written summary never matches a `profile/` string verbatim, so check it fact by fact instead: list each number, title, and claim it states beside the `profile/` value it comes from. The output is Markdown, so this check is advisory: report any misses alongside the diff in the next step, but never block the write on them. This is the opposite of `generate-resume`, where the same check's misses require explicit confirmation before rendering — the README has no page limit or background-check reader riding on it, so a miss here is a note, not a gate
+6. Show the diff against the current `README.md`, plus the summary's fact list and any misses from step 5
+7. Write only on confirmation
 
 ## Scripts
 
-`buildReadme` and `resolveVersions` are plain ESM library exports — they have **no command-line interface**. `verifyVerbatim` and `readSourceText` (the advisory check in step 4) come from the same module `generate-resume` uses. Call them from a small `.mjs` file, or with `node --input-type=module`, from this repository's root:
+`buildReadme` and `resolveVersions` are plain ESM library exports — they have **no command-line interface**. `verifyVerbatim` and `readSourceText` (the advisory check in step 5) come from the same module `generate-resume` uses. Call them from a small `.mjs` file, or with `node --input-type=module`, from this repository's root:
 
 ```js
 import {
@@ -96,7 +105,7 @@ import {
 const versions = await resolveVersions(input.projects);
 const readme = buildReadme({ ...input, versions, headings });
 
-const check = verifyVerbatim(plan, readSourceText("profile")); // advisory — see Process step 4
+const check = verifyVerbatim(plan, readSourceText("profile")); // advisory — see Process step 5
 ```
 
 ## Constraints That Must Never Break
@@ -106,3 +115,4 @@ Each constraint holds on every run, whatever the request asks:
 - **Never Hand-Edit `README.md`**: Change `profile/` and regenerate
 - **Never Invent Section Headings**: Use the fixed `headings` object above
 - **Never Print Contact Details**: [`profile/CLAUDE.md`](../../../profile/CLAUDE.md) restricts the phone number and postal area to the resume document
+- **Never State a Fact Outside `profile/`**: The summary is new each run, but every fact in it is one `profile/*.yaml` holds
