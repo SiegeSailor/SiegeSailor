@@ -84,7 +84,7 @@ A plan is a plain object. `verifyVerbatim` walks every scalar leaf of it and rej
 
 ## Worked Example
 
-This plan selects the same content the pre-port pipeline printed. It is known to work: rendering it produced a `pdftotext -layout` output identical to that pipeline's reference PDF, at 1 page, 612×792 pts:
+This plan selects the content the pre-port pipeline printed, less 1 Edallianz bullet dropped to stay on 1 page once the CooperSurgical library bullet grew. It is known to work: it passes `verifyVerbatim` against the current `profile/` and renders at 1 page, 612×792 pts:
 
 ```json
 {
@@ -99,7 +99,7 @@ This plan selects the same content the pre-port pipeline printed. It is known to
     {
       "key": "summary",
       "heading": "Summary",
-      "text": "Senior software engineer bridging across distributed systems, hardware, and firmware. Architected a device SDK over gRPC with C++, Python, .NET, and Node.js clients, reused across 5+ products under FDA and EU MDR. Sustained 10,000 peak RPS and 200,000+ daily players at Shopee. Led engineering across 5+ vendors and 20+ developers."
+      "text": "Senior software engineer bridging across distributed systems, hardware, and firmware. Architected a device SDK over gRPC with C++, Python, .NET, and Node.js clients, reused across 5+ products under FDA and EU MDR. Sustained 10,000+ peak RPS and 200,000+ daily players at Shopee. Led engineering across 5+ parties (CooperSurgical and 4+ vendors) and 20+ developers."
     },
     {
       "key": "skills",
@@ -144,7 +144,7 @@ This plan selects the same content the pre-port pipeline printed. It is known to
               "title": "Senior Software Engineer",
               "dates": "Jun 2025 – Present"
             },
-            { "title": "Software Engineer", "dates": "Jan 2024 – May 2025" },
+            { "title": "Software Engineer", "dates": "Jan 2024 – Jun 2025" },
             {
               "title": "Software Engineering Intern",
               "dates": "May 2023 – Aug 2023"
@@ -153,7 +153,7 @@ This plan selects the same content the pre-port pipeline printed. It is known to
           "bullets": [
             "Architected a cross-product device SDK shipped as a Docker container (gRPC, MongoDB, RabbitMQ, Zeroconf) with .NET, Node.js, Python, and C++ clients, reused across 5+ FDA / EU MDR-regulated IVF products",
             "Cut RFID data-transition time by 90% with database caching and gRPC streaming, reducing environmental-data rendering time on device UIs by 50%",
-            "Led a shared React.js component library and its automated quality workflow (ESLint, Jest, Semantic Release on GitLab CI) serving 5+ vendors and 20+ developers",
+            "Led a shared React.js component library and its automated quality workflow (ESLint, Jest, Semantic Release on GitLab CI), built by 8+ contributors from 5+ parties (CooperSurgical and 4+ vendors) and used by 20+ developers across 6+ products (on-device software and web applications)",
             "Built secure IVF workstation software on purpose-built embedded Linux — compliance-driven SDLC (IEC 62304 / ISO 13485), GitLab CI/CD pipelines, and containerized applications",
             "Integrated LLM-assisted engineering into R&D workflows: agentic coding tools, self-healing document generation in GitLab CI, knowledge-graph extraction, and LLM observability (Langfuse)"
           ]
@@ -169,7 +169,7 @@ This plan selects the same content the pre-port pipeline printed. It is known to
             }
           ],
           "bullets": [
-            "Built real-time multiplayer game services (Socket.IO, Express.js, Redis) sustaining 10,000 peak RPS and 200,000+ daily players on low-end devices in weak-signal regions",
+            "Built real-time multiplayer game services (Socket.IO, Express.js, Redis) sustaining 10,000+ peak RPS and 200,000+ daily players on low-end devices in weak-signal regions",
             "Raised first-to-last-day player retention from 0.25 to 0.65 across 3–14 day shopping-festival runs by designing a weighted-random reward algorithm",
             "Integrated regional data warehouses and deployment pipelines with global services on GCP under a TDD-enforced workflow, cutting local developers' redeployment effort by 90%+"
           ]
@@ -181,8 +181,7 @@ This plan selects the same content the pre-port pipeline printed. It is known to
             { "title": "Software Engineer", "dates": "Jan 2019 – Nov 2019" }
           ],
           "bullets": [
-            "Redesigned the payment endpoint flow from internal data-flow analysis, lifting checkout conversion by 25%",
-            "Grew daily user posts 5x (+800 posts/day) by introducing CDN caching"
+            "Redesigned the payment endpoint flow from internal data-flow analysis, lifting checkout conversion by 25%"
           ]
         },
         {
@@ -208,7 +207,7 @@ This plan selects the same content the pre-port pipeline printed. It is known to
           "details": [
             "First author, “Quantitative DevSecOps Metrics for Cloud-Based Web Microservices,” IEEE Access, 2024",
             "3rd place, NCAE-C Cyber Games 2023 Northeast Division — Server Security Leader (infrastructure defense)",
-            "Led a 6-developer course team building an MVP SaaS prototype (Django, PostgreSQL, AWS) against live commercial requirements for StageSource, a Boston arts nonprofit"
+            "Co-led a 6-member classmate team building an MVP SaaS prototype (Django, PostgreSQL, AWS) against live commercial requirements for StageSource, a Boston arts nonprofit"
           ]
         },
         {
