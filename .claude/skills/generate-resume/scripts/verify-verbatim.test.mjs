@@ -406,6 +406,23 @@ test("DY Game rendered as a Work Experience entry is caught (F2)", () => {
   assert.match(miss.nearest, /profile\/education\.yaml/);
 });
 
+test("DY Game under its China name is caught as a Work Experience entry", () => {
+  const plan = {
+    sections: [
+      {
+        key: "experience",
+        heading: "Work Experience",
+        entries: [{ company: "Shanghai T2 Entertainment Co., Ltd." }],
+      },
+    ],
+  };
+  const miss = verifyVerbatim(plan, EMPLOYMENT_SOURCE).misses.find(
+    (m) => m.path === "sections[0].entries[0].company",
+  );
+  assert.ok(miss, "expected a miss on the entry's company");
+  assert.match(miss.nearest, /student engagement/);
+});
+
 test("StageSource is still fine inside an education section (F2)", () => {
   const plan = {
     sections: [

@@ -22,11 +22,16 @@ const ALLOWED_KEYS_LIST = [...KEY_TO_HEADING.keys()].sort();
 const ALLOWED_HEADINGS_LIST = [...new Set(KEY_TO_HEADING.values())].sort();
 
 // profile/education.yaml forbids rendering StageSource or DY Game as employment: both are
-// student engagements (a Boston University course team and a B.F.A.
-// internship) that print only as a detail under their degree. Every string
-// in an offending plan is genuine source text, so verifyVerbatim's leaf check
-// alone would certify it — this is a structural guard on top of that check.
-const FORBIDDEN_EXPERIENCE_COMPANIES = new Set(["stagesource", "dy game"]);
+// student engagements (a side project with Boston University classmates and a
+// B.F.A. internship) that print only as a detail under their degree. Every
+// string in an offending plan is genuine source text, so verifyVerbatim's leaf
+// check alone would certify it — this is a structural guard on top of that
+// check. DY Game is also listed under its China name, its `alias`.
+const FORBIDDEN_EXPERIENCE_COMPANIES = new Set([
+  "stagesource",
+  "dy game",
+  "shanghai t2 entertainment co., ltd.",
+]);
 
 // `audience` and `pageLimit` carry no source string to match — but only when
 // their own value is a scalar. An object or array under either name still
