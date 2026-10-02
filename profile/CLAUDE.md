@@ -8,6 +8,13 @@ This folder is the single source of truth for the following outputs. Every fact 
 | Resume documents                                                 | [`generate-resume`](../.claude/skills/generate-resume/SKILL.md)                                             |
 | [Website](https://github.com/SiegeSailor/Website)                | [`update-website`](https://github.com/SiegeSailor/Website/blob/main/.claude/skills/update-website/SKILL.md) |
 
+### Audience
+
+These rules cover every document rendered from this folder:
+
+- **Ask for the Audience**: When a request names no purpose, posting, or audience, ask Ken for one before rendering
+- **Write the Summary for the Audience**: Each run writes a new summary for its audience from the facts here, keeping every fact as written; `summary.yaml` holds earlier approved summaries to draw on, not 1 to copy
+
 ### Changes
 
 These rules cover every fact in this folder, both in its source files and in every document rendered from them:

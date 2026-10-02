@@ -19,11 +19,7 @@ Pass this object as `headings` to `buildReadme`. Never invent different titles.
 
 ## Summary
 
-Each run writes a new summary for the README's readers rather than copying 1, so it changes from run to run:
-
-- **Keep Facts as Written**: Every number, title, and claim in it keeps its wording from `profile/*.yaml`, per **Render Facts as Written** in [`profile/CLAUDE.md`](../../../profile/CLAUDE.md)
-- **Show It Before Writing**: Ken approves its wording in the diff from **Process** step 6
-- **Treat `summary.yaml` as Examples**: Its entries are earlier approved summaries to draw on, not 1 to copy
+Each run writes a new summary for the audience the request names, per **Audience** in [`profile/CLAUDE.md`](../../../profile/CLAUDE.md), and asks Ken for one when it names none. Ken approves the summary's wording in the diff from **Process** step 6.
 
 ## Input Shape
 
@@ -80,9 +76,9 @@ const readme = buildReadme({
 
 Run these steps in order from this repository's root, and write nothing before step 7:
 
-1. Read `profile/*.yaml` and `profile/CLAUDE.md`
+1. Read `profile/*.yaml` and `profile/CLAUDE.md`, and ask Ken for the audience if the request names no purpose, posting, or audience
 2. Resolve project versions with `resolveVersions(projects)`. Network failure is not fatal; a project without a version shows its stage instead
-3. Write the summary per **Summary** above
+3. Write the summary for that audience per **Summary** above
 4. Compose with `buildReadme(input)`, passing the `headings` object above. Experience is computed from `timeline.yaml` against today's date — never print a stated figure
 5. Verify (advisory): check the composed prose against `profile/` before showing the diff. Call `verifyVerbatim(plan, readSourceText("profile"))` on a plain object of the fixed strings `buildReadme` wove into the README — at minimum `{ headlines: profile.headlines, projectTitles: projects.map((p) => p.title), mediaLabels: media.map((m) => m.label) }`. The written summary never matches a `profile/` string verbatim, so check it fact by fact instead: list each number, title, and claim it states beside the `profile/` value it comes from. The output is Markdown, so this check is advisory: report any misses alongside the diff in the next step, but never block the write on them. This is the opposite of `generate-resume`, where the same check's misses require explicit confirmation before rendering — the README has no page limit or background-check reader riding on it, so a miss here is a note, not a gate
 6. Show the diff against the current `README.md`, plus the summary's fact list and any misses from step 5

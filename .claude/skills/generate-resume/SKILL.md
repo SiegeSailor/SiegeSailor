@@ -16,7 +16,7 @@ Use the value the request gives for each input, and the default when it gives no
 | Page Limit                  | 1                                            |
 | Posting or Requirement Text | optional                                     |
 | Required Sections           | none beyond Summary, Skills, Work Experience |
-| Target Audience             | ask if not given                             |
+| Target Audience             | the posting's, or ask if neither is given    |
 
 Output lands in the working directory. No run history is kept — this skill always reads the current `profile/`, which is local to this repository.
 
@@ -55,7 +55,7 @@ A plan is a plain object. `verifyVerbatim` walks every scalar leaf of it and rej
   identity: { legal: string, display: string },
   contact: { line1: string, line2: string },
   sections: [
-    { key: "summary", heading: "Summary", text: string },
+    { key: "summary", heading: "Summary", text: string },   // written for the audience
 
     { key: "skills", heading: "Skills",
       rows: [{ label: string, items: string }, ...] },
@@ -245,8 +245,8 @@ This plan selects the content the pre-port pipeline printed, less 1 Edallianz bu
 Run these steps in order from this repository's root:
 
 1. Read `profile/*.yaml`, `profile/CLAUDE.md`, and [`reference/layout.md`](./reference/layout.md)
-2. Build a plan per the schema above — ordered sections, and for each the exact strings selected from `profile/`. Copy strings; do not retype or rephrase them
-3. Verify: `verifyVerbatim(plan, readSourceText("profile"))`. Any miss is reported beside its nearest source match, and requires explicit confirmation before rendering. Never confirm on the user's behalf
+2. Build a plan per the schema above — ordered sections, and for each the exact strings selected from `profile/`. Write the summary for the audience per **Audience** in [`profile/CLAUDE.md`](../../../profile/CLAUDE.md); copy every other string, and do not retype or rephrase it
+3. Verify: `verifyVerbatim(plan, readSourceText("profile"))`. Any miss is reported beside its nearest source match, and requires explicit confirmation before rendering. Never confirm on the user's behalf. The written summary is always a miss, so show it with each number, title, and claim it states beside the `profile/` value it comes from
 4. Render: `buildResume(plan, outputDir)`
 5. Check: `checkPages(docx, outputDir, pageLimit)`, then act on its status:
 
