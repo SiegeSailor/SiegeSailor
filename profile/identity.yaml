@@ -4,3 +4,6 @@
 identity:
   legal: Jin Yu Zhang
   display: Jin Yu Zhang
+  # Rendered as "Jin Yu (Ken) Zhang" in the 2025 resume headers.
+  nickname: Ken
+  pronouns: He/Him

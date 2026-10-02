@@ -1,8 +1,17 @@
 # Ordinary content, not printed today because education.yaml already carries
 # the compact citation for the one-page fit — the resume skill may still pull
-# the full citation from here when there's room.
+# the full citation from here when there's room. `published` and `details`
+# are the date and abstract as LinkedIn lists them.
 publications:
   - text: >-
       First author, “Quantitative DevSecOps Metrics for Cloud-Based Web
       Microservices,” IEEE Access, vol. 12, pp. 160317–160342, 2024.
       doi: 10.1109/ACCESS.2024.3486314
+    published: "Oct 25, 2024"
+    details:
+      - text: >-
+          Introduces 12 key quantitative metrics specifically designed to
+          evaluate the quality of CBWMs developed through DevSecOps practices,
+          identified using a Multi-Vocal Literature Review methodology that
+          sourced information from 92 relevant studies (2018–2023) on IEEE
+          Xplore, Springer, and Google Scholar

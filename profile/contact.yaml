@@ -4,3 +4,5 @@
 contact:
   line1: "NYC Metropolitan Area |  857-540-6713  |  siegesailor@gmail.com"
   line2: "jinyu-zhang.com  |  linkedin.com/in/jin-yu-zhang-812181155  |  github.com/SiegeSailor"
+  # The city behind "NYC Metropolitan Area", as LinkedIn lists it.
+  location: "Harrison, New Jersey, United States"

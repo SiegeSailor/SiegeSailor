@@ -2,6 +2,7 @@ education:
   - school: Boston University
     degree: "M.S. in Computer Science (GPA 3.8 / 4.0)"
     dates: "May 2022 – Jan 2024"
+    location: "Boston, MA, USA"
     details:
       # Compact citation for the one-page fit; publications.yaml carries the
       # full one.
@@ -14,20 +15,32 @@ education:
           PostgreSQL, AWS) against live commercial requirements for StageSource,
           a Boston arts nonprofit
       - text: "Coursework: Cryptography, Secure Software Development, Computer Language Theory, Analysis of Algorithms"
+      - text: "Coursework: Cryptography, Secure Software Development, Analysis of Algorithms, Computer Language Theory, Software Engineering, Data Structure with Java, and Server-Side Web Development"
+      - text: "Completed a Master's thesis on Cybersecurity and Software Engineering"
+      # From a peer's recommendation letter for the MIT SDM application.
+      - text: >-
+          Used Natural Language Processing on the Common Vulnerabilities and
+          Exposures list to form a reference dataset for the thesis, and
+          applied Data Science and Machine Learning coursework to build a
+          quantitative model validating the proposed metrics
     # StageSource was a Boston University course team working a real client's
     # requirements, not employment: the details line above is its resume form,
     # and verifyVerbatim rejects it as a Work Experience entry.
     engagement:
       company: StageSource
+      department: Software Development Team
       location: "Boston, MA, USA"
       industry: Art Service
       website: "https://stagesource.site-ym.com/"
       blurb:
         text: "Nonprofit supporting 200+ theater companies and 1,500+ arts professionals"
+        alternatives:
+          - text: "Boston-based nonprofit supporting 200+ theater companies and 1,500+ arts professionals annually"
       roles:
         - title: Software Engineer (Contract)
           dates: "Sep 2022 – Dec 2022"
           location: "MA, USA"
+          arrangement: Remote
       bullets:
         - text: >-
             Led a 6-developer team to deliver an MVP SaaS prototype (Django,
@@ -36,15 +49,50 @@ education:
         - text: >-
             Halved deployment time with GitHub Actions pipelines using
             OIDC-authenticated deploys to AWS
+        - text: >-
+            Led end-to-end development of a SaaS product, introducing Agile
+            (Scrum) workflows and modern software concepts (CI/CD pipelines,
+            cloud-first, Cybersecurity), delivering Minimum Viable Product on
+            schedule
+        - text: >-
+            Designed and implemented a team workflow for an
+            artist-recruiter-matching web application from the local
+            environment using Docker, Django, uWSGI, Nginx, and PostgreSQL
+            through GitHub Actions to deploy and monitor Ubuntu instances on
+            AWS
+        - text: >-
+            Optimized deployment time by 50% by introducing automated pipelines
+            using GitHub Actions with OpenID authentication, promising a 25%
+            increase in team efficiency
+        - text: >-
+            Constructed a team workflow, a project structure, and framework
+            configurations to follow, which made the team focus on concrete
+            goals, preventing confusion and providing a fast-paced workflow
+        - text: >-
+            Integrated newer developers through individual training sessions,
+            detailed instructions for configurations and technologies, and a
+            code review process enforced across the whole team workflow
+        - text: >-
+            Broke the project into weekly Scrum sprints, with short sprints run
+            tightly with the members in charge to align a team of mixed
+            expertise
+        - text: >-
+            Utilized AWS CloudWatch and S3 to develop a layered storage system
+        - text: >-
+            Structured an automated testing pipeline using Unittest
   - school: National Formosa University
     degree: "B.F.A. in Multimedia Design"
     dates: "Sep 2013 – Jan 2017"
+    location: "Yunlin, Taiwan"
     details:
       - text: >-
           Game development intern at DY Game (2014), shipping a motion-sensing
           game title with a 30-person course cohort across its programming,
           art, and operations groups
       - text: "Dual concentration in Computer Programming and Fine Arts"
+      - text: "Independent Study on Web Application Development Using Angular"
+      - text: "Researched the integration of browser runtime and 3D modeling technology in different device layouts"
+      - text: "Coursework: Computer Programming, Computer Graphics & Image Processing, Information Software Application, Database Design, Multimedia Programming, Virtual Reality Design, 2D Computer Graphics, and 3D Advanced Computer Animation"
     # DY Game was a student internship taken during the B.F.A., not
     # employment: the details line above is its resume form, and verifyVerbatim
     # rejects it as a Work Experience entry.
@@ -55,13 +103,20 @@ education:
       website: "https://www.dygame.cn/"
       blurb:
         text: "Mobile game studio specializing in motion-sensing gameplay"
+        alternatives:
+          - text: "Mobile game studio specializing in motion-sensing and gesture-based gameplay"
       roles:
         - title: Game Development Intern
           dates: "May 2014 – Aug 2014"
           location: "Yunlin, Taiwan"
+          type: Internship
+          arrangement: On-site
       bullets:
         # Not "co-managed": the planning groups were delegated before the
         # internship began, and the cohort was one course's students.
         - text: >-
             Shipped a motion-sensing game title with a 30-person cohort, working
             across its programming, art, and operations groups
+        - text: >-
+            Designed mobile motion-sensing games in a research-based role with
+            Unity, Maya, and 3ds Max

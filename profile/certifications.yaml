@@ -1,6 +1,7 @@
 # Two MIT entries by design: the resume needs the compact one-line form for
 # the one-page fit; the entry that spells the ranking out as a bullet is here
-# for the resume skill to pick instead, when there's room.
+# for the resume skill to pick instead, when there's room. `credential`,
+# `issued`, and `cohort` are as LinkedIn lists them.
 certifications:
   - school: Massachusetts Institute of Technology
     degree: "Cert. in Data Science & Machine Learning (top 15 of 146)"
@@ -8,8 +9,23 @@ certifications:
   - school: Massachusetts Institute of Technology
     degree: "Certificate in Data Science and Machine Learning"
     dates: "Aug 2023 – Nov 2023"
+    location: "Cambridge, MA, USA"
+    arrangement: Remote
+    cohort: "12-Week Cohort"
+    issued: "Nov 2023"
+    credential: "ZVQDBZIK"
     details:
       - text: "Ranked 15th of 146 participants; score 579.5 / 600"
+      - text: "Coursework: Deep Learning, Predictive Analytics, Networking and Graphical Models, Recommendation Systems, Classification and Hypothesis Testing, Regression and Prediction, Computer Vision, and Supervised & Unsupervised Learning"
   - school: New York University
     degree: "Certificate, Preparatory Course for Graduate Studies in Computing"
     dates: "Jan 2022 – May 2022"
+    # Earlier resumes call it the Computer Science Bridge certificate.
+    alias: "Computer Science Bridge"
+    location: "New York, NY, USA"
+    arrangement: Remote
+    cohort: "21-Week Cohort"
+    issued: "Jun 2022"
+    credential: "53945487"
+    details:
+      - text: "Coursework: Programming in C++, Discrete Mathematics, Object-Oriented Design, Data Structures and Algorithms, Computer Networks, and Principles of Operating Systems"

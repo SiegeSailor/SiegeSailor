@@ -4,9 +4,18 @@
 timeline:
   start: "2016-06-01"
   excluded:
+    # The service record behind this interval, as the SDM application's
+    # employment history lists it; it is not a Work Experience entry.
     - label: Military Service
       start: "2017-01-01"
       end: "2017-06-30"
+      organization: Taiwanese Armed Forces
+      location: "Kinmen, Taiwan"
+      title: Private
+      dates: "Jan 2017 – Jun 2017"
+      details:
+        - text: "Compulsory Military Service"
+        - text: "Participated in the pre-Han Kuang Exercise as a reserve artillery member"
     - label: Career Gap
       start: "2022-02-01"
       end: "2024-01-31"

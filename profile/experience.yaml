@@ -5,23 +5,39 @@
 # dates separately, so CooperSurgical and Servicetech keep one line per title
 # rather than one widened range. Some material here is held back for the
 # one-page fit.
+#
+# `legalName`, `department`, and each role's `type`, `arrangement`, and `city`
+# are the record as LinkedIn and earlier resumes state it. `blurb.alternatives`
+# holds longer company descriptions for when there's room.
 experience:
   - company: CooperSurgical
+    legalName: "CooperSurgical, Inc."
     location: "NJ / MA / CT, USA"
     industry: Medical Device
     website: "https://www.coopersurgical.com/"
     blurb:
       text: "Medical device R&D — global IVF device leader operating in 130+ countries"
+      alternatives:
+        - text: "Global IVF medical device leader operating in 130+ countries with 1,200+ direct B2B sales forces"
     roles:
       - title: Senior Software Engineer
         dates: "Jun 2025 – Present"
         location: "NJ, USA"
+        type: Full-time
+        arrangement: Hybrid
+        city: "Livingston, NJ"
       - title: Software Engineer
         dates: "Jan 2024 – May 2025"
         location: "MA, USA"
+        type: Contract
+        arrangement: Remote
+        city: "Boston, MA"
       - title: Software Engineering Intern
         dates: "May 2023 – Aug 2023"
         location: "CT, USA"
+        type: Internship
+        arrangement: On-site
+        city: "Trumbull, CT"
     bullets:
       - text: >-
           Architected a cross-product device SDK shipped as a Docker
@@ -62,17 +78,108 @@ experience:
           cross-country teams and architected hybrid cloud / on-site services
           (AWS, Wind River Studio) meeting data-integrity and retention
           regulations at no-internet clinical sites
+      - text: >-
+          Served as the cross-functional communication architect for
+          next-generation IVF devices, leading a team of 5 hardware and
+          software engineers
+      - text: >-
+          Led a team of 5 in central user interface development, supporting
+          parallel product timelines
+      - text: >-
+          Led the software integration effort for a regulated human factors
+          study involving real embryologists and lab managers, collaborating
+          across firmware, mechanical, and software teams and partnering with
+          Loring Human Factors to structure the study protocol
+      - text: >-
+          Owned the integration architecture across an embedded gateway on a
+          purpose-built Linux board, RI-Witness (an IVF laboratory monitoring
+          platform from a UK-based team), and the Central User Interface for
+          the next-generation IVF workstation controlling hardware such as gas
+          mixers and heaters
+      - text: >-
+          Developed a hardware-agnostic simulator running across various
+          processor architectures, decoupling progress from Wind River's
+          validation timeline
+      - text: >-
+          Built a shared library enabling RI-Witness to exchange encrypted,
+          compressed messages with zero configuration overhead
+      - text: >-
+          Defined structured operational flows for Loring Human Factors,
+          giving the study team reliable procedures that did not depend on
+          real-time engineering support
+      - text: >-
+          Resolved a disagreement with firmware teams over a communication
+          protocol defining the gateway for system-level control standards by
+          delivering a minimum working example, reducing integration frictions
+          to zero unless there is a high-level change
+      - text: >-
+          Had each team provide interfaces and simulators (software, firmware)
+          or prototypes (electrical, mechanical) so teams could build their
+          infrastructure in parallel, reducing rework on requirements and
+          timelines from misaligned integration
+      - text: >-
+          Designed hybrid approaches for medical devices supporting
+          no-internet-access locations, including a hardware security layer
+          with purpose-built embedded Linux and firmware integration with RFID
+          using MQTT
+      - text: >-
+          Designed and implemented an on-premise decentralized clustering
+          system to enable medical devices to communicate with each other to
+          support access control and service monitoring, preventing having the
+          same features developed on different products
+      - text: >-
+          Initialized the development and operations pipelines to cooperate
+          with 2 international organizations to develop an on-premise
+          decentralized clustering system
+      - text: >-
+          Designed and implemented a secured medical software architecture,
+          including a third-party ecosystem and security assessment, from the
+          on-premise with RFID Readers to the cloud on AWS
+      - text: >-
+          Crafted a message streaming UI using ASP.NET Core for
+          hardware/firmware integration with RFID
+      - text: >-
+          Created an RPC-based kiosk-like real-time UI using Electron, Framer
+          Motion, Redux, and Next.js
+      - text: >-
+          Developed a kiosk-wise application for embryology workstations using
+          gRPC, Electron, NextJS, MongoDB, Redis, Docker, and Framer Motion,
+          gaining positive feedback in first-line user-facing workshops
+      - text: >-
+          Prototyped a kiosk-wise software that runs as the central console
+          for multiple types of medical equipment, which obtained valuable and
+          positive feedback for the next phase of development
+      - text: >-
+          Prototyped the main next-generation medical product and received
+          positive feedback at 3 international workshops
+      - text: >-
+          Demonstrated A.I. assistant tools integration by developing
+          self-refining UI components, accelerating the adaptation from
+          frequently changing front designs to practical implementations
+      - text: >-
+          Built utilities and provided documentation to streamline the
+          organization's software development and delivery processes, such as
+          NuGet network connectivity libraries and CLI automation scripts
+      - text: >-
+          Mentored 1 intern to be involved in container strategy in Linux and
+          back-end development using Flask
 
   - company: Shopee
+    legalName: "Shopee Pte. Ltd."
+    department: Engineering and Technology Team
     location: "Taipei, Taiwan"
     industry: E-Commerce
     website: "https://shopee.tw/"
     blurb:
       text: "Leading Southeast Asian e-commerce platform, 300M+ annual active users"
+      alternatives:
+        - text: "Leading Southeast Asian E-commerce platform with 300M+ annual active users across 8+ markets"
     roles:
       - title: Software Engineer, Mobile Web Games
         dates: "Jan 2020 – Feb 2022"
         location: "Taipei, Taiwan"
+        type: Full-time
+        arrangement: On-site
     bullets:
       - text: >-
           Built real-time multiplayer game services (Socket.IO, Express.js,
@@ -88,17 +195,64 @@ experience:
           Integrated regional data warehouses and deployment pipelines with
           global services on GCP under a TDD-enforced workflow, cutting local
           developers' redeployment effort by 90%+
+      - text: >-
+          Implemented high-volume tolerant socket connections using Socket.IO,
+          Express.js, and Redis for multi-player real-time SPA games built
+          upon Ant Design, Phaser, React.js, Redux, TypeScript, and Three.js,
+          accommodating over 200,000 daily traffic and the highest RPS of
+          10,000
+      - text: >-
+          Designed 2D-3D-blended web mobile games with Three.js and Phaser,
+          integrating with the main application built on React.js and Redux
+      # From a peer's recommendation letter for the MIT SDM application.
+      - text: >-
+          Designed a web mobile game's tech stack, development and operations
+          procedures, and workflows with multiple internal teams, cooperating
+          with the marketing department and tech teams in Singapore and China
+          to publish alongside the biggest yearly shopping festival
+      - text: >-
+          Led integration of global data service to allow 5 international
+          teams to deploy with regional systems
+      - text: >-
+          Collaborated with global teams to integrate data services and
+          deployment pipelines, enabling international teams to redeploy
+          software without hard-coded configurations, reducing local developer
+          time by 90%+
+      - text: >-
+          Integrated region data warehouse and deployment pipelines with global
+          services with a TDD-enforced workflow using Docusaurus, GCP, private
+          NPM, Postman, and TypeScript
+      - text: >-
+          Embedded region services within the global data warehouse using
+          Flask, Firestore, and GCP
+      - text: >-
+          Established CI/CD pipelines for testing and deploying using GitLab
+          and GCP for backstages and games
+      - text: >-
+          Constructed team-level packages and hosted on private NPM,
+          bootstrapping documentation with TypeScript, Postman, and Docusaurus
+      - text: >-
+          Introduced Test-Driven Development using Jest for games and private
+          packages, conducting scheduled load testing using Locust for
+          back-end services and gateways
 
   - company: Edallianz
+    legalName: "Edallianz Pte. Ltd."
+    department: Engineering and Technology Team
     location: "Taipei, Taiwan"
     industry: E-Commerce
     website: "https://www.twincn.com/item.aspx?no=51236578"
     blurb:
       text: "Education services startup managing 700+ multi-country academic programs"
+      alternatives:
+        - text: "Education service startup managing 700+ multi-country academic programs and institutional partnerships"
     roles:
       - title: Software Engineer
         dates: "Jan 2019 – Nov 2019"
         location: "Taipei, Taiwan"
+        type: Full-time
+        arrangement: On-site
+        focus: Cross-Platform UX Integration
     bullets:
       - text: >-
           Redesigned the payment endpoint flow from internal data-flow
@@ -108,21 +262,51 @@ experience:
       - text: >-
           Launched a responsive UI framework (SASS, Webpack) restructuring
           sites built on Django, Tornado, and Apache HTTP Server
+      - text: >-
+          Identified a UX flaw in the payment system and implemented an
+          endpoint flow with fewer footprints based on product knowledge and
+          internal data flow proficiency, leading to 25% higher conversion rate
+      - text: >-
+          Planned the uniforming of the user flows on Android, iOS, and Web,
+          enhancing user experience across devices and reducing the cost and
+          complexity of application designs
+      - text: >-
+          Delivered user flow solutions to reduce the cost and complexity of
+          designs to 1/3 across Android, iOS, and Web
+      - text: >-
+          Built a responsive website to embed into kiosks to gather reviews
+          using Django and React.js
+      - text: >-
+          Created a RWD UI framework using SCSS and Webpack, integrating it
+          with Material UI and jQuery
+      - text: >-
+          Constructed web systems with Django, MySQL, RTDB, and Apache as parts
+          of the microservices with Tornado proxying, which were containerized
+          with Docker and deployed on AWS
 
   - company: Servicetech International
+    legalName: "Servicetech International, Inc."
+    department: Marketing and Technology Department
     location: "Taichung, Taiwan"
     industry: Medical Device
     website: "https://www.servicetech.com.tw/"
     blurb:
       text: "Top Taiwanese distributor of non-invasive pain-management medical devices"
+      alternatives:
+        - text: "Top non-invasive pain management medical device distributor in Taiwan for 13+ international OEMs"
     roles:
       - title: Software Engineer
         dates: "Jun 2017 – Nov 2018"
         location: "Taichung, Taiwan"
+        type: Full-time
+        arrangement: On-site
+        focus: Digital Transformation
       # Label this rather than widening the 2017–2018 range if it is ever needed.
       - title: Software Engineering Intern
         dates: "Jun 2016 – Jan 2017"
         location: "Taichung, Taiwan"
+        type: Internship
+        arrangement: On-site
     bullets:
       - text: >-
           Drove a paperless transformation — shipped a supply-chain PWA
@@ -132,3 +316,30 @@ experience:
           Built a digital corporate identity system supporting health
           education for 1,000+ medical institutions and 25+ device
           exhibitions
+      - text: >-
+          Pitched and implemented a paperless transformation to increase data
+          consistency and team productivity, conveying insights from the sales
+          and operations teams into an easy-to-use mobile application
+      - text: >-
+          Enhanced inter-department workflow by developing an in-house
+          application that transformed the company from paper-based to
+          digital-driven, reducing the required human power
+      - text: >-
+          Established a digital Corporate Identity System by transforming
+          traditional media into web-based and printed material, supporting
+          1000+ medical institutions' health education and 25+ medical device
+          exhibitions
+      - text: >-
+          Initiated a configurable website using Bootstrap, React, PHP, and
+          Firebase, and a CIS material warehouse
+      - text: >-
+          Built a configurable website that hits 500% more customers using
+          React, Bootstrap, and Firebase
+      - text: >-
+          Enhanced inter-department workflow on GCP to collect business
+          metrics for insight generation
+      - text: >-
+          Established the technology department's workflow and guided 2 team
+          members into the process
+      - text: >-
+          Automated the contract filing process using Python Scripting

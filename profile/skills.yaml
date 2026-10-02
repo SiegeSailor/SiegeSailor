@@ -1,6 +1,8 @@
 # One row per group on the resume. "Data & Frontend" is a merged row kept for
 # the one-page fit; the split "Data" row below it is the systems-focused
 # alternative, kept for the resume skill to use instead of the merged row.
+# Rows after "Regulated Software" are the long-form inventory from LinkedIn and
+# earlier resumes, holding only items the rows above do not already list.
 skills:
   - label: Languages
     items: "C#, TypeScript / JavaScript (Node.js), Python, C++, Bash, SQL"
@@ -16,3 +18,39 @@ skills:
     items: "MongoDB, MySQL, PostgreSQL, Redis"
   - label: Regulated Software
     items: "IEC 62304, ISO 13485, FDA & EU MDR compliance SDLC, DevSecOps"
+  - label: Language Proficiency
+    items: "Python (Expert), JavaScript/TypeScript (Expert), Bash/Unix Shell (Proficient), C# (Vibe Coding), C++ (Prior Experience), Java (Prior Experience)"
+  - label: Spoken Languages
+    items: "Chinese (Native or bilingual proficiency), English (Professional working proficiency)"
+  - label: Industry Knowledge
+    items: "DevOps, Full-Stack Development, Cloud-Based Web Microservices, Regulated Software in Medical Device, SaaS, PaaS, SiMD"
+  - label: System Design
+    items: "Data Modeling (ERD), Data Flow (DFD), Communication Protocols (REST, WebSocket, RPC, Messaging), Sharding, Partitioning, Caching Strategies, Cloud-Based Microservices Architecture, Private Network Design, Electrical Control Loops to UX Conversion, Pipeline Engineering"
+  - label: Collaboration
+    items: "Cross-Functional Standards Definition (Electrical, Mechanical, Firmware, Software), Developer Tooling Strategy, Waterfall & Agile Methodology"
+  - label: Methodologies
+    items: "Agile (scrum meetings, sprint planning, extreme programming) for e-commerce software; Waterfall (document generation, validation and verification) for FDA and EU MDR-regulated medical devices"
+  - label: Programming Paradigms
+    items: "Object-Oriented Programming (Observer, Factory, Singleton, Decorator, Proxy, and Model-View-Controller patterns), Aspect-Oriented Programming (Decorators, Logging, Error Handling), Functional Programming, Procedural Programming"
+  - label: Concurrent Programming
+    items: "High I/O blocking tasks on medical devices, data ETL for e-commerce platforms worldwide, high-volume tolerance multiple-player games"
+  - label: Algorithms & Data Structures
+    items: "Two/Three-Way QuickSort, HeapSort, Union Find, DFS, BFS, Dynamic Programming, Divide and Conquer, Backtracking, Trie, QuickSelect, Monotonic Stack/Queue, LinkedLists, Hashmap"
+  - label: Computer Science Fundamentals
+    items: "Data Structures, Discrete Mathematics, Operating Systems, Networking"
+  - label: Back-End Development
+    items: "Django, Flask, Tornado, Express.js, ASP.NET Core, .NET SDK, Spring MVC, PHP, Avahi, Envoy, Apache HTTP Server, uWSGI, MQTT, Google API"
+  - label: Front-End Development
+    items: "HTML5, CSS3, SASS/SCSS/LESS, TailwindCSS, Pug, Three.js, Phaser, Framer Motion, jQuery, Ant Design, Bootstrap, Material UI, HeroUI, Semantic UI, Ionic, Webpack, Gulp, Babel, Jest, Responsive Web Design (RWD), Progressive Web Applications (PWA), desktop/kiosk applications"
+  - label: DevOps Tooling
+    items: "LocalStack, Supervisord, Wind River Studio, Ngrok, Locust"
+  - label: Cloud Services
+    items: "GCP (GCE, GCS, GKE, IAM, GA, BigQuery, Cloud Run, Cloud Run Functions), Firebase (Authentication, Firestore, Remote Config, RTDB, Storage, Hosting, Analytics, Functions), AWS (EC2, ECR, ECS, EKS, SNS, SQS, MQ, SES, IAM, RDS, S3, CloudWatch, Lambda, Route 53, Amplify)"
+  - label: Database Tooling
+    items: "Mongoose, PyMongo, MongoDB Compass, MongoDB Atlas, SQLAlchemy, Sequelize, MySQL Shell, MySQL Workbench, phpMyAdmin, PostgreSQL Shell, IORedis, RedisPy, Redis CLI, SQLite"
+  - label: Version Control
+    items: "Git, GitHub, GitLab; Long-Term Support (LTS), Git Flow, and GitHub Flow (Trunk-Based Flow) workflows"
+  - label: Team Collaboration Tools
+    items: "Slack, Jira, Asana, Mattermost, Trello, Miro, Mermaid, Postman, Swagger, Docusaurus, GitBook, Figma"
+  - label: Data Science & Machine Learning
+    items: "Data Science, Machine Learning, Deep Learning, Recommender Systems, Statistical Analysis, Computer Vision, OpenCV, TensorFlow, Modern AI Workflows, Ollama, Streamlit"

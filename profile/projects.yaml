@@ -27,6 +27,10 @@ projects:
       multiple tasks with error handling and logging. Based on `asyncio`. This
       is a go-to solution for simplified asynchronous programming with
       easy-to-use abstractions.
+    details:
+      - text: >-
+          A Python PIP library comes up with a wrapper class for concurrent
+          tasks to abstract in a waterfall manner, built on Async.io
   - title: Account Management CBWMs
     stage: Development
     href: "https://github.com/SiegeSailor/OpenSource.AccountHub"
@@ -35,6 +39,11 @@ projects:
       manage their accounts and settings. It provides an event-driven
       architecture comes with a eventual consistency model and various
       communication protocols for different use cases and CBWMs.
+    details:
+      - text: >-
+          A Java project that provides RESTful endpoints for an account
+          database system within the OWASP SAMM framework, built with Java,
+          Spring MVC, and MySQL
   - title: Configurable Bucket CBWM Boilerplate
     stage: Development
     href: "https://github.com/SiegeSailor/OpenSource.Bucket"
@@ -45,6 +54,11 @@ projects:
       running/deploying environments with a fully configurable layer that
       supports development on local laptops, testing in *GitHub Actions* CI/CD
       pipelines, and deployment to *AWS*.
+    details:
+      - text: >-
+          A Python scaffold that furnishes a file storage cloud-based service
+          with AWS S3, AWS CloudWatch, Terraform, LocalStack, and GitHub
+          Actions, and utilizes the Account Management CBWMs
   - title: Deployable UI Library Boilerplate
     stage: Planning
     href: "https://github.com/SiegeSailor"
@@ -69,3 +83,20 @@ projects:
       S3* behind *CloudFront*, with markdown-driven posts, in-site search, and a
       single-source résumé build system. Built with *TailwindCSS*, *HeroUI*, the
       *UnifiedJS* ecosystem, *Mermaid*, and *Zustand*.
+  # `stage` is a placeholder that keeps these 2 hidden until their real stage
+  # is confirmed; neither has a GitHub repository yet.
+  - title: TypeScript Markdown Files Converter
+    stage: Planning
+    href: "https://github.com/SiegeSailor"
+    description: >-
+      A *TypeScript* NPM package for parsing markdown files to readable HTML
+      files using *Remark* and parsing folders/files to parsable data
+      structures.
+  - title: AI Story Writer
+    stage: Planning
+    href: "https://github.com/SiegeSailor"
+    description: >-
+      A local AI-powered storytelling engine that helps users build
+      interconnected fantasy universes. The system automatically categorizes
+      the inputs, such as races and weapons, and keeps track of them. Built
+      with *Python*, *SQLite*, *Ollama*, *Mistral 7B*, and *Streamlit*.
