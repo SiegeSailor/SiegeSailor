@@ -35,9 +35,10 @@ experience:
         city: "Trumbull, CT"
     bullets:
       - text: >-
-          Architected a cross-product device SDK shipped as a Docker container
-          (gRPC, MongoDB, RabbitMQ, Zeroconf) with .NET, Node.js, Python, and
-          C++ clients, reused across 5+ FDA / EU MDR-regulated IVF products
+          Architected cross-product device SDKs shipped as Docker containers
+          (gRPC, MongoDB, RabbitMQ, Zeroconf) and client libraries for .NET,
+          Node.js, Python, and C++, reused across 5+ FDA / EU MDR-regulated IVF
+          products
       - text: >-
           Cut RFID data-transition time by 90% with database caching and gRPC
           streaming, reducing environmental-data rendering time on device UIs by
