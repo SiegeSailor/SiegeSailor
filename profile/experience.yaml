@@ -63,11 +63,12 @@ experience:
           connectivity libraries and CLI automation scripts adopted org-wide
       - text: >-
           Served as the cross-functional communication architect for
-          next-generation IVF devices, leading a team of 5 hardware and software
-          engineers in central user interface development across parallel
-          product timelines, and partnering with electrical, mechanical, and
-          firmware teams on interface standards that shaped the device
-          architecture and the coming year's R&D roadmap
+          next-generation IVF devices, leading a team of 5 full-stack
+          developers, QA engineers, and embedded software engineers in central
+          user interface development across parallel product timelines, and
+          partnering with electrical, mechanical, and firmware teams on
+          interface standards that shaped the device architecture and the coming
+          year's R&D roadmap
       - text: >-
           Coordinated 3+ global formative studies per year across divergent
           development schedules — identified system bottlenecks, set achievable
@@ -88,11 +89,10 @@ experience:
       - text: >-
           Owned the integration architecture across an embedded gateway on a
           purpose-built Linux board, RI-Witness (an IVF laboratory monitoring
-          platform from a UK-based team), and the next-generation IVF
-          workstation's Central User Interface controlling hardware such as gas
-          mixers and heaters, including a shared library for RI-Witness to
-          exchange encrypted, compressed messages with zero configuration
-          overhead
+          platform from a UK-based team), and the Next-Gen IVF Workstation's
+          Central User Interface controlling hardware such as gas mixers and
+          heaters, including a shared library for RI-Witness to exchange
+          encrypted, compressed messages with zero configuration overhead
       - text: >-
           Resolved a firmware-team disagreement over the gateway's system-level
           control protocol by delivering a minimum working example, reducing
@@ -107,8 +107,12 @@ experience:
       - text: >-
           Built the Central User Interface, a real-time kiosk console over RPC
           (gRPC, Electron, Next.js, Redux, MongoDB, Redis, Docker, Framer
-          Motion) for multiple types of medical equipment, whose prototype drew
-          positive feedback at 3 international user-facing workshops
+          Motion) for multiple types of medical equipment
+      - text: >-
+          Prototyped 2 next-generation products, the Next-Gen IVF Workstation
+          and the TimeLapse Incubator, earning positive feedback at 5
+          international workshops across formative studies, summative sessions,
+          and service team training
       - text: >-
           Designed an on-premise decentralized clustering system letting medical
           devices communicate with each other for access control and service
