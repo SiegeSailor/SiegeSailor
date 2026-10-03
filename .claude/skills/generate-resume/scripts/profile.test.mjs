@@ -18,7 +18,6 @@ const EXPECTED = [
   "projects.yaml",
   "publications.yaml",
   "skills.yaml",
-  "summary.yaml",
   "timeline.yaml",
 ];
 

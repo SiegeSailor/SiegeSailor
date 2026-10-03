@@ -23,7 +23,7 @@ Each run writes a new summary and new headlines for the audience the request nam
 
 ## Input Shape
 
-`buildReadme` destructures exactly 10 fields. `summary` and `headlines` are written per run, `versions` is computed, and `headings` is fixed; every other field is read straight out of `profile/` and passed through as-is. `buildReadme` calls `.trim()` directly on `summary`, so it must be a **bare string**, never `summary.yaml`'s array or 1 of its `{ text }` entries. Read this table rather than rediscovering the shapes in `build-readme.mjs`:
+`buildReadme` destructures exactly 10 fields. `summary` and `headlines` are written per run, `versions` is computed, and `headings` is fixed; every other field is read straight out of `profile/` and passed through as-is. `buildReadme` calls `.trim()` directly on `summary`, so it must be a **bare string**. Read this table rather than rediscovering the shapes in `build-readme.mjs`:
 
 | Field       | Source                                 | Shape `buildReadme` Needs                    | Unwrap Needed?                                                          |
 | ----------- | -------------------------------------- | -------------------------------------------- | ----------------------------------------------------------------------- |

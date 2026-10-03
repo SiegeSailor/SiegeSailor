@@ -92,7 +92,7 @@ A plan is a plain object. `verifyVerbatim` walks every scalar leaf of it and rej
 
 ## Worked Example
 
-This plan selects the content the pre-port pipeline printed, less 1 Edallianz bullet dropped to stay on 1 page once the CooperSurgical library bullet grew. It is known to work: it passes `verifyVerbatim` against the current `profile/` and renders at 1 page, 612×792 pts:
+This plan selects the content the pre-port pipeline printed, less 1 Edallianz bullet dropped to stay on 1 page once the CooperSurgical library bullet grew. It is known to work: every string but its written summary passes `verifyVerbatim` against the current `profile/`, and it renders at 1 page, 612×792 pts:
 
 ```json
 {

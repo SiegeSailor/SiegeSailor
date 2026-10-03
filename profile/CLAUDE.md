@@ -13,7 +13,7 @@ This folder is the single source of truth for the following outputs. Every fact 
 These rules cover every document rendered from this folder:
 
 - **Ask for the Audience**: When a request names no purpose, posting, or audience, ask Jin Yu Zhang for one before rendering
-- **Write the Copy for the Audience**: Each run writes a new summary, headlines, tagline, and intro for its audience from the facts here, keeping every fact as written; `summary.yaml` holds earlier approved summaries to draw on, not 1 to copy
+- **Write the Copy for the Audience**: Each run writes a new summary, headlines, tagline, and intro for its audience from the facts here, keeping every fact as written
 
 ### Changes
 
