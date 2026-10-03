@@ -20,7 +20,6 @@ experience:
         type: Full-time
         arrangement: Hybrid
         city: "Livingston, NJ"
-      # Not "DevOps Engineer": the title is Software Engineer.
       - title: Software Engineer
         dates: "Jan 2024 – Jun 2025"
         location: "MA, USA"
