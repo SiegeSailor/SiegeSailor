@@ -227,6 +227,8 @@ const buildPublications = (section) => {
   ];
 };
 
+const COURSE_LIST = new Intl.ListFormat("en", { type: "conjunction" });
+
 const buildSchools = (section) => {
   const rows = section.entries || [];
   if (!rows.length) return [];
@@ -256,6 +258,8 @@ const buildSchools = (section) => {
       entry.score && `score ${entry.score}`,
     ].filter(Boolean);
     if (standing.length) out.push(bullet(standing.join("; ")));
+    if (entry.courses?.length)
+      out.push(bullet(`Coursework: ${COURSE_LIST.format(entry.courses)}`));
     for (const detail of entry.details || []) out.push(bullet(detail));
   }
   return out;

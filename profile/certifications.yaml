@@ -1,4 +1,5 @@
-# `credential`, `issued`, and `cohort` are as LinkedIn lists them.
+# `credential`, `issued`, and `cohort` are as LinkedIn lists them. `courses`
+# are as each program's page listed them when Ken's cohort ran.
 certifications:
   - school: Massachusetts Institute of Technology
     degree: "Certificate in Data Science and Machine Learning"
@@ -12,8 +13,19 @@ certifications:
     credential: "ZVQDBZIK"
     rank: "15th of 146 participants"
     score: "579.5 / 600"
-    details:
-      - text: "Coursework: Deep Learning, Predictive Analytics, Networking and Graphical Models, Recommendation Systems, Classification and Hypothesis Testing, Regression and Prediction, Computer Vision, and Supervised & Unsupervised Learning"
+    # Earlier resumes also list Predictive Analytics, Computer Vision, and
+    # Supervised & Unsupervised Learning. The program covers all 3, as a
+    # project area, a Deep Learning topic, and techniques across courses, but
+    # none is a course title.
+    courses:
+      - Python for Data Science
+      - Statistics for Data Science
+      - Making Sense of Unstructured Data
+      - Regression and Prediction
+      - Classification and Hypothesis Testing
+      - Deep Learning
+      - Recommendation Systems
+      - Networking and Graphical Models
   - school: New York University
     degree: "Certificate, Preparatory Course for Graduate Studies in Computing"
     dates: "Jan 2022 – May 2022"
@@ -24,5 +36,10 @@ certifications:
     cohort: "21-Week Cohort"
     issued: "Jun 2022"
     credential: "53945487"
-    details:
-      - text: "Coursework: Programming in C++, Discrete Mathematics, Object-Oriented Design, Data Structures and Algorithms, Computer Networks, and Principles of Operating Systems"
+    courses:
+      - Computer Programming in C++
+      - Object Oriented Design
+      - Discrete Math
+      - Data Structures and Algorithms
+      - Principles of Operating Systems
+      - Introduction to Computer Networks
