@@ -4,8 +4,7 @@
 timeline:
   start: "2016-06-01"
   excluded:
-    # The service record behind this interval, as the SDM application's
-    # employment history lists it.
+    # The service record behind this interval.
     - label: Military Service
       start: "2017-01-01"
       end: "2017-06-30"

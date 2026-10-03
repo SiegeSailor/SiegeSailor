@@ -1,6 +1,6 @@
 contact:
   area: "NYC Metropolitan Area"
-  # The city behind `area`, as LinkedIn lists it.
+  # The city behind `area`.
   location: "Harrison, New Jersey, United States"
   phone: "857-540-6713"
   email: "siegesailor@gmail.com"

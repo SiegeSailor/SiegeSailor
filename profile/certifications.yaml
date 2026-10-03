@@ -1,10 +1,8 @@
-# `credential`, `issued`, and `cohort` are as LinkedIn lists them. `courses`
-# are as each program's page listed them when Jin Yu Zhang's cohort ran.
+# `courses` are each program's courses when Jin Yu Zhang's cohort ran.
 certifications:
   - school: Massachusetts Institute of Technology
     degree: "Certificate in Data Science and Machine Learning"
     dates: "Aug 2023 – Nov 2023"
-    # Earlier resumes print it in this short form, ranking included.
     alias: "Cert. in Data Science & Machine Learning (top 15 of 146)"
     location: "Cambridge, MA, USA"
     arrangement: Remote
@@ -13,10 +11,9 @@ certifications:
     credential: "ZVQDBZIK"
     rank: "15th of 146 participants"
     score: "579.5 / 600"
-    # Earlier resumes also list Predictive Analytics, Computer Vision, and
-    # Supervised & Unsupervised Learning. The program covers all 3, as a
-    # project area, a Deep Learning topic, and techniques across courses, but
-    # none is a course title.
+    # The program also covers Predictive Analytics as a project area, Computer
+    # Vision as a Deep Learning topic, and Supervised & Unsupervised Learning as
+    # techniques across courses, but none is a course title.
     courses:
       - Python for Data Science
       - Statistics for Data Science
@@ -29,7 +26,6 @@ certifications:
   - school: New York University
     degree: "Certificate, Preparatory Course for Graduate Studies in Computing"
     dates: "Jan 2022 – May 2022"
-    # Earlier resumes call it the Computer Science Bridge certificate.
     alias: "Computer Science Bridge"
     location: "New York, NY, USA"
     arrangement: Remote

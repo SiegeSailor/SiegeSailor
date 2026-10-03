@@ -1,7 +1,5 @@
-# `legalName`, `department`, and each role's `type`, `arrangement`, and `city`
-# are the record as LinkedIn and earlier resumes state it. `blurb.alternatives`
-# holds longer company descriptions, and a role's `alternativeTitles` hold other
-# true titles for the same dates.
+# `blurb.alternatives` holds longer company descriptions, and a role's
+# `alternativeTitles` hold other true titles for the same dates.
 #
 # Bullets belong to the company, not to a role line: a comment marks the ones
 # that come from a single role.
@@ -22,8 +20,7 @@ experience:
         type: Full-time
         arrangement: Hybrid
         city: "Livingston, NJ"
-      # Earlier resumes call this role "DevOps Engineer"; the title is
-      # Software Engineer.
+      # Not "DevOps Engineer": the title is Software Engineer.
       - title: Software Engineer
         dates: "Jan 2024 – Jun 2025"
         location: "MA, USA"
@@ -213,7 +210,6 @@ experience:
       - text: >-
           Designed 2D-3D-blended web mobile games with Three.js and Phaser,
           integrating with the main application built on React.js and Redux
-      # From a peer's recommendation letter for the MIT SDM application.
       - text: >-
           Designed a web mobile game's tech stack, development and operations
           procedures, and workflows with multiple internal teams, cooperating
@@ -330,7 +326,7 @@ experience:
         type: Full-time
         arrangement: On-site
         focus: Digital Transformation
-      # Earlier resumes call it "Software Engineer"; it was an internship.
+      # Not "Software Engineer": it was an internship.
       - title: Software Engineering Intern
         dates: "Jun 2016 – Jan 2017"
         location: "Taichung, Taiwan"

@@ -24,7 +24,6 @@ education:
           Co-led a 6-member classmate team building an MVP SaaS prototype
           (Django, PostgreSQL, AWS) against live commercial requirements for
           StageSource, a Boston arts nonprofit
-      # From a peer's recommendation letter for the MIT SDM application.
       - text: >-
           Completed a Master's thesis on Cybersecurity and Software
           Engineering, using Natural Language Processing on the Common
@@ -33,9 +32,8 @@ education:
           model validating its metrics
     # StageSource was a side project with Boston University classmates, not
     # employment, though the team met its stakeholders, worked from their real
-    # requirements and feedback, and deployed the prototype to the web. Earlier
-    # resumes call the role "DevOps Engineer" and LinkedIn lists it as
-    # Freelance; neither is the record.
+    # requirements and feedback, and deployed the prototype to the web. It was
+    # neither a "DevOps Engineer" role nor freelance work.
     engagement:
       company: StageSource
       department: Software Development Team

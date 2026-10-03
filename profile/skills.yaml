@@ -1,7 +1,6 @@
 # "Data & Frontend" and "Data" overlap by design: one merged row and one
-# data-only row. Rows after "Regulated Software" are the long-form inventory
-# from LinkedIn and earlier resumes, holding only items the rows above do not
-# already list.
+# data-only row. Rows after "Regulated Software" are the long-form inventory,
+# holding only items the rows above do not already list.
 skills:
   - label: Languages
     items: "C#, TypeScript / JavaScript (Node.js), Python, C++, Bash, SQL"

@@ -1,4 +1,4 @@
-# `published` and `details` are the date and abstract as LinkedIn lists them.
+# `details` hold the abstract.
 publications:
   - text: >-
       First author, “Quantitative DevSecOps Metrics for Cloud-Based Web
