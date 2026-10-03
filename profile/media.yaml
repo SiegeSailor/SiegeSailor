@@ -5,3 +5,6 @@ media:
   - key: linkedin
     label: LinkedIn
     href: "https://www.linkedin.com/in/jin-yu-zhang-812181155/"
+  - key: website
+    label: Website
+    href: "https://jinyu-zhang.com"
