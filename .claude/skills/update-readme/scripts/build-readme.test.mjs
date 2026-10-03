@@ -4,10 +4,9 @@ import { buildReadme } from "./build-readme.mjs";
 
 const INPUT = {
   identity: { display: "Jin Yu Zhang" },
-  profile: {
-    headlines: ["Senior Software Engineer", "Distributed Systems"],
-    status: { location: "NYC Metropolitan Area", position: "CooperSurgical" },
-  },
+  headlines: ["Distributed Systems", "Platform Engineering"],
+  location: "NYC Metropolitan Area",
+  position: "Senior Software Engineer",
   summary: "Senior software engineer working on distributed systems.",
   projects: [
     {

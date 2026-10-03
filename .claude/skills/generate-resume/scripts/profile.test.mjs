@@ -15,7 +15,6 @@ const EXPECTED = [
   "experience.yaml",
   "identity.yaml",
   "media.yaml",
-  "profile.yaml",
   "projects.yaml",
   "publications.yaml",
   "skills.yaml",

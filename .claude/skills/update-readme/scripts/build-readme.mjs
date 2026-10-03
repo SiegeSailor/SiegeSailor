@@ -40,7 +40,9 @@ const versionLabel = (version) =>
 
 export function buildReadme({
   identity,
-  profile,
+  headlines,
+  location,
+  position,
   summary,
   projects,
   media,
@@ -66,9 +68,9 @@ export function buildReadme({
   const readme = [
     `# ${identity.display}`,
     "",
-    `**${profile.headlines.join(" · ")}**`,
+    `**${headlines.join(" · ")}**`,
     "",
-    `${profile.status.location} · ${profile.status.position} · ${experienceYears(timeline)} experience`,
+    `${location} · ${position} · ${experienceYears(timeline)} experience`,
     "",
     `## ${headings.summary}`,
     "",
