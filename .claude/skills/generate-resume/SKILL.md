@@ -73,6 +73,7 @@ A plan is a plain object. `verifyVerbatim` walks every scalar leaf of it and rej
     { key: "education", heading: "Education",                // certifications: same shape
       entries: [{
         school: string, degree: string, dates: string,
+        rank: string, score: string,                          // optional
         details: [string, ...],                               // optional
       }, ...] },
 

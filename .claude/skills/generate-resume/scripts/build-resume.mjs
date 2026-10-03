@@ -251,6 +251,11 @@ const buildSchools = (section) => {
         { spacing: { before: 40, after: 10 } },
       ),
     );
+    const standing = [
+      entry.rank && `Ranked ${entry.rank}`,
+      entry.score && `score ${entry.score}`,
+    ].filter(Boolean);
+    if (standing.length) out.push(bullet(standing.join("; ")));
     for (const detail of entry.details || []) out.push(bullet(detail));
   }
   return out;

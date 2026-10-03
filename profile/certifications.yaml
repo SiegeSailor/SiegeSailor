@@ -10,8 +10,9 @@ certifications:
     cohort: "12-Week Cohort"
     issued: "Nov 2023"
     credential: "ZVQDBZIK"
+    rank: "15th of 146 participants"
+    score: "579.5 / 600"
     details:
-      - text: "Ranked 15th of 146 participants; score 579.5 / 600"
       - text: "Coursework: Deep Learning, Predictive Analytics, Networking and Graphical Models, Recommendation Systems, Classification and Hypothesis Testing, Regression and Prediction, Computer Vision, and Supervised & Unsupervised Learning"
   - school: New York University
     degree: "Certificate, Preparatory Course for Graduate Studies in Computing"
