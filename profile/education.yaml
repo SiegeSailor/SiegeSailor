@@ -3,6 +3,18 @@ education:
     degree: "M.S. in Computer Science (GPA 3.8 / 4.0)"
     dates: "May 2022 – Jan 2024"
     location: "Boston, MA, USA"
+    courses:
+      - Programming with Java
+      - Discrete Mathematics
+      - Data Structures with Java
+      - Analysis of Algorithms
+      - Operating Systems
+      - Software Engineering
+      - Cryptography
+      - Database Management
+      - Server-Side Web Development
+      - Computer Language Theory
+      - Secure Software Development
     details:
       - text: >-
           First author, “Quantitative DevSecOps Metrics for Cloud-Based Web
@@ -12,8 +24,6 @@ education:
           Co-led a 6-member classmate team building an MVP SaaS prototype
           (Django, PostgreSQL, AWS) against live commercial requirements for
           StageSource, a Boston arts nonprofit
-      - text: "Coursework: Cryptography, Secure Software Development, Computer Language Theory, Analysis of Algorithms"
-      - text: "Coursework: Cryptography, Secure Software Development, Analysis of Algorithms, Computer Language Theory, Software Engineering, Data Structure with Java, and Server-Side Web Development"
       - text: "Completed a Master's thesis on Cybersecurity and Software Engineering, “Quantitative DevSecOps Metrics for Cloud-Based Web Microservices”"
       # From a peer's recommendation letter for the MIT SDM application.
       - text: >-
@@ -90,6 +100,65 @@ education:
     degree: "B.F.A. in Multimedia Design"
     dates: "Sep 2013 – Jan 2017"
     location: "Yunlin, Taiwan"
+    courses:
+      - Drawing Basics (B)
+      - Two-Dimensional Animation
+      - Writing and Scripting
+      - Digital Publish
+      - Computer Graphics and Image Processing
+      - Digital Photography
+      - 2D Computer Graphics
+      - Fundamental Design
+      - Painting (B)
+      - Digital Content Industry
+      - Thinking and Writing Story
+      - Art of Calligraphy
+      - Image Language
+      - Computer Programming
+      - Color and Design
+      - Digital Audio-Video Post-Production
+      - Information Software Application
+      - 3D Modeling
+      - Basic Recording
+      - Seal Inscription
+      - iClone 3D Modeling
+      - Multimedia Programming
+      - Story Book Drawing
+      - Space Design
+      - Digital Art
+      - Introduction to Movie
+      - Introduction to Art
+      - Creative Thinking and Methods
+      - Introduction to Digital Art
+      - Database Design
+      - Visual Communication Design
+      - Digital Recording Technology
+      - 3D Advanced Computer Animation
+      - Virtual Reality Design
+      - HTML Web Design
+      - ZBrush Modeling
+      - An Introduction to Government
+      - Interactive Multimedia Design
+      - Proposal Writing
+      - Music Recording and Sound Effect
+      - Physical Fitness
+      - Design Project Administrant
+      - Practical Training (I)
+      - Art Web Site Design
+      - Logical Thinking
+      - Technology and Globalization
+      - Electronic Commerce Web Design
+      - Practice Design (2)
+      - Short Film Production
+      - Digital Layout Design
+      - Computer Music Theory and Solid Service
+      - Character Animation
+      - Appreciate of Performing Arts
+      - Portfolio Design
+      - Digital Illustration
+      - Multimedia Design on Leisure Industry
+      - Advance Integrated Design
+      - Basic Integrated Design
     details:
       - text: >-
           Game development intern at DY Game (2014), shipping a motion-sensing
@@ -98,7 +167,6 @@ education:
       - text: "Dual concentration in Computer Programming and Fine Arts"
       - text: "Independent Study on Web Application Development Using Angular"
       - text: "Researched the integration of browser runtime and 3D modeling technology in different device layouts"
-      - text: "Coursework: Computer Programming, Computer Graphics & Image Processing, Information Software Application, Database Design, Multimedia Programming, Virtual Reality Design, 2D Computer Graphics, and 3D Advanced Computer Animation"
     # DY Game was a student internship taken during the B.F.A., not
     # employment: a school professor ran it, unpaid and without a formal
     # contract.
