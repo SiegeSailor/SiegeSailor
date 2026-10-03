@@ -54,9 +54,14 @@ experience:
           pipelines, and containerized applications
       - text: >-
           Integrated LLM-assisted engineering into R&D workflows: agentic coding
-          tools, self-refining UI components, self-healing document generation
-          in GitLab CI, knowledge-graph extraction, and LLM observability
-          (Langfuse)
+          tools (Claude, GitLab Duo) sharing IDE configurations, agent
+          instructions, and a knowledge base from a single developer-tools
+          repository pulled into 4 repositories as a Git submodule; self-refining
+          UI components; self-healing document generation in GitLab CI; a
+          deterministic, pluggable generator for regulated medical-device
+          documents (IEC 62304, ISO 14971, ISO 13485) on the Claude API, running
+          a 9-step pipeline from a CLI or an MCP server; knowledge-graph
+          extraction; and LLM observability (Langfuse)
       - text: >-
           Developed a containerized Protocol Buffers compiler service automating
           multi-language client generation, plus documented NuGet network
@@ -104,6 +109,8 @@ experience:
           Developed a hardware-agnostic simulator running across various
           processor architectures, decoupling progress from Wind River's
           validation timeline
+      # Electron ran only the first version: the Next-Gen IVF Workstation and
+      # TimeLapse Incubator versions are Next.js applications.
       - text: >-
           Built the Central User Interface, a real-time kiosk console over RPC
           (gRPC, Electron, Next.js, Redux, MongoDB, Redis, Docker, Framer
@@ -125,6 +132,106 @@ experience:
       - text: >-
           Mentored 1 intern to be involved in container strategy in Linux and
           back-end development using Flask
+      # The counts run from the 2023 internship to Oct 2026, and the review
+      # count is reviewer assignments, not approvals.
+      - text: >-
+          Authored 438 merge requests (417 merged) across 26 repositories and
+          was the assigned reviewer on 400 merge requests from 14 other
+          engineers
+      - text: >-
+          Created and released the base-image SDK for embedded Linux gateways
+          from 1.0 to 2.2, with Dockerfile linting and
+          container-structure tests in GitLab CI, mirrored packages, a pinned
+          base image, and hardening that kept gRPC internal-only and Nginx, the
+          proxy, and the Supervisord admin page local-only; release 2.0
+          narrowed it to ARM64 and plain Docker environment variables, and both
+          TimeLapse Incubator devices and the product template build on it
+      - text: >-
+          Built the project template every device app-image repository is
+          created from, with an ARM64 pipeline, standalone multi-stage Next.js
+          builds, and built-in sessions, authentication, user management, and
+          permissions
+      - text: >-
+          Defined the GitLab governance shared by repositories created from the
+          template: long-term-support branching (feature, hotfix, release,
+          backport), Conventional Commits merge-request titles, required squash,
+          passing pipelines, and resolved threads, code-owner approval on
+          protected release branches, blocked secret pushes, and commits limited
+          to CooperSurgical and Wind River addresses
+      - text: >-
+          Built the Next-Gen IVF Workstation's Central User Interface as a
+          Next.js application (gRPC, MongoDB, Envoy) in a WPE browser on ARM64:
+          alarms, a notification center, gas-snooze and temperature-preset
+          settings, performance charts, microscope-light controls, and a log
+          viewer, with Nginx tuned to the browser's 6-connection limit and
+          memory exhaustion at login fixed
+      # Senior Software Engineer role (Jun 2025 – Present).
+      - text: >-
+          Defined the design-system workflow between Figma and the shared
+          component library: shared foundations (colors, icons, fonts, spacing)
+          and components with their states and animations, only complex,
+          hardware-specific, or single-product UIs left in product files,
+          component work tracked in GitLab as epics, issues reviewed in merge
+          requests, and release milestones, and a versioned Ladle preview per
+          branch and release through dynamic child pipelines
+      # Senior Software Engineer role (Jun 2025 – Present).
+      - text: >-
+          Built the TimeLapse Incubator's base and chamber applications around a
+          Next.js Central User Interface (React, gRPC-Web, Zustand, MongoDB,
+          Envoy, Python services): patient, dish, embryo, and calibration
+          screens, alarms, a hardware simulator, and the dish-loading flow that
+          reads a dish's barcode when the door closes, fetches patient, dish,
+          and cycle info, and starts imaging, backed by BDD, unit, mutation, and
+          integration tests in GitLab CI
+      # Senior Software Engineer role (Jun 2025 – Present).
+      - text: >-
+          Set up the TimeLapse Incubator's device networking: the base serves
+          DHCP and Avahi discovery to its chambers, learns their addresses at
+          bootstrap, and routes every cross-device connection through Envoy so
+          a single TLS setup covers them all
+      # Senior Software Engineer role (Jun 2025 – Present).
+      - text: >-
+          Defined the TimeLapse Incubator's interface-first gRPC component
+          contract: each hardware component implements 1 Protobuf interface for
+          both its simulator and its real implementation on the same ports,
+          handles retries and backoff with native gRPC options, and reports
+          operational errors as gRPC status codes and clinical errors as alarm
+          codes, so every team knew what it was integrating before
+          implementations were ready and could develop without configuring a
+          whole device
+      # Senior Software Engineer role (Jun 2025 – Present).
+      - text: >-
+          Designed TimeLapse Incubator device provisioning against Keycloak-based
+          cloud services acting as identity registry, certificate registry,
+          duplicate detector, and revocation authority: each base and chamber
+          module submits a public key and certificate signing request and passes
+          a nonce challenge, and its certificate's SAN carries a 15-digit
+          internal code mapped to a 30-digit GS1 external code built on the
+          GTIN-14
+      # Senior Software Engineer role (Jun 2025 – Present).
+      - text: >-
+          Designed TimeLapse Incubator user authentication for online and
+          offline use: Authorization Code login online, offline login weighed
+          across per-device codes, cloud-issued password hashes, and ROPC, plus
+          password reset, background user sync, revocation, and online and
+          offline audit records, for customer users and admins, CooperSurgical
+          users and admins, and service technicians
+      # Senior Software Engineer role (Jun 2025 – Present).
+      - text: >-
+          Designed TimeLapse Incubator observability across the base and its
+          chambers: Envoy traffic logs and spans, Supervisord process output,
+          hardware and process error traces, config and calibration files, and
+          MongoDB records of environmental readings, user actions, service
+          records, and previous states, with telemetry kept for 1 month
+      # Senior Software Engineer role (Jun 2025 – Present).
+      - text: >-
+          Redesigned the TimeLapse Incubator's CO2 calibration flow around a
+          2-week calibration recommendation and chambers that cannot detect
+          their own drift: the base tracks each chamber's days since
+          calibration, calibrates chambers while they purge, 2–3 at most at a
+          time, re-queues any chamber whose records mismatch the base's for over
+          2 hours, and raises a banner linking to the calibration page when a
+          calibration fails
 
   - company: Shopee
     legalName: "Shopee Pte. Ltd."
