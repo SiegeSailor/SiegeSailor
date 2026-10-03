@@ -53,7 +53,7 @@ A plan is a plain object. `verifyVerbatim` walks every scalar leaf of it and rej
   pageLimit: number,
   audience: string,                    // free text, not checked against profile/
   identity: { legal: string, display: string },
-  contact: { line1: string, line2: string },
+  contact: [[string, ...], ...],      // 1 centred line per array, its values joined by "|"
   sections: [
     { key: "summary", heading: "Summary", text: string },   // written for the audience
 
@@ -99,10 +99,14 @@ This plan selects the content the pre-port pipeline printed, less 1 Edallianz bu
   "pageLimit": 1,
   "audience": "the same content the current document prints",
   "identity": { "legal": "Jin Yu Zhang", "display": "Jin Yu Zhang" },
-  "contact": {
-    "line1": "NYC Metropolitan Area |  857-540-6713  |  siegesailor@gmail.com",
-    "line2": "jinyu-zhang.com  |  linkedin.com/in/jin-yu-zhang-812181155  |  github.com/SiegeSailor"
-  },
+  "contact": [
+    ["NYC Metropolitan Area", "857-540-6713", "siegesailor@gmail.com"],
+    [
+      "jinyu-zhang.com",
+      "linkedin.com/in/jin-yu-zhang-812181155",
+      "github.com/SiegeSailor"
+    ]
+  ],
   "sections": [
     {
       "key": "summary",

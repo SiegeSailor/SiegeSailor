@@ -93,13 +93,18 @@ const buildHeader = (plan) => [
       }),
     ],
   }),
-  ...[plan.contact.line1, plan.contact.line2].map(
-    (line) =>
+  // Each contact line is a list of `contact.yaml` values, joined by "|".
+  ...plan.contact.map(
+    (fields) =>
       new Paragraph({
         alignment: AlignmentType.CENTER,
         spacing: { after: 20 },
         children: [
-          new TextRun({ text: clean(line), font: FONT, size: SZ.contact }),
+          new TextRun({
+            text: fields.map(clean).join("  |  "),
+            font: FONT,
+            size: SZ.contact,
+          }),
         ],
       }),
   ),
