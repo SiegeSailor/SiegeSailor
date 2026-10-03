@@ -155,6 +155,7 @@ const buildExperience = (section) => {
     if (!bullets.length) continue;
 
     const roles = job.roles || [];
+    const single = roles.length === 1;
     out.push(
       splitLine(
         [
@@ -164,13 +165,26 @@ const buildExperience = (section) => {
             font: FONT,
             size: SZ.body,
           }),
+          // A lone title shares the company line, saving a line per entry.
+          ...(single
+            ? [
+                new TextRun({ text: " — ", font: FONT, size: SZ.body }),
+                new TextRun({
+                  text: clean(roles[0].title),
+                  bold: true,
+                  italics: true,
+                  font: FONT,
+                  size: SZ.body,
+                }),
+              ]
+            : []),
           new TextRun({
             text: ` — ${clean(job.location)}`,
             font: FONT,
             size: SZ.body,
           }),
         ],
-        roles.length === 1 ? roles[0].dates : "",
+        single ? roles[0].dates : "",
         { spacing: { before: 60, after: 10 } },
       ),
     );
@@ -188,22 +202,7 @@ const buildExperience = (section) => {
           { spacing: { after: 20 } },
         ),
       );
-    if (roles.length === 1) {
-      out.push(
-        bodyLine(
-          [
-            new TextRun({
-              text: roles[0].title,
-              bold: true,
-              italics: true,
-              font: FONT,
-              size: SZ.body,
-            }),
-          ],
-          { spacing: { after: 20 } },
-        ),
-      );
-    } else {
+    if (!single)
       for (const role of roles)
         out.push(
           splitLine(
@@ -220,7 +219,6 @@ const buildExperience = (section) => {
             { spacing: { after: 10 } },
           ),
         );
-    }
     out.push(...bullets.map(bullet));
   }
   return out;

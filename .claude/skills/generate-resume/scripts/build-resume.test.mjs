@@ -32,16 +32,14 @@ const PLAN = {
   ],
 };
 
-const build = async () => {
+// A .docx is a zip; document.xml holds the body.
+const bodyOf = (file) =>
+  execFileSync("unzip", ["-p", file, "word/document.xml"]).toString();
+
+const build = async (plan = PLAN) => {
   const dir = mkdtempSync(join(tmpdir(), "resume-"));
-  const file = await buildResume(PLAN, dir);
-  // A .docx is a zip; document.xml holds the body.
-  const xml = execFileSync("unzip", [
-    "-p",
-    file,
-    "word/document.xml",
-  ]).toString();
-  return { file, xml };
+  const file = await buildResume(plan, dir);
+  return { file, xml: bodyOf(file) };
 };
 
 test("writes a .docx", async () => {
@@ -104,6 +102,15 @@ test("renders the entry blurb, a bare string in the plan", async () => {
       "Medical device R&amp;D — global IVF device leader operating in 130+ countries",
     ),
   );
+});
+
+test("prints a lone title and its dates on the company line", async () => {
+  const plan = structuredClone(PLAN);
+  plan.sections[1].entries[0].roles.splice(1);
+  const { xml } = await build(plan);
+  const line = xml.split("</w:p>").find((p) => p.includes("CooperSurgical"));
+  assert.ok(line.includes("Senior Software Engineer"));
+  assert.ok(line.includes("Jun 2025 – Present"));
 });
 
 test("never emits an empty text run — a nested-field slip renders a blank line", async () => {
