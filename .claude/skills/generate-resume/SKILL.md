@@ -92,7 +92,7 @@ A plan is a plain object. `verifyVerbatim` walks every scalar leaf of it and rej
 
 ## Worked Example
 
-This plan selects the content the pre-port pipeline printed, less 1 Edallianz bullet dropped to stay on 1 page once the CooperSurgical library bullet grew. It is known to work: every string but its written summary passes `verifyVerbatim` against the current `profile/`, and it renders at 1 page, 612×792 pts:
+This plan selects the content the pre-port pipeline printed, less 1 Edallianz bullet dropped to stay on 1 page once the CooperSurgical library bullet grew, and less the LLM-assisted engineering bullet once it grew past what 1 page holds. It is known to work: every string but its written summary passes `verifyVerbatim` against the current `profile/`, and it renders at 1 page, 612×792 pts:
 
 ```json
 {
@@ -166,11 +166,10 @@ This plan selects the content the pre-port pipeline printed, less 1 Edallianz bu
             }
           ],
           "bullets": [
-            "Architected a cross-product device SDK shipped as a Docker container (gRPC, MongoDB, RabbitMQ, Zeroconf) with .NET, Node.js, Python, and C++ clients, reused across 5+ FDA / EU MDR-regulated IVF products",
+            "Architected cross-product device SDKs shipped as Docker containers (gRPC, MongoDB, RabbitMQ, Zeroconf) and client libraries for .NET, Node.js, Python, and C++, reused across 5+ FDA / EU MDR-regulated IVF products",
             "Cut RFID data-transition time by 90% with database caching and gRPC streaming, reducing environmental-data rendering time on device UIs by 50%",
             "Led a shared React.js component library and its automated quality workflow (ESLint, Jest, Semantic Release on GitLab CI), built by 8+ contributors from 5+ parties (CooperSurgical and 4+ vendors) and used by 20+ developers across 6+ products (on-device software and web applications)",
-            "Built secure IVF workstation software on purpose-built embedded Linux — compliance-driven SDLC (IEC 62304 / ISO 13485), GitLab CI/CD pipelines, and containerized applications",
-            "Integrated LLM-assisted engineering into R&D workflows: agentic coding tools, self-refining UI components, self-healing document generation in GitLab CI, knowledge-graph extraction, and LLM observability (Langfuse)"
+            "Built secure IVF workstation software on purpose-built embedded Linux — compliance-driven SDLC (IEC 62304 / ISO 13485), GitLab CI/CD pipelines, and containerized applications"
           ]
         },
         {
