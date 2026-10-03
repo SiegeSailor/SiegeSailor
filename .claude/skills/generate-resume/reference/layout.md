@@ -28,6 +28,6 @@ The order above is the default and is ATS-sensitive. Reorder only when the reque
 Spacing is already tight, so fit by dropping content, not by shrinking type. Drop in this order:
 
 1. `Activities`, then `Publications`, unless the audience is academic
-2. The bullets you ranked least relevant to the stated audience when composing the plan, taken from the oldest roles first
+2. The bullets you ranked least relevant to the stated audience when composing the plan, taken from the oldest roles first, keeping at least 1 per employer because `buildResume` skips an entry with no bullets
 3. Company blurbs
-4. Whole roles older than 10 years, subject to the employment-history rules in [`profile/CLAUDE.md`](../../../../profile/CLAUDE.md)
+4. Whole employers whose every title ended over 10 years ago, since the employment-history rules in [`profile/CLAUDE.md`](../../../../profile/CLAUDE.md) never let a shown employer lose 1 of its titles

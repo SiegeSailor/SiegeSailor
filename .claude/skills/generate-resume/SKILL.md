@@ -92,7 +92,7 @@ A plan is a plain object. `verifyVerbatim` walks every scalar leaf of it and rej
 
 ## Worked Example
 
-This plan selects the content the pre-port pipeline printed, less 1 Edallianz bullet dropped to stay on 1 page once the CooperSurgical library bullet grew, and less the LLM-assisted engineering bullet once it grew past what 1 page holds. It is known to work: every string but its written summary passes `verifyVerbatim` against the current `profile/`, and it renders at 1 page, 612×792 pts:
+This plan selects the content the pre-port pipeline printed, less 1 Edallianz bullet dropped to stay on 1 page once the CooperSurgical library bullet grew, and less the LLM-assisted engineering bullet once it grew past what 1 page holds. It lists every Servicetech title, per **Employment History** in [`profile/CLAUDE.md`](../../../profile/CLAUDE.md). It is known to work: every string but its written summary passes `verifyVerbatim` against the current `profile/`, and it renders at 1 page, 612×792 pts:
 
 ```json
 {
@@ -202,7 +202,12 @@ This plan selects the content the pre-port pipeline printed, less 1 Edallianz bu
           "company": "Servicetech International",
           "location": "Taichung, Taiwan",
           "roles": [
-            { "title": "Software Engineer", "dates": "Jun 2017 – Nov 2018" }
+            { "title": "Technical Consultant", "dates": "Dec 2019 – Present" },
+            { "title": "Software Engineer", "dates": "Jun 2017 – Nov 2018" },
+            {
+              "title": "Software Engineering Intern",
+              "dates": "Jun 2016 – Jan 2017"
+            }
           ],
           "bullets": [
             "Drove a paperless transformation — shipped a supply-chain PWA (Firebase, Ionic, React.js), consolidating 100+ ad-hoc sales channels into 6 trackable procedures"
