@@ -1,7 +1,3 @@
-# Stacked role lines are deliberate: background-check vendors verify titles and
-# dates separately, so CooperSurgical and Servicetech keep one line per title
-# rather than one widened range.
-#
 # `legalName`, `department`, and each role's `type`, `arrangement`, and `city`
 # are the record as LinkedIn and earlier resumes state it. `blurb.alternatives`
 # holds longer company descriptions, and a role's `alternativeTitles` hold other
