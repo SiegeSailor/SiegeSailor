@@ -308,13 +308,13 @@ experience:
       text: "Top Taiwanese distributor of non-invasive pain-management medical devices"
       alternatives:
         - text: "Top non-invasive pain management medical device distributor in Taiwan for 13+ international OEMs"
-    # A family business, so the titles undersell the scope: from 2017 Ken
-    # managed people and ran marketing, social media, digital asset creation,
-    # and expo support alongside the software.
+    # A family business, so the titles undersell the scope: from 2017 Jin Yu
+    # Zhang managed people and ran marketing, social media, digital asset
+    # creation, and expo support alongside the software.
     roles:
       # Part-time and remote since leaving Edallianz, supporting the website
-      # and web application Ken built here. It overlaps the full-time roles
-      # that follow it.
+      # and web application Jin Yu Zhang built here. It overlaps the full-time
+      # roles that follow it.
       - title: Technical Consultant
         alternativeTitles:
           - Software Engineer (Part-Time)

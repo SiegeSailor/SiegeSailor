@@ -120,9 +120,9 @@ education:
           type: Internship
           arrangement: On-site
       bullets:
-        # Not "co-managed": Ken did the planning and timeline scheduling, but
-        # the planning groups were delegated before the internship began, and
-        # the cohort was one course's students.
+        # Not "co-managed": Jin Yu Zhang did the planning and timeline
+        # scheduling, but the planning groups were delegated before the
+        # internship began, and the cohort was one course's students.
         - text: >-
             Shipped a motion-sensing game title with a 30-person cohort, working
             across its programming, art, and operations groups

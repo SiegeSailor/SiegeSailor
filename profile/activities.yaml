@@ -66,10 +66,10 @@ activities:
         dates: "2024"
       - organization: NFU Multimedia Design Team
         dates: "2017"
-  # Public GitHub projects where an issue, comment, or discussion post of Ken's
-  # added a reproduction, root cause, workaround, or fix, dated by the year of
-  # the first such post. Electron includes Electron Forge, Ionic Framework
-  # includes Ionic v3, and React Three Fiber includes drei.
+  # Public GitHub projects where an issue, comment, or discussion post of Jin
+  # Yu Zhang's added a reproduction, root cause, workaround, or fix, dated by
+  # the year of the first such post. Electron includes Electron Forge, Ionic
+  # Framework includes Ionic v3, and React Three Fiber includes drei.
   - activity: Open-Source Contribution
     entries:
       - organization: Awesome Copilot

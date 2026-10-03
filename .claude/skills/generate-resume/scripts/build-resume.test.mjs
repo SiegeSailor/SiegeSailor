@@ -8,7 +8,7 @@ import { buildResume } from "./build-resume.mjs";
 
 const PLAN = {
   pageLimit: 1,
-  identity: { legal: "Jin Yu (Ken) Zhang", display: "Jin Yu (Ken) Zhang" },
+  identity: { legal: "Jin Yu Zhang", display: "Jin Yu Zhang" },
   contact: { line1: "NYC Metropolitan Area", line2: "jinyu-zhang.com" },
   sections: [
     { key: "summary", heading: "Summary", text: "Senior software engineer." },

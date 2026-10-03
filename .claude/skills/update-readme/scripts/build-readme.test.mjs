@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { buildReadme } from "./build-readme.mjs";
 
 const INPUT = {
-  identity: { display: "Jin Yu (Ken) Zhang" },
+  identity: { display: "Jin Yu Zhang" },
   profile: {
     headlines: ["Senior Software Engineer", "Distributed Systems"],
     status: { location: "NYC Metropolitan Area", position: "CooperSurgical" },

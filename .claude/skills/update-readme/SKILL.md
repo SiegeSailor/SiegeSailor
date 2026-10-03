@@ -19,7 +19,7 @@ Pass this object as `headings` to `buildReadme`. Never invent different titles.
 
 ## Summary
 
-Each run writes a new summary for the audience the request names, per **Audience** in [`profile/CLAUDE.md`](../../../profile/CLAUDE.md), and asks Ken for one when it names none. Ken approves the summary's wording in the diff from **Process** step 6.
+Each run writes a new summary for the audience the request names, per **Audience** in [`profile/CLAUDE.md`](../../../profile/CLAUDE.md), and asks Jin Yu Zhang for one when it names none. Jin Yu Zhang approves the summary's wording in the diff from **Process** step 6.
 
 ## Input Shape
 
@@ -76,7 +76,7 @@ const readme = buildReadme({
 
 Run these steps in order from this repository's root, and write nothing before step 7:
 
-1. Read `profile/*.yaml` and `profile/CLAUDE.md`, and ask Ken for the audience if the request names no purpose, posting, or audience
+1. Read `profile/*.yaml` and `profile/CLAUDE.md`, and ask Jin Yu Zhang for the audience if the request names no purpose, posting, or audience
 2. Resolve project versions with `resolveVersions(projects)`. Network failure is not fatal; a project without a version shows its stage instead
 3. Write the summary for that audience per **Summary** above
 4. Compose with `buildReadme(input)`, passing the `headings` object above. Experience is computed from `timeline.yaml` against today's date — never print a stated figure

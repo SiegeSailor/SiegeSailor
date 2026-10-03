@@ -12,14 +12,14 @@ This folder is the single source of truth for the following outputs. Every fact 
 
 These rules cover every document rendered from this folder:
 
-- **Ask for the Audience**: When a request names no purpose, posting, or audience, ask Ken for one before rendering
+- **Ask for the Audience**: When a request names no purpose, posting, or audience, ask Jin Yu Zhang for one before rendering
 - **Write the Summary for the Audience**: Each run writes a new summary for its audience from the facts here, keeping every fact as written; `summary.yaml` holds earlier approved summaries to draw on, not 1 to copy
 
 ### Changes
 
 These rules cover every fact in this folder, both in its source files and in every document rendered from them:
 
-- **Confirm Before Changing a Fact**: No date, title, ranking, or number in this folder changes without explicit confirmation from Ken
+- **Confirm Before Changing a Fact**: No date, title, ranking, or number in this folder changes without explicit confirmation from Jin Yu Zhang
 - **Render Facts as Written**: Rewording a fact into a punchier or different claim, such as a placement, a score, a percentage, or a range, needs the same confirmation as editing the file
 
 ### Claims
