@@ -31,3 +31,7 @@ Spacing is already tight, so fit by dropping content, not by shrinking type. Dro
 2. The bullets you ranked least relevant to the stated audience when composing the plan, taken from the oldest roles first, keeping at least 1 per employer because `buildResume` skips an entry with no bullets
 3. Company blurbs
 4. Whole employers whose every title ended over 10 years ago, since the employment-history rules in [`profile/CLAUDE.md`](../../../../profile/CLAUDE.md) never let a shown employer lose 1 of its titles
+
+## Cover Letter
+
+The cover letter shares the hard constraints above, except that it has no bullets and no dates to align. It opens with the same name and contact lines as the resume, so the 2 documents read as a set, then the date, the recipient lines, the salutation, the body paragraphs, the closing, and the display name.

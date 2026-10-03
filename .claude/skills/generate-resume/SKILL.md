@@ -1,11 +1,11 @@
 ---
 name: generate-resume
-description: Use when generating or tailoring a resume for a job posting, an application, or a stated audience, including requests naming a page limit or required sections.
+description: Use when generating or tailoring a resume or cover letter for a job posting, an application, or a stated audience, including requests naming a page limit or required sections.
 ---
 
 # Generate Resume
 
-Renders a resume from `profile/` for a specific requirement. The model chooses what appears; code guarantees that what appears is what the source says.
+Renders a resume and its cover letter from `profile/` for a specific requirement. The model chooses what appears; code guarantees that what appears on the resume is what the source says.
 
 ## Inputs
 
@@ -13,20 +13,21 @@ Use the value the request gives for each input, and the default when it gives no
 
 | Input                       | Default                                      |
 | --------------------------- | -------------------------------------------- |
-| Page Limit                  | 1                                            |
+| Cover Letter                | written, unless the request declines it      |
+| Page Limit                  | 1, for the resume and the cover letter each  |
 | Posting or Requirement Text | optional                                     |
 | Required Sections           | none beyond Summary, Skills, Work Experience |
 | Target Audience             | the posting's, or ask if neither is given    |
 
-Output lands in the working directory. No run history is kept — this skill always reads the current `profile/`, which is local to this repository.
+Output lands in the working directory as `JinYu-Zhang-Resume.docx` and `JinYu-Zhang-Cover-Letter.docx`, each with a `.pdf` beside it from `checkPages`. No run history is kept — this skill always reads the current `profile/`, which is local to this repository.
 
 ## Scripts
 
-`verifyVerbatim`, `readSourceText`, `buildResume`, and `checkPages` are plain ESM library exports — they have **no command-line interface**. There is nothing to run as `node some-script.mjs arg1 arg2`; call them from a small `.mjs` file, or with `node --input-type=module`, from this repository's root, after `npm install` has been run here:
+`verifyVerbatim`, `readSourceText`, `buildResume`, `buildCoverLetter`, and `checkPages` are plain ESM library exports — they have **no command-line interface**. There is nothing to run as `node some-script.mjs arg1 arg2`; call them from a small `.mjs` file, or with `node --input-type=module`, from this repository's root, after `npm install` has been run here:
 
 | Export                             | Path                                                         |
 | ---------------------------------- | ------------------------------------------------------------ |
-| `buildResume`                      | `.claude/skills/generate-resume/scripts/build-resume.mjs`    |
+| `buildCoverLetter`, `buildResume`  | `.claude/skills/generate-resume/scripts/build-resume.mjs`    |
 | `checkPages`                       | `.claude/skills/generate-resume/scripts/check-pages.mjs`     |
 | `verifyVerbatim`, `readSourceText` | `.claude/skills/generate-resume/scripts/verify-verbatim.mjs` |
 
@@ -35,13 +36,18 @@ import {
   verifyVerbatim,
   readSourceText,
 } from "./.claude/skills/generate-resume/scripts/verify-verbatim.mjs";
-import { buildResume } from "./.claude/skills/generate-resume/scripts/build-resume.mjs";
+import {
+  buildCoverLetter,
+  buildResume,
+} from "./.claude/skills/generate-resume/scripts/build-resume.mjs";
 import { checkPages } from "./.claude/skills/generate-resume/scripts/check-pages.mjs";
 
 const verify = verifyVerbatim(plan, readSourceText("profile"));
-// confirm any misses with the user before continuing, then:
+// confirm any misses, and the cover letter's facts, with the user, then:
 const docx = await buildResume(plan, outputDir);
 const check = checkPages(docx, outputDir, plan.pageLimit ?? 1);
+const letterDocx = await buildCoverLetter(plan, letter, outputDir);
+const letterCheck = checkPages(letterDocx, outputDir, 1);
 ```
 
 ## Plan Schema
@@ -89,6 +95,26 @@ A plan is a plain object. `verifyVerbatim` walks every scalar leaf of it and rej
   ],
 }
 ```
+
+## Cover Letter Schema
+
+A letter is a plain object passed to `buildCoverLetter` beside the plan, which supplies the name and contact lines. It is never passed to `verifyVerbatim`: every field is either written per run or taken from the posting, so it is checked fact by fact instead, the same way as the summary:
+
+```text
+{
+  date: string,                 // today, written out, e.g. "October 3, 2026"
+  recipient: [string, ...],     // 1 line each, from the posting, e.g. the team, the company, and the city
+  salutation: string,           // e.g. "Dear Hiring Team,"
+  paragraphs: [string, ...],    // written for the audience
+  closing: string,              // e.g. "Sincerely,"
+}
+```
+
+Write the paragraphs to these rules:
+
+- **Fit 1 Page**: 3 or 4 paragraphs: the role applied for, the facts that answer the posting's requirements, and a close
+- **Keep Every Fact as Written**: Each number, title, and claim comes from `profile/` with its source's meaning, and total experience is computed from `timeline.yaml`, never stated from memory
+- **Show Interest through Facts**: Tie the candidate to the posting through its own words and the matching facts, never through invented motivation, history, availability, work authorization, or salary
 
 ## Worked Example
 
@@ -265,9 +291,10 @@ Run these steps in order from this repository's root:
 
 1. Read `profile/*.yaml`, `profile/CLAUDE.md`, and [`reference/layout.md`](./reference/layout.md)
 2. Build a plan per the schema above — ordered sections, and for each the exact strings selected from `profile/`. Write the summary for the audience per **Audience** in [`profile/CLAUDE.md`](../../../profile/CLAUDE.md); copy every other string, and do not retype or rephrase it
-3. Verify: `verifyVerbatim(plan, readSourceText("profile"))`. Any miss is reported beside its nearest source match, and requires explicit confirmation before rendering. Never confirm on the user's behalf. The written summary is always a miss, so show it with each number, title, and claim it states beside the `profile/` value it comes from
-4. Render: `buildResume(plan, outputDir)`
-5. Check: `checkPages(docx, outputDir, pageLimit)`, then act on its status:
+3. Write the cover letter per **Cover Letter Schema** above, unless the request declines it
+4. Verify: `verifyVerbatim(plan, readSourceText("profile"))`. Any miss is reported beside its nearest source match, and requires explicit confirmation before rendering. Never confirm on the user's behalf. The written summary is always a miss, so show it with each number, title, and claim it states beside the `profile/` value it comes from, and show the cover letter's paragraphs the same way
+5. Render: `buildResume(plan, outputDir)` and `buildCoverLetter(plan, letter, outputDir)`
+6. Check: `checkPages(docx, outputDir, pageLimit)` for the resume and `checkPages(letterDocx, outputDir, 1)` for the cover letter, then act on each status. A cover letter over 1 page is shortened by rewriting its paragraphs, which needs the same confirmation as step 4:
 
 | Status       | Action                                                                                                                                                                                                                                                                                                                                                                      |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

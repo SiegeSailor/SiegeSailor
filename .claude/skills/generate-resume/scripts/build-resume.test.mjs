@@ -4,7 +4,7 @@ import { mkdtempSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { execFileSync } from "node:child_process";
-import { buildResume } from "./build-resume.mjs";
+import { buildCoverLetter, buildResume } from "./build-resume.mjs";
 
 const PLAN = {
   pageLimit: 1,
@@ -111,6 +111,27 @@ test("prints a lone title and its dates on the company line", async () => {
   const line = xml.split("</w:p>").find((p) => p.includes("CooperSurgical"));
   assert.ok(line.includes("Senior Software Engineer"));
   assert.ok(line.includes("Jun 2025 – Present"));
+});
+
+test("writes a cover letter under the resume's name and contact lines", async () => {
+  const dir = mkdtempSync(join(tmpdir(), "letter-"));
+  const file = await buildCoverLetter(
+    PLAN,
+    {
+      date: "October 3, 2026",
+      recipient: ["Hiring Team", "Example Corp"],
+      salutation: "Dear Hiring Team,",
+      paragraphs: ["First paragraph.", "Second paragraph."],
+      closing: "Sincerely,",
+    },
+    dir,
+  );
+  const xml = bodyOf(file);
+  assert.match(file, /Cover-Letter\.docx$/);
+  for (const text of ["JIN YU ZHANG", "jinyu-zhang.com", "Second paragraph."])
+    assert.ok(xml.includes(text), `missing ${text}`);
+  assert.ok(xml.indexOf("JIN YU ZHANG") < xml.indexOf("Dear Hiring Team,"));
+  assert.ok(!xml.includes("<w:tbl>"), "tables break ATS parsing");
 });
 
 test("never emits an empty text run — a nested-field slip renders a blank line", async () => {

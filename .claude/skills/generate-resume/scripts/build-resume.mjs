@@ -14,7 +14,14 @@ import {
 
 const FONT = "Calibri";
 // Sizes are half-points; spacing/indents are twips (1440 = 1 inch).
-const SZ = { name: 32, contact: 18, section: 20, body: 19, blurb: 18 };
+const SZ = {
+  name: 32,
+  contact: 18,
+  section: 20,
+  body: 19,
+  blurb: 18,
+  letter: 22,
+};
 // Tightened to keep the resume on one US-Letter page after the Certifications
 // section was split out of Education (see this workspace's CONTRIBUTING.md).
 const SPACE = {
@@ -363,6 +370,54 @@ export async function buildResume(plan, outputDir) {
 
   mkdirSync(outputDir, { recursive: true });
   const file = join(outputDir, "JinYu-Zhang-Resume.docx");
+  writeFileSync(file, await Packer.toBuffer(doc));
+  return file;
+}
+
+// The letter opens with the resume's name and contact lines so the 2 documents
+// read as a set; its body is prose, so it needs no bullets or tab stops.
+export async function buildCoverLetter(plan, letter, outputDir) {
+  const line = (text, spacing) =>
+    new Paragraph({
+      spacing,
+      children: [
+        new TextRun({ text: clean(text), font: FONT, size: SZ.letter }),
+      ],
+    });
+  const recipient = letter.recipient || [];
+
+  const doc = new Document({
+    title: `${clean(plan.identity.display)} — Cover Letter`,
+    creator: clean(plan.identity.display),
+    subject: "Cover Letter",
+    styles: {
+      default: { document: { run: { font: FONT, size: SZ.letter } } },
+    },
+    sections: [
+      {
+        properties: {
+          page: {
+            size: { width: 12240, height: 15840 },
+            margin: { top: 600, bottom: 1080, left: 1080, right: 1080 },
+          },
+        },
+        children: [
+          ...buildHeader(plan),
+          line(letter.date, { before: 360, after: 240 }),
+          ...recipient.map((text, i) =>
+            line(text, { after: i === recipient.length - 1 ? 240 : 0 }),
+          ),
+          line(letter.salutation, { after: 200 }),
+          ...letter.paragraphs.map((text) => line(text, { after: 200 })),
+          line(letter.closing, { after: 480 }),
+          line(plan.identity.display),
+        ],
+      },
+    ],
+  });
+
+  mkdirSync(outputDir, { recursive: true });
+  const file = join(outputDir, "JinYu-Zhang-Cover-Letter.docx");
   writeFileSync(file, await Packer.toBuffer(doc));
   return file;
 }
