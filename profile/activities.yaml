@@ -52,6 +52,12 @@ activities:
           1st place, Volleyball Contest at National Formosa University College
           of Applied Arts and Sciences — the first-ever trophy in the
           Multimedia Design team’s history
+  - organization: National Formosa University Dancing Club
+    role: Logistic Team Leader
+    dates: "Sep 2014 – Jun 2016"
+    details:
+      - text: >-
+          planned venue logistics and crowd control for the 2014 Dance Exhibition
   - activity: Popping Dance
     entries:
       - organization: Slaughter House Boston
@@ -59,13 +65,15 @@ activities:
       - organization: Yuanshan Park Popping Club
         dates: "2022"
       - organization: NFU Dancing Club
-        dates: "2017"
+        dates: "Sep 2014 – Jun 2016"
   - activity: Indoor Volleyball
     entries:
       - organization: Slam Volleyball Club
         dates: "2024"
+        # Details listed above as National Formosa University Multimedia Design
+        # Volleyball Team
       - organization: NFU Multimedia Design Team
-        dates: "2017"
+        dates: "Sep 2014 – Jun 2016"
   # Public GitHub projects where an issue, comment, or discussion post of Jin
   # Yu Zhang's added a reproduction, root cause, workaround, or fix, dated by
   # the year of the first such post. Electron includes Electron Forge, Ionic
