@@ -24,13 +24,13 @@ education:
           Co-led a 6-member classmate team building an MVP SaaS prototype
           (Django, PostgreSQL, AWS) against live commercial requirements for
           StageSource, a Boston arts nonprofit
-      - text: "Completed a Master's thesis on Cybersecurity and Software Engineering, “Quantitative DevSecOps Metrics for Cloud-Based Web Microservices”"
       # From a peer's recommendation letter for the MIT SDM application.
       - text: >-
-          Used Natural Language Processing on the Common Vulnerabilities and
-          Exposures list to form a reference dataset for the thesis, and
-          applied Data Science and Machine Learning coursework to build a
-          quantitative model validating the proposed metrics
+          Completed a Master's thesis on Cybersecurity and Software
+          Engineering, using Natural Language Processing on the Common
+          Vulnerabilities and Exposures list to form its reference dataset, and
+          Data Science and Machine Learning coursework to build a quantitative
+          model validating its metrics
     # StageSource was a side project with Boston University classmates, not
     # employment, though the team met its stakeholders, worked from their real
     # requirements and feedback, and deployed the prototype to the web. Earlier
@@ -53,42 +53,26 @@ education:
           arrangement: Remote
       bullets:
         - text: >-
-            Co-led a 6-member team to deliver an MVP SaaS prototype (Django,
-            uWSGI, Nginx, PostgreSQL) on schedule, introducing Scrum, CI/CD,
-            and cloud-first practices to the organization
+            Co-led a 6-member team through end-to-end development of an MVP
+            SaaS prototype, a standalone public-facing artist-recruiter matching
+            service (Django, uWSGI, Nginx, PostgreSQL), delivered on schedule
+            while introducing Scrum, CI/CD, cloud-first, and cybersecurity
+            practices to the organization
         - text: >-
             Halved deployment time with GitHub Actions pipelines using
-            OIDC-authenticated deploys to AWS
+            OIDC-authenticated deploys to AWS, promising a 25% increase in team
+            efficiency
         - text: >-
-            Co-led end-to-end development of a SaaS product, introducing Agile
-            (Scrum) workflows and modern software concepts (CI/CD pipelines,
-            cloud-first, Cybersecurity), delivering Minimum Viable Product on
-            schedule
+            Designed the team workflow, project structure, and framework
+            configurations, from local Docker environments through GitHub
+            Actions to deploying and monitoring Ubuntu instances on AWS, keeping
+            the team focused on concrete goals at a fast pace
         - text: >-
-            Designed and implemented a team workflow for an
-            artist-recruiter-matching web application from the local
-            environment using Docker, Django, uWSGI, Nginx, and PostgreSQL
-            through GitHub Actions to deploy and monitor Ubuntu instances on
-            AWS
-        - text: >-
-            Optimized deployment time by 50% by introducing automated pipelines
-            using GitHub Actions with OpenID authentication, promising a 25%
-            increase in team efficiency
-        - text: >-
-            Constructed a team workflow, a project structure, and framework
-            configurations to follow, which made the team focus on concrete
-            goals, preventing confusion and providing a fast-paced workflow
-        - text: >-
-            Integrated newer developers through individual training sessions,
-            detailed instructions for configurations and technologies, and a
-            code review process enforced across the whole team workflow
-        - text: >-
-            Broke the project into weekly Scrum sprints, with short sprints run
-            tightly with the members in charge to align a team of mixed
-            expertise
-        - text: >-
-            Co-led development of a standalone public-facing matching service
-            with a 6-member team
+            Broke the project into weekly Scrum sprints run tightly with the
+            members in charge to align a team of mixed expertise, and onboarded
+            newer developers through individual training sessions, detailed
+            configuration and technology instructions, and a code review process
+            enforced across the team
         - text: >-
             Met with StageSource stakeholders to gather real requirements and
             feedback, and deployed the prototype to the web
