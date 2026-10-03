@@ -66,89 +66,169 @@ activities:
         dates: "2024"
       - organization: NFU Multimedia Design Team
         dates: "2017"
-  # Public GitHub projects where Ken opened, commented on, or discussed an
-  # issue, dated by the year of the first such activity. Electron includes
-  # Electron Forge, Ionic Framework includes the Ionic CLI and Ionic v3, and
-  # React Three Fiber includes drei and gltfjsx.
+  # Public GitHub projects where an issue, comment, or discussion post of Ken's
+  # added a reproduction, root cause, workaround, or fix, dated by the year of
+  # the first such post. Electron includes Electron Forge, Ionic Framework
+  # includes Ionic v3, and React Three Fiber includes drei.
   - activity: Open-Source Contribution
     entries:
       - organization: Awesome Copilot
         dates: "2026"
-      - organization: SadServers
-        dates: "2026"
-      - organization: terraform-aws-tfstate-backend
-        dates: "2025"
-      - organization: terraform-aws-ecs
-        dates: "2025"
-      - organization: dockpin
-        dates: "2025"
-      - organization: gRPC
-        dates: "2025"
-      - organization: Simple Icons
-        dates: "2025"
-      - organization: commitizen-action-pr
-        dates: "2025"
-      - organization: opensource-nepal/commitlint
-        dates: "2025"
-      - organization: pyenv-virtualenv
-        dates: "2025"
-      - organization: Python Semantic Release
-        dates: "2025"
-      - organization: Mermaid
-        dates: "2025"
+        details:
+          - text: >-
+              reported that the Copilot context guide documented `#workspace`,
+              which did not work, where `#codebase` does, and offered a
+              documentation patch
       - organization: HeroUI
         dates: "2025"
-      - organization: hadolint
+        details:
+          - text: >-
+              debugged the `Input` zoom-on-focus issue on iOS in HeroUI 2.8.7
+              across Chrome, Safari, iPhone 11, and iPhone 12, sharing
+              configurations, screen recordings, and a live site to test
+      - organization: dockpin
         dates: "2025"
-      - organization: Node.js
+        details:
+          - text: >-
+              reported that pinning fails with `invalid reference format` when
+              a `FROM` image uses a build argument, with a reproducing
+              Dockerfile and command output
+      - organization: gRPC
         dates: "2025"
+        details:
+          - text: >-
+              debugged Python gRPC servers in a host-networked Docker container
+              that macOS could not reach, with `netstat` output and the
+              server and client address combinations tried, and traced it to
+              binding `127.0.0.1` instead of `0.0.0.0` or `[::]`
+      - organization: Python Semantic Release
+        dates: "2025"
+        details:
+          - text: >-
+              corrected a suggested version check for v10.4.1, where `--strict`
+              must come before `version`
+      - organization: commitizen-action-pr
+        dates: "2025"
+        details:
+          - text: >-
+              reported that the action fails with a `JSONDecodeError` on
+              `pull_request` `edited` events, with a workflow snippet and run
+              logs, and proposed removing that trigger from the README sample
+              until fixed
+      - organization: opensource-nepal/commitlint
+        dates: "2025"
+        details:
+          - text: >-
+              reported that auto-generated merge commits fail the GitHub Action
+              while passing locally, with runs comparing `pull_request` and
+              `push` events
+          - text: >-
+              traced a failing run to Python Semantic Release's release commit
+              message, and shared a configuration that keeps it conventional
+          - text: >-
+              proposed validating pull request titles or custom text in the
+              GitHub Action, with an input design and a working alternative
+              workflow
+      - organization: Mermaid
+        dates: "2025"
+        details:
+          - text: >-
+              shared a `themeCSS` workaround that maps Mermaid themes to HeroUI
+              CSS variables for dark mode, and its limit on charts such as Pie
+              that expose no classes
       - organization: Pylint
         dates: "2025"
-      - organization: giscus
-        dates: "2024"
-      - organization: mkcert
-        dates: "2024"
-      - organization: Docker Desktop for Mac
-        dates: "2024"
-      - organization: next-mdx-remote
-        dates: "2024"
+        details:
+          - text: >-
+              reported a related `no-member` false positive on `aenum` enum
+              members with `NoAlias`, with a minimal reproduction
       - organization: Next.js
         dates: "2023"
+        details:
+          - text: >-
+              proposed configurable server error messages, with the errors a
+              standalone build throws on a purpose-built ARM64 medical device
+              board
+          - text: >-
+              narrowed a concurrent context provider rendering error to Next.js
+              14.0.4, working on 13.4.5
       - organization: Electron
         dates: "2023"
+        details:
+          - text: >-
+              reported that packaged Electron Forge apps fail on Linux with
+              `libffmpeg.so: cannot open shared object file`, with versions and
+              reproduction steps for Ubuntu on WSL
       - organization: Husky
         dates: "2023"
-      - organization: LeetCode Feedback
-        dates: "2023"
-      - organization: Jest
-        dates: "2022"
-      - organization: aws-ssm-send-command
-        dates: "2022"
-      - organization: aws-ecr-action
-        dates: "2022"
+        details:
+          - text: >-
+              shared a fix for `pre-commit` failing with code 1: rewriting
+              `lint-staged` task arrays in `package.json` as strings
       - organization: vscode-github-actions
         dates: "2022"
+        details:
+          - text: >-
+              reported auto-completion not working for composite actions, with
+              versions, screenshots, and a reproduction repository
       - organization: uWSGI
         dates: "2022"
+        details:
+          - text: >-
+              adapted the Apple Silicon install workaround, linking
+              `libpython3.9`, to Anaconda's `/opt/anaconda3` path
       - organization: UTM
         dates: "2022"
+        details:
+          - text: >-
+              reported Ubuntu Desktop and Windows 11 stuck at UEFI boot on M1,
+              traced it to an amd64 ISO, and shared the Ubuntu Server plus
+              `ubuntu-desktop` workaround
       - organization: prism-react-renderer
         dates: "2022"
+        details:
+          - text: >-
+              reported that additional languages such as LaTeX fail to load in
+              Docusaurus with `Cannot find module './prism-latex'`, with
+              versions, configuration, and a reproduction repository
       - organization: Docusaurus
         dates: "2022"
+        details:
+          - text: >-
+              traced a `window is not defined` build failure to test files
+              under `src/` importing their subject through `./index`, fixed by
+              changing the import path
       - organization: Ionic Framework
         dates: "2021"
+        details:
+          - text: >-
+              reported that hot reloading froze with `process is not defined`
+              after upgrading to Ionic 6, with steps and environment details
+          - text: >-
+              reported `Failed to construct 'URL': Invalid base URL` when
+              rendering `IonRefresherContent`, with a stack trace
+          - text: >-
+              shared a workaround for change events firing on the initial value,
+              using a `key` prop and an equality guard in `onIonChange`
       - organization: TypeScript
         dates: "2021"
-      - organization: youtube-dl
-        dates: "2021"
-      - organization: three-devtools
-        dates: "2021"
+        details:
+          - text: >-
+              reported that members of a mixed string and number enum fail to
+              assign to `string` and `number` props (TS2322), with a playground
+              reproduction, and proposed supporting mixed-type enums
       - organization: React Three Fiber
         dates: "2021"
+        details:
+          - text: >-
+              reported that drei's `useTexture` returns `Texture | Texture[]`
+              for every input, proposing a return type per input type
+          - text: >-
+              shared a TypeScript integration of three-devtools through
+              `onCreated`
       - organization: React
         dates: "2020"
-      - organization: Ant Design
-        dates: "2020"
-      - organization: Redirection
-        dates: "2019"
+        details:
+          - text: >-
+              shared a workaround for `eslint-plugin-react-hooks` not applying
+              its recommended rules
