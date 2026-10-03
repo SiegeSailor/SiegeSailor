@@ -35,133 +35,89 @@ experience:
         city: "Trumbull, CT"
     bullets:
       - text: >-
-          Architected a cross-product device SDK shipped as a Docker
-          container (gRPC, MongoDB, RabbitMQ, Zeroconf) with .NET, Node.js,
-          Python, and C++ clients, reused across 5+ FDA / EU MDR-regulated
-          IVF products
+          Architected a cross-product device SDK shipped as a Docker container
+          (gRPC, MongoDB, RabbitMQ, Zeroconf) with .NET, Node.js, Python, and
+          C++ clients, reused across 5+ FDA / EU MDR-regulated IVF products
       - text: >-
           Cut RFID data-transition time by 90% with database caching and gRPC
-          streaming, reducing environmental-data rendering time on device UIs
-          by 50%
+          streaming, reducing environmental-data rendering time on device UIs by
+          50%
       - text: >-
           Led a shared React.js component library and its automated quality
           workflow (ESLint, Jest, Semantic Release on GitLab CI), built by 8+
-          contributors from 5+ parties (CooperSurgical and 4+ vendors) and
-          used by 20+ developers across 6+ products (on-device software and
-          web applications)
+          contributors from 5+ parties (CooperSurgical and 4+ vendors) and used
+          by 20+ developers across 6+ products (on-device software and web
+          applications)
       - text: >-
-          Built secure IVF workstation software on purpose-built embedded
-          Linux — compliance-driven SDLC (IEC 62304 / ISO 13485), GitLab
-          CI/CD pipelines, and containerized applications
+          Built secure IVF workstation software on purpose-built embedded Linux
+          — compliance-driven SDLC (IEC 62304 / ISO 13485), GitLab CI/CD
+          pipelines, and containerized applications
       - text: >-
-          Integrated LLM-assisted engineering into R&D workflows: agentic
-          coding tools, self-healing document generation in GitLab CI,
-          knowledge-graph extraction, and LLM observability (Langfuse)
+          Integrated LLM-assisted engineering into R&D workflows: agentic coding
+          tools, self-refining UI components, self-healing document generation
+          in GitLab CI, knowledge-graph extraction, and LLM observability
+          (Langfuse)
       - text: >-
-          Developed a containerized Protocol Buffers compiler service
-          automating multi-language client generation, plus NuGet network
-          connectivity libraries and CLI tooling adopted org-wide
-      - text: >-
-          Partnered with electrical, mechanical, and firmware teams to define
-          cross-functional interface standards, shaping next-generation IVF
-          device architecture and the R&D roadmap for the coming year
-      - text: >-
-          Coordinated 3+ global formative studies per year across divergent
-          development schedules — identified system bottlenecks, set
-          achievable milestones, and established a continuous R&D–clinical
-          feedback loop
-      - text: >-
-          Piloted workplace–device–cloud network communication with
-          cross-country teams and architected hybrid cloud / on-site services
-          (AWS, Wind River Studio) meeting data-integrity and retention
-          regulations at no-internet clinical sites
+          Developed a containerized Protocol Buffers compiler service automating
+          multi-language client generation, plus documented NuGet network
+          connectivity libraries and CLI automation scripts adopted org-wide
       - text: >-
           Served as the cross-functional communication architect for
-          next-generation IVF devices, leading a team of 5 hardware and
-          software engineers
+          next-generation IVF devices, leading a team of 5 hardware and software
+          engineers in central user interface development across parallel
+          product timelines, and partnering with electrical, mechanical, and
+          firmware teams on interface standards that shaped the device
+          architecture and the coming year's R&D roadmap
       - text: >-
-          Led a team of 5 in central user interface development, supporting
-          parallel product timelines
+          Coordinated 3+ global formative studies per year across divergent
+          development schedules — identified system bottlenecks, set achievable
+          milestones, and established a continuous R&D–clinical feedback loop
       - text: >-
-          Headed a cross-product shared library with 8+ contributors from 5+
-          parties (CooperSurgical and 4+ vendors), adopted across 6+ products,
-          facilitating alignment on goals, outcomes, and timelines while
-          complying with US FDA & EU MDR requirements and business goals
+          Architected secure hybrid cloud / on-site services (AWS, Wind River
+          Studio) for no-internet clinical sites, from RFID readers over MQTT
+          through a hardware security layer on purpose-built embedded Linux to
+          AWS, with a security-assessed third-party ecosystem, meeting
+          data-integrity and retention regulations; piloted the
+          workplace–device–cloud communication with cross-country teams
       - text: >-
           Led the software integration effort for a regulated human factors
-          study involving real embryologists and lab managers, collaborating
-          across firmware, mechanical, and software teams and partnering with
-          Loring Human Factors to structure the study protocol
+          study with real embryologists and lab managers, working across
+          firmware, mechanical, and software teams and giving Loring Human
+          Factors a structured study protocol and operational flows that did not
+          depend on real-time engineering support
       - text: >-
           Owned the integration architecture across an embedded gateway on a
           purpose-built Linux board, RI-Witness (an IVF laboratory monitoring
-          platform from a UK-based team), and the Central User Interface for
-          the next-generation IVF workstation controlling hardware such as gas
-          mixers and heaters
+          platform from a UK-based team), and the next-generation IVF
+          workstation's Central User Interface controlling hardware such as gas
+          mixers and heaters, including a shared library for RI-Witness to
+          exchange encrypted, compressed messages with zero configuration
+          overhead
+      - text: >-
+          Resolved a firmware-team disagreement over the gateway's system-level
+          control protocol by delivering a minimum working example, reducing
+          integration friction to zero barring high-level changes, and had each
+          team provide interfaces and simulators (software, firmware) or
+          prototypes (electrical, mechanical) so teams could build in parallel
+          without rework from misaligned integration
       - text: >-
           Developed a hardware-agnostic simulator running across various
           processor architectures, decoupling progress from Wind River's
           validation timeline
       - text: >-
-          Built a shared library enabling RI-Witness to exchange encrypted,
-          compressed messages with zero configuration overhead
+          Built the Central User Interface, a real-time kiosk console over RPC
+          (gRPC, Electron, Next.js, Redux, MongoDB, Redis, Docker, Framer
+          Motion) for multiple types of medical equipment, whose prototype drew
+          positive feedback at 3 international user-facing workshops
       - text: >-
-          Defined structured operational flows for Loring Human Factors,
-          giving the study team reliable procedures that did not depend on
-          real-time engineering support
-      - text: >-
-          Resolved a disagreement with firmware teams over a communication
-          protocol defining the gateway for system-level control standards by
-          delivering a minimum working example, reducing integration frictions
-          to zero unless there is a high-level change
-      - text: >-
-          Had each team provide interfaces and simulators (software, firmware)
-          or prototypes (electrical, mechanical) so teams could build their
-          infrastructure in parallel, reducing rework on requirements and
-          timelines from misaligned integration
-      - text: >-
-          Designed hybrid approaches for medical devices supporting
-          no-internet-access locations, including a hardware security layer
-          with purpose-built embedded Linux and firmware integration with RFID
-          using MQTT
-      - text: >-
-          Designed and implemented an on-premise decentralized clustering
-          system to enable medical devices to communicate with each other to
-          support access control and service monitoring, preventing having the
-          same features developed on different products
-      - text: >-
-          Initialized the development and operations pipelines to cooperate
-          with 2 international organizations to develop an on-premise
-          decentralized clustering system
-      - text: >-
-          Designed and implemented a secured medical software architecture,
-          including a third-party ecosystem and security assessment, from the
-          on-premise with RFID Readers to the cloud on AWS
+          Designed an on-premise decentralized clustering system letting medical
+          devices communicate with each other for access control and service
+          monitoring instead of each product rebuilding those features, and
+          initialized the development and operations pipelines to co-develop it
+          with 2 international organizations
       - text: >-
           Crafted a message streaming UI using ASP.NET Core for
           hardware/firmware integration with RFID
-      - text: >-
-          Created an RPC-based kiosk-like real-time UI using Electron, Framer
-          Motion, Redux, and Next.js
-      - text: >-
-          Developed a kiosk-wise application for embryology workstations using
-          gRPC, Electron, NextJS, MongoDB, Redis, Docker, and Framer Motion,
-          gaining positive feedback in first-line user-facing workshops
-      - text: >-
-          Prototyped a kiosk-wise software that runs as the central console
-          for multiple types of medical equipment, which obtained valuable and
-          positive feedback for the next phase of development
-      - text: >-
-          Prototyped the main next-generation medical product and received
-          positive feedback at 3 international workshops
-      - text: >-
-          Demonstrated A.I. assistant tools integration by developing
-          self-refining UI components, accelerating the adaptation from
-          frequently changing front designs to practical implementations
-      - text: >-
-          Built utilities and provided documentation to streamline the
-          organization's software development and delivery processes, such as
-          NuGet network connectivity libraries and CLI automation scripts
       - text: >-
           Mentored 1 intern to be involved in container strategy in Linux and
           back-end development using Flask
@@ -187,59 +143,30 @@ experience:
           Built real-time multiplayer game services (Socket.IO, Express.js,
           Redis) sustaining 10,000+ peak RPS and 200,000+ daily players on
           low-end devices in weak-signal regions
-      # The window is the claim: first-to-last-day within one festival run, not
-      # D1 or D7 cohort retention. Do not compress it back to "player retention".
+      # The window is the claim: first-to-last-day within one festival
+      # run, not D1 or D7 cohort retention. Do not compress it back to
+      # "player retention".
       - text: >-
           Raised first-to-last-day player retention from 0.25 to 0.65 across
-          3–14 day shopping-festival runs by designing a weighted-random
-          reward algorithm
+          3–14 day shopping-festival runs by designing a weighted-random reward
+          algorithm
       - text: >-
-          Integrated regional data warehouses and deployment pipelines with
-          global services on GCP under a TDD-enforced workflow, cutting local
+          Led the integration of regional data warehouses and deployment
+          pipelines with global services on GCP, letting 5 international teams
+          redeploy without hard-coded configurations and cutting local
           developers' redeployment effort by 90%+
       - text: >-
-          Implemented high-volume tolerant socket connections using Socket.IO,
-          Express.js, and Redis for multi-player real-time SPA games built
-          upon Ant Design, Phaser, React.js, Redux, TypeScript, and Three.js,
-          accommodating 200,000+ daily players and 10,000+ RPS
+          Designed 2D-3D-blended web mobile games (Three.js, Phaser, TypeScript)
+          inside the main React.js / Redux application, and set their
+          development and operations workflows with marketing, UI/UX designers,
+          and tech teams in Singapore and China to ship fault-tolerant user
+          flows alongside the biggest yearly shopping festival
       - text: >-
-          Solved 10,000+ RPS real-time client-facing issues by cooperating
-          with the marketing team and UI/UX designers to deliver more
-          fault-tolerant user flows, while maintaining the system's
-          performance
-      - text: >-
-          Designed 2D-3D-blended web mobile games with Three.js and Phaser,
-          integrating with the main application built on React.js and Redux
-      - text: >-
-          Designed a web mobile game's tech stack, development and operations
-          procedures, and workflows with multiple internal teams, cooperating
-          with the marketing department and tech teams in Singapore and China
-          to publish alongside the biggest yearly shopping festival
-      - text: >-
-          Led integration of global data service to allow 5 international
-          teams to deploy with regional systems
-      - text: >-
-          Collaborated with global teams to integrate data services and
-          deployment pipelines, enabling international teams to redeploy
-          software without hard-coded configurations, reducing local developer
-          time by 90%+
-      - text: >-
-          Integrated region data warehouse and deployment pipelines with global
-          services with a TDD-enforced workflow using Docusaurus, GCP, private
-          NPM, Postman, and TypeScript
-      - text: >-
-          Embedded region services within the global data warehouse using
-          Flask, Firestore, and GCP
-      - text: >-
-          Established CI/CD pipelines for testing and deploying using GitLab
-          and GCP for backstages and games
-      - text: >-
-          Constructed team-level packages and hosted on private NPM,
-          bootstrapping documentation with TypeScript, Postman, and Docusaurus
-      - text: >-
-          Introduced Test-Driven Development using Jest for games and private
-          packages, conducting scheduled load testing using Locust for
-          back-end services and gateways
+          Introduced Test-Driven Development with Jest and scheduled Locust load
+          testing across games, private packages, back-end services, and
+          gateways, plus GitLab / GCP CI/CD pipelines for backstages and games,
+          and team-level private NPM packages documented with Docusaurus and
+          Postman
 
   - company: Edallianz
     legalName: "Edallianz Pte. Ltd."
@@ -260,35 +187,24 @@ experience:
         focus: Cross-Platform UX Integration
     bullets:
       - text: >-
-          Redesigned the payment endpoint flow from internal data-flow
-          analysis, lifting checkout conversion by 25%
+          Redesigned the payment endpoint flow from internal data-flow analysis,
+          lifting checkout conversion by 25%
       - text: >-
           Grew daily user posts by 500% (+800 posts/day) by introducing CDN
           caching
       - text: >-
-          Launched a responsive UI framework (SASS, Webpack) restructuring
-          sites built on Django, Tornado, and Apache HTTP Server
+          Launched a responsive UI framework (SASS, Webpack, Material UI,
+          jQuery) restructuring sites built on Django, Tornado, and Apache HTTP
+          Server
       - text: >-
-          Identified a UX flaw in the payment system and implemented an
-          endpoint flow with fewer footprints based on product knowledge and
-          internal data flow proficiency, leading to 25% higher conversion rate
+          Unified user flows across Android, iOS, and Web, cutting the cost and
+          complexity of application designs to 1/3
       - text: >-
-          Planned the uniforming of the user flows on Android, iOS, and Web,
-          enhancing user experience across devices and reducing the cost and
-          complexity of application designs
-      - text: >-
-          Delivered user flow solutions to reduce the cost and complexity of
-          designs to 1/3 across Android, iOS, and Web
+          Built Django, MySQL, and RTDB microservices on Apache behind Tornado
+          proxying, containerized with Docker and deployed on AWS
       - text: >-
           Built a responsive website to embed into kiosks to gather reviews
           using Django and React.js
-      - text: >-
-          Created a RWD UI framework using SCSS and Webpack, integrating it
-          with Material UI and jQuery
-      - text: >-
-          Constructed web systems with Django, MySQL, RTDB, and Apache as parts
-          of the microservices with Tornado proxying, which were containerized
-          with Docker and deployed on AWS
 
   - company: Servicetech International
     legalName: "Servicetech International, Inc."
@@ -335,58 +251,37 @@ experience:
     bullets:
       - text: >-
           Drove a paperless transformation — shipped a supply-chain PWA
-          (Firebase, Ionic, React.js), consolidating 100+ ad-hoc sales
-          channels into 6 trackable procedures
+          (Firebase, Ionic, React.js), consolidating 100+ ad-hoc sales channels
+          into 6 trackable procedures
       - text: >-
-          Built a digital corporate identity system supporting health
-          education for 1,000+ medical institutions and 25+ device
-          exhibitions
+          Built a digital corporate identity system and its material warehouse,
+          turning traditional media into web and print material for health
+          education at 1,000+ medical institutions and 25+ device exhibitions
       - text: >-
-          Pitched and implemented a paperless transformation to increase data
-          consistency and team productivity, conveying insights from the sales
-          and operations teams into an easy-to-use mobile application
+          Built a configurable website (React, Bootstrap, PHP, Firebase) that
+          reached 500% more customers
       - text: >-
-          Enhanced inter-department workflow by developing an in-house
-          application that transformed the company from paper-based to
-          digital-driven, reducing the required human power
-      - text: >-
-          Established a digital Corporate Identity System by transforming
-          traditional media into web-based and printed material, supporting
-          1000+ medical institutions' health education and 25+ medical device
-          exhibitions
-      - text: >-
-          Initiated a configurable website using Bootstrap, React, PHP, and
-          Firebase, and a CIS material warehouse
-      - text: >-
-          Built a configurable website that hits 500% more customers using
-          React, Bootstrap, and Firebase
-      - text: >-
-          Enhanced inter-department workflow on GCP to collect business
-          metrics for insight generation
-      - text: >-
-          Established the technology department's workflow and guided 2 team
-          members into the process
-      - text: >-
-          Automated the contract filing process using Python Scripting
-      - text: >-
-          Established a 4-member marketing and technology department to
-          develop marketing materials and software by building workflows,
-          designing and implementing, and hiring employees
+          Established a 4-member marketing and technology department to develop
+          marketing materials and software — hiring, building its workflows, and
+          guiding 2 team members into the process
       - text: >-
           Handled marketing, social media, digital asset creation, and expo
           support beyond software engineering
+      - text: >-
+          Enhanced inter-department workflow on GCP to collect business metrics
+          for insight generation
+      - text: >-
+          Automated the contract filing process using Python Scripting
       # Part-time role (Dec 2019 – Present).
       - text: >-
           Continued supporting the company website and web application built
-          during the full-time role, part-time and remotely
+          during the full-time role, part-time and remotely, advising on digital
+          tools and identity system usage
       - text: >-
-          Implemented trading features and integrated them into the internal
-          PWA with Automation First Strategy using React, Cloud Functions, and
+          Implemented trading features and integrated them into the internal PWA
+          with Automation First Strategy using React, Cloud Functions, and
           NodeJS
       - text: >-
           Enhanced security practices in the existing user flow, including
           privilege management and CI/CD with logging, SAST, and deployment
           policy
-      - text: >-
-          Advised digital tools and identity system usage to enhance company
-          efficiency continuously

@@ -167,7 +167,7 @@ This plan selects the content the pre-port pipeline printed, less 1 Edallianz bu
             "Cut RFID data-transition time by 90% with database caching and gRPC streaming, reducing environmental-data rendering time on device UIs by 50%",
             "Led a shared React.js component library and its automated quality workflow (ESLint, Jest, Semantic Release on GitLab CI), built by 8+ contributors from 5+ parties (CooperSurgical and 4+ vendors) and used by 20+ developers across 6+ products (on-device software and web applications)",
             "Built secure IVF workstation software on purpose-built embedded Linux — compliance-driven SDLC (IEC 62304 / ISO 13485), GitLab CI/CD pipelines, and containerized applications",
-            "Integrated LLM-assisted engineering into R&D workflows: agentic coding tools, self-healing document generation in GitLab CI, knowledge-graph extraction, and LLM observability (Langfuse)"
+            "Integrated LLM-assisted engineering into R&D workflows: agentic coding tools, self-refining UI components, self-healing document generation in GitLab CI, knowledge-graph extraction, and LLM observability (Langfuse)"
           ]
         },
         {
@@ -183,7 +183,7 @@ This plan selects the content the pre-port pipeline printed, less 1 Edallianz bu
           "bullets": [
             "Built real-time multiplayer game services (Socket.IO, Express.js, Redis) sustaining 10,000+ peak RPS and 200,000+ daily players on low-end devices in weak-signal regions",
             "Raised first-to-last-day player retention from 0.25 to 0.65 across 3–14 day shopping-festival runs by designing a weighted-random reward algorithm",
-            "Integrated regional data warehouses and deployment pipelines with global services on GCP under a TDD-enforced workflow, cutting local developers' redeployment effort by 90%+"
+            "Led the integration of regional data warehouses and deployment pipelines with global services on GCP, letting 5 international teams redeploy without hard-coded configurations and cutting local developers' redeployment effort by 90%+"
           ]
         },
         {
