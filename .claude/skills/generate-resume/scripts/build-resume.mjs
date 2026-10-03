@@ -128,12 +128,17 @@ const buildSkills = (section) => {
       bodyLine(
         [
           new TextRun({
-            text: `${s.label}: `,
+            // Rows given together print as 1: labels joined by "&", items by ";".
+            text: `${[].concat(s.label).join(" & ")}: `,
             bold: true,
             font: FONT,
             size: SZ.body,
           }),
-          new TextRun({ text: clean(s.items), font: FONT, size: SZ.body }),
+          new TextRun({
+            text: [].concat(s.items).map(clean).join("; "),
+            font: FONT,
+            size: SZ.body,
+          }),
         ],
         { spacing: { after: 20 } },
       ),

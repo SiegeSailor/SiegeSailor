@@ -58,7 +58,7 @@ A plan is a plain object. `verifyVerbatim` walks every scalar leaf of it and rej
     { key: "summary", heading: "Summary", text: string },   // written for the audience
 
     { key: "skills", heading: "Skills",
-      rows: [{ label: string, items: string }, ...] },
+      rows: [{ label: string | [string, ...], items: string | [string, ...] }, ...] },  // arrays join rows into 1 line
 
     { key: "experience", heading: "Work Experience",
       entries: [{
@@ -134,8 +134,11 @@ This plan selects the content the pre-port pipeline printed, less 1 Edallianz bu
           "items": "Docker, Kubernetes, GitLab CI/CD, GitHub Actions, Terraform, AWS, GCP, Linux (Ubuntu, Debian), Nginx"
         },
         {
-          "label": "Data & Frontend",
-          "items": "MongoDB, MySQL, PostgreSQL, Redis; React.js, Next.js, Redux, Electron"
+          "label": ["Databases", "Frontend"],
+          "items": [
+            "MongoDB, MySQL, PostgreSQL, Redis",
+            "React.js, Next.js, Redux, Electron"
+          ]
         },
         {
           "label": "Regulated Software",
