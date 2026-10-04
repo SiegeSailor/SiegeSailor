@@ -81,6 +81,23 @@ projects:
       S3* behind *CloudFront*, with markdown-driven posts, in-site search, and a
       single-source résumé build system. Built with *TailwindCSS*, *HeroUI*, the
       *UnifiedJS* ecosystem, *Mermaid*, and *Zustand*.
+  - title: Terminal-Sigma
+    stage: Production
+    href: "https://github.com/SiegeSailor/Terminal-Sigma"
+    description: >-
+      Available on `npm` and as a desktop app, a *TypeScript* terminal
+      dashboard that gives game-style feedback on self-development: a
+      pixel-art character levels up alongside a Pomodoro timer, diet and
+      workout trackers, and everyday quotes, in English and Traditional
+      Chinese. Built with *React*, *Ink*, *Zod*, *Electron*, and *xterm.js*.
+  - title: Smarty Notebook Collection
+    stage: Production
+    href: "https://github.com/SiegeSailor/Smarty-Notebook-Collection"
+    description: >-
+      A collection of self-contained *Jupyter* notebooks that run batch
+      requests against the **Smarty** Cloud API, such as fetching U.S. ZIP+4
+      codes by address. Built with *Python*, *pandas*, *Requests*, and
+      *Poetry*.
   # Both are still in planning, and neither has a GitHub repository yet.
   - title: TypeScript Markdown Files Converter
     stage: Planning
