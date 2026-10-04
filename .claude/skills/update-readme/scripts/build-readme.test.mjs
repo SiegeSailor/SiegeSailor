@@ -24,10 +24,14 @@ const INPUT = {
       href: "https://github.com/SiegeSailor/Now",
       stage: "Development",
     },
+    {
+      title: "Unhosted",
+      href: "https://github.com/SiegeSailor",
+      stage: "Production",
+    },
   ],
   media: [{ label: "GitHub", href: "https://github.com/SiegeSailor" }],
   timeline: { start: "2017-06-01", excluded: [] },
-  versions: { "SiegeSailor/Website": "2.0.0" },
   headings: { summary: "Summary", projects: "Projects", media: "Links" },
 };
 
@@ -37,15 +41,15 @@ test("hides Planning projects and orders Production before Development", () => {
   assert.ok(readme.indexOf("Website") < readme.indexOf("Now"));
 });
 
-test("labels a project with its resolved version, or its stage when absent", () => {
+test("labels a repository with a live version badge, or its stage without one", () => {
   const readme = buildReadme(INPUT);
-  assert.match(
-    readme,
-    /\[Website\]\(https:\/\/github\.com\/SiegeSailor\/Website\) — v2\.0\.0/,
+  assert.ok(
+    readme.includes(
+      "[Website](https://github.com/SiegeSailor/Website) — ![version](https://img.shields.io/github/v/tag/SiegeSailor/Website?sort=semver&label=)",
+    ),
   );
-  assert.match(
-    readme,
-    /\[Now\]\(https:\/\/github\.com\/SiegeSailor\/Now\) — development/,
+  assert.ok(
+    readme.includes("[Unhosted](https://github.com/SiegeSailor) — production"),
   );
 });
 

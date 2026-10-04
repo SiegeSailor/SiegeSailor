@@ -1,8 +1,3 @@
-import { execFile } from "node:child_process";
-import { promisify } from "node:util";
-
-const execFileAsync = promisify(execFile);
-
 // Renders SiegeSailor/SiegeSailor's README from an input object assembled by
 // the update-readme skill from profile/. Ported from the Website repo's
 // build-readme.mjs, which drove the same file through a clone-and-push
@@ -35,8 +30,10 @@ const repoKey = (href) => {
   const match = String(href).match(REGEX_GITHUB_REPO);
   return match ? `${match[1]}/${match[2].replace(/\.git$/, "")}` : null;
 };
-const versionLabel = (version) =>
-  /^v/i.test(version) ? version : `v${version}`;
+// Rendered by GitHub on every view, so the version is never a stale snapshot.
+// `tag` rather than `release` also covers a project that versions by tag alone.
+const versionBadge = (key) =>
+  `![version](https://img.shields.io/github/v/tag/${key}?sort=semver&label=)`;
 
 export function buildReadme({
   identity,
@@ -47,7 +44,6 @@ export function buildReadme({
   projects,
   media,
   timeline,
-  versions,
   headings,
 }) {
   const projectLines = (projects || [])
@@ -55,9 +51,8 @@ export function buildReadme({
     .sort((left, right) => STAGE_ORDER[left.stage] - STAGE_ORDER[right.stage])
     .map((project) => {
       const key = repoKey(project.href);
-      const version = key ? versions[key] : null;
       return `- [${project.title}](${project.href}) — ${
-        version ? versionLabel(version) : project.stage.toLowerCase()
+        key ? versionBadge(key) : project.stage.toLowerCase()
       }`;
     });
 
@@ -86,38 +81,4 @@ export function buildReadme({
   ].join("\n");
 
   return `${readme}\n`;
-}
-
-async function ghApiJson(path) {
-  const { stdout } = await execFileAsync("gh", ["api", path]);
-  return JSON.parse(stdout);
-}
-
-// Never throws: a project without a resolvable version simply falls back to
-// its stage in buildReadme. Tries the latest release first, then the newest
-// tag, in case a project versions by tag alone.
-export async function resolveVersions(projects) {
-  const versions = {};
-  for (const project of projects || []) {
-    const key = repoKey(project.href);
-    if (!key) continue;
-
-    try {
-      const release = await ghApiJson(`repos/${key}/releases/latest`);
-      if (release?.tag_name) {
-        versions[key] = release.tag_name;
-        continue;
-      }
-    } catch {
-      // No releases (or no access) — fall back to tags below.
-    }
-
-    try {
-      const tags = await ghApiJson(`repos/${key}/tags`);
-      if (tags?.[0]?.name) versions[key] = tags[0].name;
-    } catch {
-      // No tags either — the project shows its stage instead.
-    }
-  }
-  return versions;
 }
