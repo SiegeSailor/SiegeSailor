@@ -30,7 +30,7 @@ projects:
           A Python PIP library comes up with a wrapper class for concurrent
           tasks to abstract in a waterfall manner, built on Async.io
   - title: Account Management CBWMs
-    stage: Development
+    stage: Planning
     href: "https://github.com/SiegeSailor/OpenSource.AccountHub"
     description: >-
       Scalable *OWASP*-Complied Cloud-Based Microservice that allows users to
@@ -43,7 +43,7 @@ projects:
           database system within the OWASP SAMM framework, built with Java,
           Spring MVC, and MySQL
   - title: Configurable Bucket CBWM Boilerplate
-    stage: Development
+    stage: Planning
     href: "https://github.com/SiegeSailor/OpenSource.Bucket"
     description: >-
       A project boilerplate that provides a *RESTful* interface for *AWS S3*
