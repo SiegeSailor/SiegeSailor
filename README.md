@@ -10,8 +10,8 @@ Senior software engineer building distributed systems from consumer scale to reg
 
 ## Projects
 
-- [Jin Yu Zhang's Website](https://github.com/SiegeSailor/Website) — v2.1.1
-- [Terminal-Sigma](https://github.com/SiegeSailor/Terminal-Sigma) — v1.1.0
+- [Jin Yu Zhang's Website](https://github.com/SiegeSailor/Website) — v2.1.2
+- [Terminal Sigma](https://github.com/SiegeSailor/Terminal-Sigma) — v1.1.0
 - [Smarty Notebook Collection](https://github.com/SiegeSailor/Smarty-Notebook-Collection) — v3.0.0
 - [Cryptography CLI](https://github.com/SiegeSailor/Cryptography) — v2.3.2
 
