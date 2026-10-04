@@ -35,6 +35,23 @@ const repoKey = (href) => {
 const versionBadge = (key) =>
   `![version](https://img.shields.io/github/v/tag/${key}?sort=semver&label=)`;
 
+// A table rather than a list: GitHub strips inline styles, so a badge beside
+// text top-aligns, while a badge alone in its cell has nothing to misalign with.
+// Cells are padded the way Prettier pads them, so `format:check` passes.
+function table(rows) {
+  const widths = rows[0].map((_, column) =>
+    Math.max(...rows.map((row) => row[column].length)),
+  );
+  const line = (cells) =>
+    `| ${cells.map((cell, column) => cell.padEnd(widths[column])).join(" | ")} |`;
+  const [header, ...body] = rows;
+  return [
+    line(header),
+    line(widths.map((width) => "-".repeat(width))),
+    ...body.map(line),
+  ];
+}
+
 export function buildReadme({
   identity,
   headlines,
@@ -46,14 +63,15 @@ export function buildReadme({
   timeline,
   headings,
 }) {
-  const projectLines = (projects || [])
+  const projectRows = (projects || [])
     .filter((project) => project.stage !== "Planning")
     .sort((left, right) => STAGE_ORDER[left.stage] - STAGE_ORDER[right.stage])
     .map((project) => {
       const key = repoKey(project.href);
-      return `- [${project.title}](${project.href}) — ${
-        key ? versionBadge(key) : project.stage.toLowerCase()
-      }`;
+      return [
+        `[${project.title}](${project.href})`,
+        key ? versionBadge(key) : project.stage.toLowerCase(),
+      ];
     });
 
   const links = (media || [])
@@ -73,7 +91,7 @@ export function buildReadme({
     "",
     `## ${headings.projects}`,
     "",
-    ...projectLines,
+    ...table([["Project", "Version"], ...projectRows]),
     "",
     `## ${headings.media}`,
     "",

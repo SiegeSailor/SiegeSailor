@@ -37,7 +37,7 @@ Each run writes a new summary and new headlines for the audience the request nam
 | `summary`   | written per run, per **Summary** above | bare `string`                                | No — write it as a string, not as a `{ text }` entry               |
 | `timeline`  | `timeline.yaml`'s `timeline:` key      | `{ start, excluded: [{ start, end }, ...] }` | No — pass through                                                  |
 
-There is no version input. A project whose `href` is a repository renders a [shields.io](https://shields.io/) tag badge that GitHub fetches on every view, so the README never goes stale at a release; any other project renders its stage.
+There is no version input. The projects render as a table, so a badge sits alone in its cell rather than top-aligned beside text. A project whose `href` is a repository renders a [shields.io](https://shields.io/) tag badge that GitHub fetches on every view, so the README never goes stale at a release; any other project renders its stage.
 
 ### Worked Example
 

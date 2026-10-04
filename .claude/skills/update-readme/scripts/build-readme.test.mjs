@@ -41,16 +41,24 @@ test("hides Planning projects and orders Production before Development", () => {
   assert.ok(readme.indexOf("Website") < readme.indexOf("Now"));
 });
 
-test("labels a repository with a live version badge, or its stage without one", () => {
+test("tabulates each repository with a live version badge, or its stage without one", () => {
   const readme = buildReadme(INPUT);
-  assert.ok(
-    readme.includes(
-      "[Website](https://github.com/SiegeSailor/Website) — ![version](https://img.shields.io/github/v/tag/SiegeSailor/Website?sort=semver&label=)",
-    ),
+  assert.match(
+    readme,
+    /^\| \[Website\]\(https:\/\/github\.com\/SiegeSailor\/Website\) +\| !\[version\]\(https:\/\/img\.shields\.io\/github\/v\/tag\/SiegeSailor\/Website\?sort=semver&label=\) +\|$/m,
   );
-  assert.ok(
-    readme.includes("[Unhosted](https://github.com/SiegeSailor) — production"),
+  assert.match(
+    readme,
+    /^\| \[Unhosted\]\(https:\/\/github\.com\/SiegeSailor\) +\| production +\|$/m,
   );
+});
+
+test("pads the projects table so every row is the same width", () => {
+  const rows = buildReadme(INPUT)
+    .split("\n")
+    .filter((line) => line.startsWith("|"));
+  assert.equal(rows.length, 5);
+  assert.equal(new Set(rows.map((row) => row.length)).size, 1);
 });
 
 test("computes experience from the timeline rather than printing a stated figure", () => {
