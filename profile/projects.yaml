@@ -3,6 +3,8 @@ projects:
   - title: Jin Yu Zhang's Website
     stage: Production
     href: "https://github.com/SiegeSailor/Website"
+    # Starts with the first published article, which predates the repository.
+    dates: "Sep 2019 – Present"
     description: >-
       This site — a statically exported *Next.js* application served from *AWS
       S3* behind *CloudFront*, with markdown-driven posts, in-site search, and a
@@ -11,6 +13,7 @@ projects:
   - title: Terminal Sigma
     stage: Production
     href: "https://github.com/SiegeSailor/Terminal-Sigma"
+    dates: "Apr 2026 – Present"
     description: >-
       Available on `npm` and as a desktop app, a *TypeScript* terminal
       dashboard that gives game-style feedback on self-development: a
@@ -20,6 +23,7 @@ projects:
   - title: Smarty Notebook Collection
     stage: Production
     href: "https://github.com/SiegeSailor/Smarty-Notebook-Collection"
+    dates: "Sep 2025 – Apr 2026"
     description: >-
       A collection of self-contained *Jupyter* notebooks that run batch
       requests against the **Smarty** Cloud API, such as fetching U.S. ZIP+4
@@ -28,6 +32,7 @@ projects:
   - title: Cryptography CLI
     stage: Development
     href: "https://github.com/SiegeSailor/Cryptography"
+    dates: "Dec 2022 – Present"
     description: >-
       Available on `npm`, a *TypeScript* package with *WebAssembly* enabled
       that provides a collection of cryptography functions and a command-line
