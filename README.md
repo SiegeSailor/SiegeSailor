@@ -10,10 +10,10 @@ Senior software engineer building distributed systems from consumer scale to reg
 
 ## Projects
 
-- [Jin Yu Zhang's Website](https://github.com/SiegeSailor/Website) — v2.1.2
-- [Terminal Sigma](https://github.com/SiegeSailor/Terminal-Sigma) — v1.1.0
-- [Smarty Notebook Collection](https://github.com/SiegeSailor/Smarty-Notebook-Collection) — v3.0.0
-- [Cryptography CLI](https://github.com/SiegeSailor/Cryptography) — v2.3.2
+- [Jin Yu Zhang's Website](https://github.com/SiegeSailor/Website) — ![version](https://img.shields.io/github/v/tag/SiegeSailor/Website?sort=semver&label=)
+- [Terminal Sigma](https://github.com/SiegeSailor/Terminal-Sigma) — ![version](https://img.shields.io/github/v/tag/SiegeSailor/Terminal-Sigma?sort=semver&label=)
+- [Smarty Notebook Collection](https://github.com/SiegeSailor/Smarty-Notebook-Collection) — ![version](https://img.shields.io/github/v/tag/SiegeSailor/Smarty-Notebook-Collection?sort=semver&label=)
+- [Cryptography CLI](https://github.com/SiegeSailor/Cryptography) — ![version](https://img.shields.io/github/v/tag/SiegeSailor/Cryptography?sort=semver&label=)
 
 ## Links
 
