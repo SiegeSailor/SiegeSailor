@@ -38,23 +38,6 @@ projects:
       that provides a collection of cryptography functions and a command-line
       tool with interactive prompts to demonstrate key encryption flows and
       algorithms.
-  - title: Self-Development Assistant
-    stage: Planning
-    href: "https://github.com/SiegeSailor"
-    description: >-
-      An *iOS* application built with *Godot* that comes with often-used
-      self-development and assistance features, such as the tomato timer, diet
-      tracking, goals-oriented schedules, and everyday-motivating quotes, to
-      help users build confidence and assertiveness.
-  - title: AI-Driven Development Tools Integration
-    stage: Planning
-    href: "https://github.com/SiegeSailor"
-    description: >-
-      *macOS*-specific desktop integration of AI-driven development tools for
-      automating workflows with *MCPs* and *Agents*, including onboarding
-      environment setup, credential management, **Slack** and **GitLab**
-      integration, image, icon, and sprite sheet generation, and **Gmail** and
-      *Webhooks* triggers.
   - title: Concurrency Toolkit
     stage: Planning
     href: "https://github.com/SiegeSailor"
@@ -103,19 +86,3 @@ projects:
       boilerplate that provides a set of team-oriented development tools, such
       as *GitLab CI/CD*, *Semantic Release*, *TypeScript*, *Jest*, *ESLint*,
       *Stylelint*, and *Ladle*, and best practices.
-  # Both are still in planning, and neither has a GitHub repository yet.
-  - title: TypeScript Markdown Files Converter
-    stage: Planning
-    href: "https://github.com/SiegeSailor"
-    description: >-
-      A *TypeScript* NPM package for parsing markdown files to readable HTML
-      files using *Remark* and parsing folders/files to parsable data
-      structures.
-  - title: AI Story Writer
-    stage: Planning
-    href: "https://github.com/SiegeSailor"
-    description: >-
-      A local AI-powered storytelling engine that helps users build
-      interconnected fantasy universes. The system automatically categorizes
-      the inputs, such as races and weapons, and keeps track of them. Built
-      with *Python*, *SQLite*, *Ollama*, *Mistral 7B*, and *Streamlit*.
