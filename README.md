@@ -10,12 +10,12 @@ Senior software engineer building distributed systems from consumer scale to reg
 
 ## Projects
 
-| Project                                                                                 | Version                                                                                                   |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| [Jin Yu Zhang's Website](https://github.com/SiegeSailor/Website)                        | ![version](https://img.shields.io/github/v/tag/SiegeSailor/Website?sort=semver&label=)                    |
-| [Terminal Sigma](https://github.com/SiegeSailor/Terminal-Sigma)                         | ![version](https://img.shields.io/github/v/tag/SiegeSailor/Terminal-Sigma?sort=semver&label=)             |
-| [Smarty Notebook Collection](https://github.com/SiegeSailor/Smarty-Notebook-Collection) | ![version](https://img.shields.io/github/v/tag/SiegeSailor/Smarty-Notebook-Collection?sort=semver&label=) |
-| [Cryptography CLI](https://github.com/SiegeSailor/Cryptography)                         | ![version](https://img.shields.io/github/v/tag/SiegeSailor/Cryptography?sort=semver&label=)               |
+| Project                                                                      | Version                                                                                             |
+| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| [Jin Yu Zhang's Website](https://github.com/SiegeSailor/website)             | ![version](https://img.shields.io/github/v/tag/SiegeSailor/website?sort=semver&label=)              |
+| [Terminal Sigma](https://github.com/SiegeSailor/terminal-sigma)              | ![version](https://img.shields.io/github/v/tag/SiegeSailor/terminal-sigma?sort=semver&label=)       |
+| [Smarty Notebook Collection](https://github.com/SiegeSailor/notebook-smarty) | ![version](https://img.shields.io/github/v/tag/SiegeSailor/notebook-smarty?sort=semver&label=)      |
+| [Cryptography CLI](https://github.com/SiegeSailor/library-cryptography)      | ![version](https://img.shields.io/github/v/tag/SiegeSailor/library-cryptography?sort=semver&label=) |
 
 ## Links
 
