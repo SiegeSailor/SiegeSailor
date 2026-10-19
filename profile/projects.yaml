@@ -2,7 +2,7 @@
 projects:
   - title: Jin Yu Zhang's Website
     stage: Production
-    href: "https://github.com/SiegeSailor/Website"
+    href: "https://github.com/SiegeSailor/website"
     # Starts with the first published article, which predates the repository.
     dates: "Sep 2019 – Present"
     description: >-
@@ -12,7 +12,7 @@ projects:
       *UnifiedJS* ecosystem, *Mermaid*, and *Zustand*.
   - title: Terminal Sigma
     stage: Production
-    href: "https://github.com/SiegeSailor/Terminal-Sigma"
+    href: "https://github.com/SiegeSailor/terminal-sigma"
     dates: "Apr 2026 – Present"
     description: >-
       Available on `npm` and as a desktop app, a *TypeScript* terminal
@@ -22,7 +22,7 @@ projects:
       Chinese. Built with *React*, *Ink*, *Zod*, *Electron*, and *xterm.js*.
   - title: Smarty Notebook Collection
     stage: Production
-    href: "https://github.com/SiegeSailor/Smarty-Notebook-Collection"
+    href: "https://github.com/SiegeSailor/notebook-smarty"
     dates: "Sep 2025 – Apr 2026"
     description: >-
       A collection of self-contained *Jupyter* notebooks that run batch
@@ -31,7 +31,7 @@ projects:
       *Poetry*.
   - title: Cryptography CLI
     stage: Development
-    href: "https://github.com/SiegeSailor/Cryptography"
+    href: "https://github.com/SiegeSailor/library-cryptography"
     dates: "Dec 2022 – Present"
     description: >-
       Available on `npm`, a *TypeScript* package with *WebAssembly* enabled
@@ -40,7 +40,7 @@ projects:
       algorithms.
   - title: Concurrency Toolkit
     stage: Planning
-    href: "https://github.com/SiegeSailor"
+    href: "https://github.com/SiegeSailor/library-concurrency-toolkit"
     description: >-
       Available on `pip`, a *Python* concurrent class wrapper for managing
       multiple tasks with error handling and logging. Based on `asyncio`. This
@@ -52,7 +52,7 @@ projects:
           tasks to abstract in a waterfall manner, built on Async.io
   - title: Account Management CBWMs
     stage: Planning
-    href: "https://github.com/SiegeSailor/OpenSource.AccountHub"
+    href: "https://github.com/SiegeSailor/service-account-hub"
     description: >-
       Scalable *OWASP*-Complied Cloud-Based Microservice that allows users to
       manage their accounts and settings. It provides an event-driven
@@ -65,7 +65,7 @@ projects:
           Spring MVC, and MySQL
   - title: Configurable Bucket CBWM Boilerplate
     stage: Planning
-    href: "https://github.com/SiegeSailor/OpenSource.Bucket"
+    href: "https://github.com/SiegeSailor/service-bucket"
     description: >-
       A project boilerplate that provides a *RESTful* interface for *AWS S3*
       using *Flask*. Following the microservices principle, this project has
@@ -80,7 +80,7 @@ projects:
           Actions, and utilizes the Account Management CBWMs
   - title: Deployable UI Library Boilerplate
     stage: Planning
-    href: "https://github.com/SiegeSailor"
+    href: "https://github.com/SiegeSailor/template-component-library"
     description: >-
       Quick start for deploying *React* components on `npm`. A project
       boilerplate that provides a set of team-oriented development tools, such
