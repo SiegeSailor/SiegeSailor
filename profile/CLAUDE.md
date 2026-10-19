@@ -2,14 +2,14 @@
 
 This folder is the single source of truth for the following outputs. Every fact here is verified and effectively read by background-check vendors, so each rule below exists because getting it wrong misrepresents the record. Read this file before rendering anything from this folder:
 
-| Output                                                           | Skill                                                                                                                       |
-| ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| [GitHub `README.md`](https://github.com/SiegeSailor/SiegeSailor) | [`update-readme`](../.claude/skills/update-readme/SKILL.md)                                                                 |
-| Resume documents                                                 | [`generate-resume`](../.claude/skills/generate-resume/SKILL.md)                                                             |
-| [Website](https://github.com/SiegeSailor/Website)                | [`update-website`](https://github.com/SiegeSailor/Website/blob/main/.claude/skills/update-website/SKILL.md)                 |
-| [LinkedIn](https://www.linkedin.com/in/jin-yu-zhang-812181155/)  | [`profile-sync`](https://github.com/SiegeSailor/Claude-Plugins/blob/main/plugins/profile-sync/skills/profile-sync/SKILL.md) |
+| Output                                                           | Skill                                                           |
+| ---------------------------------------------------------------- | --------------------------------------------------------------- |
+| [GitHub `README.md`](https://github.com/SiegeSailor/SiegeSailor) | [`update-readme`](../.claude/skills/update-readme/SKILL.md)     |
+| Resume documents                                                 | [`generate-resume`](../.claude/skills/generate-resume/SKILL.md) |
+| [Website](https://github.com/SiegeSailor/website)                | [`update-website`](../.claude/skills/update-website/SKILL.md)   |
+| [LinkedIn](https://www.linkedin.com/in/jin-yu-zhang-812181155/)  | [`update-profile`](../.claude/skills/update-profile/SKILL.md)   |
 
-To change a fact and refresh every output above in one reviewed pass, use [`profile-sync`](https://github.com/SiegeSailor/Claude-Plugins/tree/main/plugins/profile-sync); each skill still runs on its own.
+To change a fact and refresh every output above in one reviewed pass, use [`update-profile`](../.claude/skills/update-profile/SKILL.md); each skill still runs on its own.
 
 ### Audience
 
