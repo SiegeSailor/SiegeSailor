@@ -6,7 +6,7 @@ paths:
   - ".claude/**/*.md"
 ---
 
-# Writing Documents
+# Documentation
 
 Every document in this repository follows these rules, according to its audience and purpose below:
 
