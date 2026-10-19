@@ -26,6 +26,16 @@ Every document in this repository follows these rules, according to its audience
 
 If a fact belongs to multiple documents across scopes, we should move it to `.claude/rules/*.md` and link to it from the other documents. If a fact is shared within a scope's documents, we should state it in `CLAUDE.md` and have other documents link to it. Before adding a paragraph anywhere, check that it is not already written down: `grep -rn "<phrase>" --include="*.md"`, and make sure it never contradicts another document.
 
+## Naming Claude Files
+
+Name each plugin, rule, and skill by its pattern below, so its name tells what it is:
+
+| File   | Pattern                            | Example                    |
+| ------ | ---------------------------------- | -------------------------- |
+| Plugin | `<noun>`                           | `conventions`              |
+| Rule   | `<noun>`                           | `documentation`            |
+| Skill  | `<verb>` or `<verb>-<description>` | `commit`, `update-profile` |
+
 ## Writing Style
 
 Follow these styles strictly, and prompt the user if any of them conflicts with the content you are writing:
