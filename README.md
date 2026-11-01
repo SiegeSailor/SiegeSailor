@@ -2,7 +2,7 @@
 
 **Distributed Systems · Cloud & DevOps · Observability**
 
-NYC Metropolitan Area · Senior Software Engineer · 8 Years 2 Months experience
+NYC Metropolitan Area · Senior Software Engineer · 8 Years 3 Months experience
 
 ## Summary
 
@@ -10,12 +10,14 @@ Senior software engineer building distributed systems from consumer scale to reg
 
 ## Projects
 
-| Project                                                                      | Version                                                                                             |
-| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| [Jin Yu Zhang's Website](https://github.com/SiegeSailor/website)             | ![version](https://img.shields.io/github/v/tag/SiegeSailor/website?sort=semver&label=)              |
-| [Terminal Sigma](https://github.com/SiegeSailor/terminal-sigma)              | ![version](https://img.shields.io/github/v/tag/SiegeSailor/terminal-sigma?sort=semver&label=)       |
-| [Smarty Notebook Collection](https://github.com/SiegeSailor/notebook-smarty) | ![version](https://img.shields.io/github/v/tag/SiegeSailor/notebook-smarty?sort=semver&label=)      |
-| [Cryptography CLI](https://github.com/SiegeSailor/library-cryptography)      | ![version](https://img.shields.io/github/v/tag/SiegeSailor/library-cryptography?sort=semver&label=) |
+| Project                                                                       | Version                                                                                              |
+| ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| [Jin Yu Zhang's Website](https://github.com/SiegeSailor/website)              | ![version](https://img.shields.io/github/v/tag/SiegeSailor/website?sort=semver&label=)               |
+| [Terminal Sigma](https://github.com/SiegeSailor/terminal-sigma)               | ![version](https://img.shields.io/github/v/tag/SiegeSailor/terminal-sigma?sort=semver&label=)        |
+| [Smarty Notebook Collection](https://github.com/SiegeSailor/notebook-smarty)  | ![version](https://img.shields.io/github/v/tag/SiegeSailor/notebook-smarty?sort=semver&label=)       |
+| [Bulls and Cows Bot](https://github.com/SiegeSailor/game-bulls-and-cows)      | ![version](https://img.shields.io/github/v/tag/SiegeSailor/game-bulls-and-cows?sort=semver&label=)   |
+| [Cryptography CLI](https://github.com/SiegeSailor/library-cryptography)       | ![version](https://img.shields.io/github/v/tag/SiegeSailor/library-cryptography?sort=semver&label=)  |
+| [Site Creator Template](https://github.com/SiegeSailor/template-site-creator) | ![version](https://img.shields.io/github/v/tag/SiegeSailor/template-site-creator?sort=semver&label=) |
 
 ## Links
 
