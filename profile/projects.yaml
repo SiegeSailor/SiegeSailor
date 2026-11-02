@@ -1,4 +1,5 @@
 # `stage` is one of Planning | Development | Production.
+# Only projects with a released version on GitHub belong here.
 projects:
   - title: Jin Yu Zhang's Website
     stage: Production
@@ -47,60 +48,3 @@ projects:
       that provides a collection of cryptography functions and a command-line
       tool with interactive prompts to demonstrate key encryption flows and
       algorithms.
-  - title: Site Creator Template
-    stage: Development
-    href: "https://github.com/SiegeSailor/template-site-creator"
-    dates: "Dec 2022"
-    description: >-
-      A *Next.js* template for a Markdown-driven blog and notes site that
-      renders GitHub-flavored Markdown, *KaTeX* math, and *Mermaid* diagrams
-      through the *UnifiedJS* ecosystem, and installs as a PWA. Built with
-      *TypeScript*, *React*, and *Sass*.
-  - title: Concurrency Toolkit
-    stage: Planning
-    href: "https://github.com/SiegeSailor/library-concurrency-toolkit"
-    description: >-
-      Available on `pip`, a *Python* concurrent class wrapper for managing
-      multiple tasks with error handling and logging. Based on `asyncio`. This
-      is a go-to solution for simplified asynchronous programming with
-      easy-to-use abstractions.
-    details:
-      - text: >-
-          A Python PIP library comes up with a wrapper class for concurrent
-          tasks to abstract in a waterfall manner, built on Async.io
-  - title: Account Management CBWMs
-    stage: Planning
-    href: "https://github.com/SiegeSailor/service-account-hub"
-    description: >-
-      Scalable *OWASP*-Complied Cloud-Based Microservice that allows users to
-      manage their accounts and settings. It provides an event-driven
-      architecture comes with a eventual consistency model and various
-      communication protocols for different use cases and CBWMs.
-    details:
-      - text: >-
-          A Java project that provides RESTful endpoints for an account
-          database system within the OWASP SAMM framework, built with Java,
-          Spring MVC, and MySQL
-  - title: Configurable Bucket CBWM Boilerplate
-    stage: Planning
-    href: "https://github.com/SiegeSailor/service-bucket"
-    description: >-
-      A project boilerplate that provides a *RESTful* interface for *AWS S3*
-      using *Flask*. Following the microservices principle, this project has
-      been wrapped with *Docker*, *LocalStack*, and *Terraform* to isolate the
-      running/deploying environments with a fully configurable layer that
-      supports development on local laptops, testing in *GitHub Actions* CI/CD
-      pipelines, and deployment to *AWS*.
-    details:
-      - text: >-
-          A Python scaffold that furnishes a file storage cloud-based service
-          with AWS S3, AWS CloudWatch, Terraform, LocalStack, and GitHub
-          Actions, and utilizes the Account Management CBWMs
-  - title: Deployable UI Library Boilerplate
-    stage: Planning
-    href: "https://github.com/SiegeSailor/template-component-library"
-    description: >-
-      Quick start for deploying *React* components on `npm`. A project
-      boilerplate that provides a set of team-oriented development tools, such
-      as *GitLab CI/CD*, *Semantic Release*, *TypeScript*, *Jest*, *ESLint*,
-      *Stylelint*, and *Ladle*, and best practices.
