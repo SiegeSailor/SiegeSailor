@@ -14,7 +14,7 @@ projects:
   - title: Terminal Sigma
     stage: Production
     href: "https://github.com/SiegeSailor/terminal-sigma"
-    dates: "Apr 2026 – Present"
+    dates: "Apr 2026 – Oct 2026"
     description: >-
       Available on `npm` and as a desktop app, a *TypeScript* terminal
       dashboard that gives game-style feedback on self-development: a
