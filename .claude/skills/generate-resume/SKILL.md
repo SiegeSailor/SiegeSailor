@@ -258,7 +258,7 @@ This plan selects the content the pre-port pipeline printed, less 1 Edallianz bu
         {
           "school": "National Formosa University",
           "degree": "B.F.A. in Multimedia Design",
-          "dates": "Sep 2013 – Jan 2017",
+          "dates": "Sep 2012 – Jan 2017",
           "details": [
             "Game development intern at DY Game (2014), shipping a motion-sensing game title with a 30-person course cohort across its programming, art, and operations groups"
           ]
