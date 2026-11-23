@@ -248,7 +248,7 @@ This plan selects the content the pre-port pipeline printed, less 1 Edallianz bu
         {
           "school": "Boston University",
           "degree": "M.S. in Computer Science (GPA 3.8 / 4.0)",
-          "dates": "May 2022 – Jan 2024",
+          "dates": "May 2022 – Dec 2023",
           "details": [
             "First author, “Quantitative DevSecOps Metrics for Cloud-Based Web Microservices,” IEEE Access, 2024",
             "3rd place, NCAE-C Cyber Games 2023 Northeast Division — Server Security Leader (infrastructure defense)",
