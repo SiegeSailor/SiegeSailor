@@ -56,7 +56,7 @@ experience:
           Integrated LLM-assisted engineering into R&D workflows: agentic coding
           tools (Claude, GitLab Duo) sharing IDE configurations, agent
           instructions, and a knowledge base from a single developer-tools
-          repository pulled into 4 repositories as a Git submodule; self-refining
+          repository pulled into 6 repositories as a Git submodule; self-refining
           UI components; self-healing document generation in GitLab CI; a
           deterministic, pluggable generator for regulated medical-device
           documents (IEC 62304, ISO 14971, ISO 13485) on the Claude API, running
@@ -232,6 +232,26 @@ experience:
           time, re-queues any chamber whose records mismatch the base's for over
           2 hours, and raises a banner linking to the calibration page when a
           calibration fails
+      # Senior Software Engineer role (Jun 2025 – Present). Jin Yu Zhang
+      # initiated and demonstrated the department's agentic / AI integration.
+      - text: >-
+          Initiated and demonstrated the department's agentic development
+          workflow, integrating GitLab Duo and Claude with a shared knowledge
+          base, increasing reliable, tested features by 800%
+      # Senior Software Engineer role (Jun 2025 – Present).
+      - text: >-
+          Built ATLAS-Developer, the developer-tools project that 6 product
+          repositories pin as a Git submodule: shared IDE configurations, agent
+          instructions for Claude Code, GitLab Duo, and GitHub Copilot, linter
+          settings, CI templates, and a 116-document knowledge base that every
+          agent reads from the same GitLab source, with 3 other engineers
+          contributing
+      # Senior Software Engineer role (Jun 2025 – Present).
+      - text: >-
+          Automated merge request review with Claude Code in GitLab CI against
+          shared GitLab Duo review instructions, posting findings as merge
+          request threads, and added agent skills that open update merge
+          requests across every project consuming the shared developer tools
 
   - company: Shopee
     legalName: "Shopee Pte. Ltd."
