@@ -204,7 +204,7 @@ This plan selects the content the pre-port pipeline printed, less 1 Edallianz bu
           "blurb": "Leading Southeast Asian e-commerce platform, 300M+ annual active users",
           "roles": [
             {
-              "title": "Software Engineer, Mobile Web Games",
+              "title": "Software Engineer",
               "dates": "Jan 2020 – Feb 2022"
             }
           ],
