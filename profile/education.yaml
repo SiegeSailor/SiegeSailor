@@ -71,9 +71,10 @@ education:
             newer developers through individual training sessions, detailed
             configuration and technology instructions, and a code review process
             enforced across the team
+        # A classmate met the stakeholders, not Jin Yu Zhang.
         - text: >-
-            Met with StageSource stakeholders to gather real requirements and
-            feedback, and deployed the prototype to the web
+            Converted the requirements a classmate gathered from StageSource
+            stakeholders into action items
         - text: >-
             Utilized AWS CloudWatch and S3 to develop a layered storage system
         - text: >-
