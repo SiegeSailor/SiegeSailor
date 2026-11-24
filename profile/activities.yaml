@@ -1,10 +1,9 @@
 activities:
-  # 2022–2024 is the club role; NCAE-C 2023 is the competition it prepared
-  # the team for.
+  # The dates are the NCAE-C 2023 preparation and competition run.
   - organization: Boston University Cybersecurity Club
     event: NCAE-C 2023
     role: Server Security Leader
-    dates: "2022–2024"
+    dates: "Jan 2023 – Feb 2023"
     details:
       - text: "hosted weekly NCAE-C preparation sessions"
       - text: >-
