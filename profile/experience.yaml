@@ -120,12 +120,14 @@ experience:
           and the TimeLapse Incubator, earning positive feedback at 5
           international workshops across formative studies, summative sessions,
           and service team training
+      # The 5 organizations are Okolab, Wind River, Falmouth, Quanttronix, and
+      # Echelon.
       - text: >-
           Designed an on-premise decentralized clustering system letting medical
           devices communicate with each other for access control and service
           monitoring instead of each product rebuilding those features, and
           initialized the development and operations pipelines to co-develop it
-          with 2 international organizations
+          with 5 international organizations
       - text: >-
           Crafted a message streaming UI using ASP.NET Core for
           hardware/firmware integration with RFID
