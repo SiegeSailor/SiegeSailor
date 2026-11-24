@@ -1,5 +1,5 @@
 import { execSync } from "node:child_process";
-import { existsSync } from "node:fs";
+import { existsSync, mkdirSync } from "node:fs";
 import { basename, join } from "node:path";
 
 const SOFFICE = process.env.SOFFICE_CMD ?? "soffice --headless";
@@ -27,6 +27,7 @@ export function checkPages(docxPath, outputDir, pageLimit = 1) {
     };
 
   try {
+    mkdirSync(outputDir, { recursive: true });
     execSync(
       `${SOFFICE} --convert-to pdf --outdir "${outputDir}" "${docxPath}"`,
       { stdio: "ignore" },
