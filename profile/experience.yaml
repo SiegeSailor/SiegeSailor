@@ -98,6 +98,18 @@ experience:
           Central User Interface controlling hardware such as gas mixers and
           heaters, including a shared library for RI-Witness to exchange
           encrypted, compressed messages with zero configuration overhead
+      # Each workshop is followed by cross-team review sessions over the
+      # participants' statements, video, and evidence; the agreed solutions are
+      # implemented after further discussion with the design or hardware team.
+      - text: >-
+          Reviewed the findings of each workshop in cross-team sessions and
+          implemented the agreed changes with the design and hardware teams, so
+          every workshop led to a development milestone; each workshop ran 2
+          sessions per participant for around 10–20 embryologists, lab admins,
+          and service technicians of mixed seniority
+      # Disagreements are settled by weighing how feasible each opinion is,
+      # whether it carries a bias, how many people support it, and whether the
+      # development limitations and timeline fit.
       - text: >-
           Resolved a firmware-team disagreement over the gateway's system-level
           control protocol by delivering a minimum working example, reducing
