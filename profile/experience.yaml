@@ -307,8 +307,9 @@ experience:
           Designed 2D-3D-blended web mobile games (Three.js, Phaser, TypeScript)
           inside the main React.js / Redux application, and set their
           development and operations workflows with marketing, UI/UX designers,
-          and tech teams in Singapore and China to ship fault-tolerant user
-          flows alongside the biggest yearly shopping festival
+          and tech teams in Singapore, China, Indonesia, Thailand, Vietnam, and
+          the Philippines to ship fault-tolerant user flows alongside the
+          biggest yearly shopping festival
       - text: >-
           Introduced Test-Driven Development with Jest and scheduled Locust load
           testing across games, private packages, back-end services, and
