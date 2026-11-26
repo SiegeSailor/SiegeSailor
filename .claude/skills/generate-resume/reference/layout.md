@@ -7,10 +7,10 @@ Format rules for the rendered document. Content rules live in [`profile/CLAUDE.m
 Every rendered document meets these constraints, and a request can override only the page limit:
 
 - **Align Dates with a Tab**: Right-align dates with a right tab stop and a literal tab in the run, never with spaces, because LibreOffice ignores the docx `PositionalTab`
-- **Deliver the `.pdf`**: The `.pdf` is the deliverable, and the `.docx` is only the temporary file LibreOffice converts it from
 - **Emit Native Bullets**: Never emit a literal `•`; bullets come from the numbering configuration as native Word bullets
 - **Limit to 1 US-Letter Page**: The document fits 1 US-Letter page unless the request overrides the limit
 - **Stay ATS-Safe**: Use a single column, with no tables, text boxes, headers, or footers
+- **Treat the `.docx` as Primary**: The `.docx` is the deliverable, and the `.pdf` is only a convenience
 - **Use Calibri**: Set every run in Calibri, with sizes in half-points and spacing and indents in twips
 
 ## Section Names

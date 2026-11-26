@@ -1,6 +1,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { mkdtempSync, readFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { execFileSync } from "node:child_process";
 import { buildCoverLetter, buildResume } from "./build-resume.mjs";
 
@@ -35,11 +37,12 @@ const bodyOf = (file) =>
   execFileSync("unzip", ["-p", file, "word/document.xml"]).toString();
 
 const build = async (plan = PLAN) => {
-  const file = await buildResume(plan);
+  const dir = mkdtempSync(join(tmpdir(), "resume-"));
+  const file = await buildResume(plan, dir);
   return { file, xml: bodyOf(file) };
 };
 
-test("writes a .docx for LibreOffice to convert", async () => {
+test("writes a .docx", async () => {
   const { file } = await build();
   assert.match(file, /\.docx$/);
   assert.ok(readFileSync(file).length > 0);
@@ -111,13 +114,18 @@ test("prints a lone title and its dates on the company line", async () => {
 });
 
 test("writes a cover letter under the resume's name and contact lines", async () => {
-  const file = await buildCoverLetter(PLAN, {
-    date: "October 3, 2026",
-    recipient: ["Hiring Team", "Example Corp"],
-    salutation: "Dear Hiring Team,",
-    paragraphs: ["First paragraph.", "Second paragraph."],
-    closing: "Sincerely,",
-  });
+  const dir = mkdtempSync(join(tmpdir(), "letter-"));
+  const file = await buildCoverLetter(
+    PLAN,
+    {
+      date: "October 3, 2026",
+      recipient: ["Hiring Team", "Example Corp"],
+      salutation: "Dear Hiring Team,",
+      paragraphs: ["First paragraph.", "Second paragraph."],
+      closing: "Sincerely,",
+    },
+    dir,
+  );
   const xml = bodyOf(file);
   assert.match(file, /Cover-Letter\.docx$/);
   for (const text of ["JIN YU ZHANG", "jinyu-zhang.com", "Second paragraph."])

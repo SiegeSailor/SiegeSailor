@@ -44,13 +44,13 @@ Where this skill and a repository skill disagree, these win, and only during a r
 
 Compose every output without writing any of them:
 
-| Output            | What to Compose                                                                                               |
-| ----------------- | ------------------------------------------------------------------------------------------------------------- |
-| README            | `update-readme` through its verify step: the new `README.md` string and its fact list                         |
-| Website           | `update-website` through its copy step: the new `settings/content.ts` and its fact list                       |
-| Resume and Letter | `generate-resume` through `verifyVerbatim`: the plan and the letter, with any misses, but no `.pdf` built yet |
-| LinkedIn          | **LinkedIn** below, through its read step: each field's current value beside its proposed value               |
-| Email             | **Email** below: the subject, the recipient, and the list of sections and attachments it will carry           |
+| Output            | What to Compose                                                                                                |
+| ----------------- | -------------------------------------------------------------------------------------------------------------- |
+| README            | `update-readme` through its verify step: the new `README.md` string and its fact list                          |
+| Website           | `update-website` through its copy step: the new `settings/content.ts` and its fact list                        |
+| Resume and Letter | `generate-resume` through `verifyVerbatim`: the plan and the letter, with any misses, but no `.docx` built yet |
+| LinkedIn          | **LinkedIn** below, through its read step: each field's current value beside its proposed value                |
+| Email             | **Email** below: the subject, the recipient, and the list of sections and attachments it will carry            |
 
 ### 3. Review
 
@@ -123,7 +123,7 @@ The body's sections:
 4. **Resume and Cover Letter**: the files attached, and the audience they were written for
 5. **LinkedIn**: the profile link, and each field changed, before and after
 
-Attach `README.md`, `source/settings/content.ts`, the `profile/` diff as `profile.diff`, and the resume and cover letter as `.pdf`. Leave out any output that was not applied, and say so in its section.
+Attach `README.md`, `source/settings/content.ts`, the `profile/` diff as `profile.diff`, and the resume and cover letter as `.docx` and `.pdf`. Leave out any output that was not applied, and say so in its section.
 
 ## Constraints That Must Never Break
 

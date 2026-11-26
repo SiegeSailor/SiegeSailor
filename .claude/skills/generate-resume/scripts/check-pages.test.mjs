@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { chmodSync, mkdtempSync, readdirSync, writeFileSync } from "node:fs";
+import { chmodSync, mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { buildResume } from "./build-resume.mjs";
@@ -29,16 +29,15 @@ const fakeBin = (name, script) => {
 
 test("a short resume converts and reports one page", async () => {
   const dir = mkdtempSync(join(tmpdir(), "pages-"));
-  const result = checkPages(await buildResume(PLAN), dir, 1);
+  const result = checkPages(await buildResume(PLAN, dir), dir, 1);
   assert.equal(result.status, "ok");
   assert.equal(result.pages, 1);
   assert.match(result.pdf, /\.pdf$/);
-  assert.deepEqual(readdirSync(dir), ["JinYu-Zhang-Resume.pdf"]);
 });
 
 test("reports unverified rather than ok when the toolchain is absent", async () => {
   const dir = mkdtempSync(join(tmpdir(), "pages-"));
-  const docx = await buildResume(PLAN);
+  const docx = await buildResume(PLAN, dir);
   const path = process.env.PATH;
   process.env.PATH = "/nonexistent";
   try {
@@ -65,7 +64,7 @@ test("reports over when the document exceeds the limit", async () => {
       },
     ],
   };
-  const result = checkPages(await buildResume(long), dir, 1);
+  const result = checkPages(await buildResume(long, dir), dir, 1);
   assert.equal(result.status, "over");
   assert.ok(result.pages > 1);
   assert.ok(STATUSES.has(result.status));
@@ -73,7 +72,7 @@ test("reports over when the document exceeds the limit", async () => {
 
 test("reports unverified, not over, when pdfinfo prints no Pages: line", async () => {
   const dir = mkdtempSync(join(tmpdir(), "pages-"));
-  const docx = await buildResume(PLAN);
+  const docx = await buildResume(PLAN, dir);
   // A locale-shifted or otherwise unparsable pdfinfo output must never be
   // read as page count 0 (NaN <= limit is false, which used to read "over").
   const { dir: binDir } = fakeBin(
@@ -95,7 +94,7 @@ test("reports unverified, not over, when pdfinfo prints no Pages: line", async (
 
 test("reports unverified, not a thrown error, when conversion produces no PDF", async () => {
   const dir = mkdtempSync(join(tmpdir(), "pages-"));
-  const docx = await buildResume(PLAN);
+  const docx = await buildResume(PLAN, dir);
   // A soffice that exits 0 without writing a PDF stands in for a real
   // headless failure (disk full, corrupt input, a race on the profile dir).
   // SOFFICE_CMD is read once at module import, so shadow the "soffice" that

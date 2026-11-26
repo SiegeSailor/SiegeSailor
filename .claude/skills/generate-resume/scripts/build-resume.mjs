@@ -1,5 +1,4 @@
-import { mkdtempSync, writeFileSync } from "node:fs";
-import { tmpdir } from "node:os";
+import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 import {
@@ -32,14 +31,6 @@ const SPACE = {
   afterSection: 26,
 };
 const RIGHT_TAB = 12240 - 792 * 2;
-
-// The PDF is the deliverable, so the .docx is only LibreOffice's input: it goes
-// to a temporary directory, and checkPages writes the PDF to the output one.
-const writeDocx = async (doc, name) => {
-  const file = join(mkdtempSync(join(tmpdir(), "resume-")), name);
-  writeFileSync(file, await Packer.toBuffer(doc));
-  return file;
-};
 
 const clean = (s) =>
   String(s ?? "")
@@ -335,7 +326,7 @@ const buildSections = (plan) =>
     return build(section);
   });
 
-export async function buildResume(plan) {
+export async function buildResume(plan, outputDir) {
   const doc = new Document({
     title: `${clean(plan.identity.display)} — Resume`,
     creator: clean(plan.identity.display),
@@ -377,12 +368,15 @@ export async function buildResume(plan) {
     ],
   });
 
-  return writeDocx(doc, "JinYu-Zhang-Resume.docx");
+  mkdirSync(outputDir, { recursive: true });
+  const file = join(outputDir, "JinYu-Zhang-Resume.docx");
+  writeFileSync(file, await Packer.toBuffer(doc));
+  return file;
 }
 
 // The letter opens with the resume's name and contact lines so the 2 documents
 // read as a set; its body is prose, so it needs no bullets or tab stops.
-export async function buildCoverLetter(plan, letter) {
+export async function buildCoverLetter(plan, letter, outputDir) {
   const line = (text, spacing) =>
     new Paragraph({
       spacing,
@@ -422,5 +416,8 @@ export async function buildCoverLetter(plan, letter) {
     ],
   });
 
-  return writeDocx(doc, "JinYu-Zhang-Cover-Letter.docx");
+  mkdirSync(outputDir, { recursive: true });
+  const file = join(outputDir, "JinYu-Zhang-Cover-Letter.docx");
+  writeFileSync(file, await Packer.toBuffer(doc));
+  return file;
 }

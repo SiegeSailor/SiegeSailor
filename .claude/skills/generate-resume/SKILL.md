@@ -19,7 +19,7 @@ Use the value the request gives for each input, and the default when it gives no
 | Required Sections           | none beyond Summary, Skills, Work Experience |
 | Target Audience             | the posting's, or ask if neither is given    |
 
-Output lands in the working directory as `JinYu-Zhang-Resume.pdf` and `JinYu-Zhang-Cover-Letter.pdf`, written there by `checkPages`. The `.docx` each is converted from stays in a temporary directory and is never delivered. No run history is kept — this skill always reads the current `profile/`, which is local to this repository.
+Output lands in the working directory as `JinYu-Zhang-Resume.docx` and `JinYu-Zhang-Cover-Letter.docx`, each with a `.pdf` beside it from `checkPages`. No run history is kept — this skill always reads the current `profile/`, which is local to this repository.
 
 ## Scripts
 
@@ -44,9 +44,9 @@ import { checkPages } from "./.claude/skills/generate-resume/scripts/check-pages
 
 const verify = verifyVerbatim(plan, readSourceText("profile"));
 // confirm any misses, and the cover letter's facts, with the user, then:
-const docx = await buildResume(plan);
+const docx = await buildResume(plan, outputDir);
 const check = checkPages(docx, outputDir, plan.pageLimit ?? 1);
-const letterDocx = await buildCoverLetter(plan, letter);
+const letterDocx = await buildCoverLetter(plan, letter, outputDir);
 const letterCheck = checkPages(letterDocx, outputDir, 1);
 ```
 
@@ -293,14 +293,14 @@ Run these steps in order from this repository's root:
 2. Build a plan per the schema above — ordered sections, and for each the exact strings selected from `profile/`. Write the summary for the audience per **Audience** in [`profile/CLAUDE.md`](../../../profile/CLAUDE.md); copy every other string, and do not retype or rephrase it
 3. Write the cover letter per **Cover Letter Schema** above, unless the request declines it
 4. Verify: `verifyVerbatim(plan, readSourceText("profile"))`. Any miss is reported beside its nearest source match, and requires explicit confirmation before rendering. Never confirm on the user's behalf. The written summary is always a miss, so show it with each number, title, and claim it states beside the `profile/` value it comes from, and show the cover letter's paragraphs the same way
-5. Render: `buildResume(plan)` and `buildCoverLetter(plan, letter)`, which each return the path of a temporary `.docx`
-6. Check: `checkPages(docx, outputDir, pageLimit)` for the resume and `checkPages(letterDocx, outputDir, 1)` for the cover letter, which converts each `.docx` to its `.pdf` in `outputDir`, then act on each status. A cover letter over 1 page is shortened by rewriting its paragraphs, which needs the same confirmation as step 4:
+5. Render: `buildResume(plan, outputDir)` and `buildCoverLetter(plan, letter, outputDir)`
+6. Check: `checkPages(docx, outputDir, pageLimit)` for the resume and `checkPages(letterDocx, outputDir, 1)` for the cover letter, then act on each status. A cover letter over 1 page is shortened by rewriting its paragraphs, which needs the same confirmation as step 4:
 
 | Status       | Action                                                                                                                                                                                                                                                                                                                                                                      |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ok`         | Report the path and the page count                                                                                                                                                                                                                                                                                                                                          |
 | `over`       | Drop content per [`reference/layout.md`](./reference/layout.md), re-render, and re-run `checkPages`. Repeat at most 3 times total. If the document is still over the limit after 3 attempts, report that the page limit was **not met**, and say what was dropped at each attempt and why it still does not fit. Never report success for a document that exceeds the limit |
-| `unverified` | Say the page count was **not** checked, and why, and that no `.pdf` was written when its `pdf` is `null`. Never report success for an unverified document                                                                                                                                                                                                                   |
+| `unverified` | Say the page count was **not** checked, and why. Never report success for an unverified document                                                                                                                                                                                                                                                                            |
 
 ## Constraints That Must Never Break
 
