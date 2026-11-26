@@ -251,9 +251,10 @@ experience:
       - text: >-
           Initiated and demonstrated the department's agentic development
           workflow, integrating GitLab Duo and Claude with a shared knowledge
-          base, increasing reliable, tested features by 800%, and promoted it to
-          designers, researchers, and other engineering teams, growing it into
-          a cross-team effort
+          base, increasing reliable, tested merge requests from around 10 to
+          around 80 per week since May 2026, and promoted it to designers,
+          researchers, and other engineering teams, growing it into a
+          cross-team effort
       # Senior Software Engineer role (Jun 2025 – Present).
       - text: >-
           Built ATLAS-Developer, the developer-tools project that 6 product
